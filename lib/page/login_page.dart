@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:kabir_app/Shared/constant.dart';
+import 'package:kabir_app/Shared/routes.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
+class LoginPage extends StatefulWidget {
+  const LoginPage({Key? key}) : super(key: key);
 
   @override
-  _HomePageState createState() => _HomePageState();
+  _LoginPageState createState() => _LoginPageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _LoginPageState extends State<LoginPage> {
   final _formKey = GlobalKey<FormState>();
   TextEditingController userIdController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
@@ -32,7 +33,10 @@ class _HomePageState extends State<HomePage> {
                       image: AssetImage('assets/image/logo.jpg'),
                       fit: BoxFit.fill),
                   shape: BoxShape.rectangle),
-            ),SizedBox(height: MediaQuery.of(context).size.height / 7.5,),
+            ),
+            SizedBox(
+              height: MediaQuery.of(context).size.height / 7.5,
+            ),
             Padding(
               padding: const EdgeInsets.fromLTRB(16, 4, 16, 4),
               child: Container(
@@ -46,9 +50,10 @@ class _HomePageState extends State<HomePage> {
                     controller: userIdController,
                     keyboardType: TextInputType.emailAddress,
                     decoration: InputDecoration(
-                      hintText: 'Userid',
+                      border: InputBorder.none,
+                      hintText: 'User Id',
                       errorStyle: TextStyle(color: Colors.white),
-                      hintStyle: TextStyle(fontSize: 16, color: Colors.grey),
+                      hintStyle: TextStyle(fontSize: 16, color: Colors.white),
                     ),
                     // ignore: missing_return
                     validator: (value) {
@@ -72,9 +77,10 @@ class _HomePageState extends State<HomePage> {
                     controller: userIdController,
                     keyboardType: TextInputType.emailAddress,
                     decoration: InputDecoration(
+                      border: InputBorder.none,
                       hintText: 'Password',
                       errorStyle: TextStyle(color: Colors.white),
-                      hintStyle: TextStyle(fontSize: 16, color: Colors.grey),
+                      hintStyle: TextStyle(fontSize: 16, color: Colors.white),
                     ),
                     // ignore: missing_return
                     validator: (value) {
@@ -88,32 +94,46 @@ class _HomePageState extends State<HomePage> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text(
-                  'Sign In',
-                  style: TextStyle(color: Constant.primaryColor, fontSize: 20),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Sign In',
+                      style:
+                          TextStyle(color: Constant.primaryColor, fontSize: 20),
+                    ),
+                    Text(
+                      'Sign Up',
+                      style:
+                          TextStyle(color: Constant.primaryColor, fontSize: 20),
+                    ),
+                  ],
                 ),
-                Container(
-                    height: 70,
-                    width: 70,
-                    decoration: BoxDecoration(
-                        shape: BoxShape.circle, color: Constant.primaryColor),
-                    child: Icon(
-                      Icons.arrow_forward_outlined,
-                      color: Colors.white,
-                    ))
-              ],
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  'Sign Up',
-                  style: TextStyle(color: Constant.primaryColor, fontSize: 20),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    InkWell(onTap: (){
+                      Navigator.pushNamed(context, Routes.HOME_PAGE);
+                    },
+                      child: Container(
+                          height: 70,
+                          width: 70,
+                          decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: Constant.primaryColor),
+                          child: Icon(
+                            Icons.arrow_forward_outlined,
+                            color: Colors.white,
+                          )),
+                    ),
+                    Text(
+                      'Forgot Password?',
+                      style:
+                          TextStyle(color: Constant.primaryColor, fontSize: 20),
+                    ),
+                  ],
                 ),
-                Text(
-                  'Forgot Password?',
-                  style: TextStyle(color: Constant.primaryColor, fontSize: 20),
-                )
               ],
             ),
           ]),
