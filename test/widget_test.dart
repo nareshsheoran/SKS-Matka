@@ -7,9 +7,15 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+<<<<<<< HEAD
 
 
 import 'package:kabir_official/main.dart';
+=======
+import 'package:kabir_app/main.dart';
+
+
+>>>>>>> 3650519 (Home Page)
 
 void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {

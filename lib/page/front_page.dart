@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:kabir_official/Shared/routes.dart';
+import 'package:kabir_app/Shared/routes.dart';
 
 class FrontPage extends StatefulWidget {
   const FrontPage({Key? key}) : super(key: key);
@@ -16,7 +16,7 @@ class _FrontPageState extends State<FrontPage> {
   void initState() {
     super.initState();
     Timer(Duration(seconds: 2), () {
-      Navigator.pushNamed(context, Routes.HOME_PAGE);
+      Navigator.pushNamed(context, Routes.LOGIN_PAGE);
     });
   }
 

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
-import 'package:kabir_official/Shared/routes.dart';
-import 'package:kabir_official/home_page.dart';
+import 'package:kabir_app/Shared/routes.dart';
+import 'package:kabir_app/page/front_page.dart';
+import 'src/my_app.dart';
 
 void main() {
   runApp(MyApp());
@@ -13,7 +14,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: HomePage(),
+
+      home: FrontPage(),
       initialRoute: Routes.FRONT_PAGE,
       routes: routes,
       debugShowCheckedModeBanner: false,
