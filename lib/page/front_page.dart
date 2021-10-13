@@ -16,7 +16,11 @@ class _FrontPageState extends State<FrontPage> {
   void initState() {
     super.initState();
     Timer(Duration(seconds: 2), () {
+
       Navigator.pushNamed(context, Routes.LOGIN_PAGE);
+
+      Navigator.pushNamed(context, Routes.HOME_PAGE);
+
     });
   }
 

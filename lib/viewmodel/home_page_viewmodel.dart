@@ -47,7 +47,9 @@ class HomePageInfoViewModel extends Model {
           time: '00:00:00',
           icon1: Icons.ac_unit,
           icon2: Icons.message),
+
       HomeInfoModel(
+
           name: 'RUDRAKASH MORNING',
           code: '380-19-270',
           time1: "10:00 AM",
@@ -65,7 +67,7 @@ class HomePageInfoViewModel extends Model {
           time: '00:00:00',
           icon1: Icons.ac_unit,
           icon2: Icons.message),
-     HomeInfoModel(
+      HomeInfoModel(
           name: 'SHRIDEVI DAY',
           code: '235-09-577',
           time1: "11:30 AM",
@@ -74,7 +76,7 @@ class HomePageInfoViewModel extends Model {
           time: '00:00:00',
           icon1: Icons.ac_unit,
           icon2: Icons.message),
-     HomeInfoModel(
+      HomeInfoModel(
           name: 'SHRIDEVI DAY',
           code: '235-09-577',
           time1: "11:30 AM",
@@ -86,5 +88,4 @@ class HomePageInfoViewModel extends Model {
     ];
     notifyListeners();
   }
-
 }
