@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:kabir_app/Shared/constant.dart';
-import 'package:kabir_app/Shared/routes.dart';
 import 'package:kabir_app/widget/home_page_widget.dart';
 import 'package:kabir_app/viewmodel/home_page_viewmodel.dart';
 import 'package:scoped_model/scoped_model.dart';
@@ -27,14 +26,15 @@ class _HomePageState extends State<HomePage> {
       child: ScopedModelDescendant<HomePageInfoViewModel>(
           builder: (context, child, model) {
         return Scaffold(
-          appBar: AppBar(backgroundColor: Constant.primaryColor,
+          appBar: AppBar(
+            centerTitle: true,
             title: Text(
               'SKS MATKA',
               style: TextStyle(color: Colors.white),
             ),
 
             actions: [
-              Icon(Icons.wallet_giftcard)
+              Icon(Icons.height)
             ],
           ),
           drawer: Drawer(
@@ -70,65 +70,54 @@ class _HomePageState extends State<HomePage> {
                         ],
                       ),
                     ),
-                    Container(height: MediaQuery.of(context).size.height,
-                      child: Column(
-                        children: [
-                          InkWell(onTap: (){
-                            Navigator.pushNamed(context, Routes.APP_PROFILE_PAGE);
-                          },
-                            child: ListTile(
-                              leading: Icon(Icons.home),
-                              title: Text('App Profile'),
-                            ),
-                          ),
-                          ListTile(
-                            leading: Icon(Icons.home),
-                            title: Text('App Wallet'),
-                          ),
-                          ListTile(
-                            leading: Icon(Icons.home),
-                            title: Text('Game History'),
-                          ),
-                          ListTile(
-                            leading: Icon(Icons.home),
-                            title: Text('Game Rate'),
-                          ),
-                          ListTile(
-                            leading: Icon(Icons.home),
-                            title: Text('Add Fund'),
-                          ),
-                          ListTile(
-                            leading: Icon(Icons.home),
-                            title: Text('Withdraw Fund'),
-                          ),
-                          ListTile(
-                            leading: Icon(Icons.home),
-                            title: Text('App Notification'),
-                          ),
-                          ListTile(
-                            leading: Icon(Icons.home),
-                            title: Text('App Noticeboard'),
-                          ),
-                          ListTile(
-                            leading: Icon(Icons.home),
-                            title: Text('How To Play'),
-                          ),
-                          ListTile(
-                            leading: Icon(Icons.home),
-                            title: Text('Share Now'),
-                          ),
-                          ListTile(
-                            leading: Icon(Icons.home),
-                            title: Text('App LogOut'),
-                          ),
-                          ListTile(
-                            leading: Icon(Icons.home),
-                            title: Text('version.1.3.3'),
-                          ),
-                        ],
-                      ),
-                    )
-
+                    ListTile(
+                      leading: Icon(Icons.home),
+                      title: Text('App Profile'),
+                    ),
+                    ListTile(
+                      leading: Icon(Icons.home),
+                      title: Text('App Wallet'),
+                    ),
+                    ListTile(
+                      leading: Icon(Icons.home),
+                      title: Text('Game History'),
+                    ),
+                    ListTile(
+                      leading: Icon(Icons.home),
+                      title: Text('Game Rate'),
+                    ),
+                    ListTile(
+                      leading: Icon(Icons.home),
+                      title: Text('Add Fund'),
+                    ),
+                    ListTile(
+                      leading: Icon(Icons.home),
+                      title: Text('Withdraw Fund'),
+                    ),
+                    ListTile(
+                      leading: Icon(Icons.home),
+                      title: Text('App Notification'),
+                    ),
+                    ListTile(
+                      leading: Icon(Icons.home),
+                      title: Text('App Noticeboard'),
+                    ),
+                    ListTile(
+                      leading: Icon(Icons.home),
+                      title: Text('How To Play'),
+                    ),
+                    ListTile(
+                      leading: Icon(Icons.home),
+                      title: Text('Share Now'),
+                    ),
+                    ListTile(
+                      leading: Icon(Icons.home),
+                      title: Text('App LogOut'),
+                    ),
+                    ListTile(
+                      leading: Icon(Icons.home),
+                      title: Text('version.1.3.3'),
+                    ),
                   ],
                 ),
               ),
@@ -163,18 +152,15 @@ class _HomePageState extends State<HomePage> {
                             ],
                           ),
                         ),
-                        Padding(
-                          padding: const EdgeInsets.fromLTRB(8, 0, 8, 0),
-                          child: Container(
-                            height: 96,
-                            width: MediaQuery.of(context).size.width / 1.5,
-                            color: Colors.blueAccent,
-                            child: Center(
-                                child: Text(
-                              'SKS MATKA',
-                              style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold,color: Colors.white),
-                            )),
-                          ),
+                        Container(
+                          height: 80,
+                          color: Colors.blueAccent,
+                          width: MediaQuery.of(context).size.width / 1.4,
+                          child: Center(
+                              child: Text(
+                            'SKS MATKA',
+                            style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold,color: Colors.white),
+                          )),
                         ),
                         Container(
                           child: Column(
@@ -226,27 +212,22 @@ class _HomePageState extends State<HomePage> {
                     ),
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
-                      child: InkWell(onTap: (){
-                        Navigator.pushNamed(context, Routes.STAR_LINE_PAGE);
-
-                      },
-                        child: Row(
-                          children: [
-                            Text(
-                              'Starline Game',
-                              style: TextStyle(
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.bold,
-                                  color: Constant.primaryColor),
-                            ),
-                            Expanded(child: Container()),
-                            Container(
-                                width: 40,
-                                height: 40,
-                                decoration: BoxDecoration(shape: BoxShape.circle),
-                                child: Icon(Icons.video_call_sharp))
-                          ],
-                        ),
+                      child: Row(
+                        children: [
+                          Text(
+                            'Starline Game',
+                            style: TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                                color: Constant.primaryColor),
+                          ),
+                          Expanded(child: Container()),
+                          Container(
+                              width: 40,
+                              height: 40,
+                              decoration: BoxDecoration(shape: BoxShape.circle),
+                              child: Icon(Icons.video_call_sharp))
+                        ],
                       ),
                     ),
                   ),
@@ -278,26 +259,22 @@ class _HomePageState extends State<HomePage> {
                     ),
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
-                      child: InkWell(onTap: (){
-                        Navigator.pushNamed(context, Routes.GALI_GAME_PAGE);
-                      },
-                        child: Row(
-                          children: [
-                            Text(
-                              'Gali Desawar Game',
-                              style: TextStyle(
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.bold,
-                                  color: Constant.primaryColor),
-                            ),
-                            Expanded(child: Container()),
-                            Container(
-                                width: 40,
-                                height: 40,
-                                decoration: BoxDecoration(shape: BoxShape.circle),
-                                child: Icon(Icons.video_call_sharp))
-                          ],
-                        ),
+                      child: Row(
+                        children: [
+                          Text(
+                            'Gali Desawar Game',
+                            style: TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                                color: Constant.primaryColor),
+                          ),
+                          Expanded(child: Container()),
+                          Container(
+                              width: 40,
+                              height: 40,
+                              decoration: BoxDecoration(shape: BoxShape.circle),
+                              child: Icon(Icons.video_call_sharp))
+                        ],
                       ),
                     ),
                   ),
@@ -313,16 +290,13 @@ class _HomePageState extends State<HomePage> {
   }
 
   Widget getHomePageInfoListWidget() {
-    return Padding(
-      padding: const EdgeInsets.fromLTRB(0, 0, 0, 8),
-      child: Container(height: MediaQuery.of(context).size.height,
-        child: ListView.builder(
-          itemCount: viewModel.homeInfoModelList.length,
-          scrollDirection: Axis.vertical,
-          itemBuilder: (BuildContext context, index) {
-            return HomePageWidget(viewModel.homeInfoModelList[index]);
-          },
-        ),
+    return Container(height: MediaQuery.of(context).size.height,
+      child: ListView.builder(
+        itemCount: viewModel.homeInfoModelList.length,
+        scrollDirection: Axis.vertical,
+        itemBuilder: (BuildContext context, index) {
+          return HomePageWidget(viewModel.homeInfoModelList[index]);
+        },
       ),
     );
   }

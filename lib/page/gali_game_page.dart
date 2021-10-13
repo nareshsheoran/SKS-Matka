@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/material.dart';
 import 'package:kabir_app/Shared/constant.dart';
 import 'package:kabir_app/model/gali_game_info_model.dart';
 
@@ -167,82 +166,85 @@ class _GaliGamePageState extends State<GaliGamePage> {
                 ],
               ),
             ),
-            Container(
-              height: MediaQuery.of(context).size.height,
-              child: ListView.builder(
-                  itemCount: galiGameInfoModelList.length,
-                  scrollDirection: Axis.vertical,
-                  itemBuilder: (BuildContext context, index) {
-                    return Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Container(
-                        color: Constant.primaryColor,
-                        height: 120,
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.all(12.0),
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Column(
-                                    children: [
-                                      Text(
-                                        galiGameInfoModelList[index].name,
-                                        style: TextStyle(
-                                            color: Constant.textColor),
-                                      ),
-                                      SizedBox(
-                                        height: 4,
-                                      ),
-                                      Text(
-                                        galiGameInfoModelList[index].number,
-                                        style: TextStyle(
-                                            color: Constant.textColor),
-                                      ),
-                                    ],
-                                  ),
-                                ],
-                              ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.fromLTRB(12, 0, 12, 8),
-                              child: Container(
-                                  decoration: BoxDecoration(
-                                    color: Colors.white,
-                                    borderRadius:
-                                        BorderRadius.all(Radius.circular(2.0)),
-                                  ),
-                                  child: Padding(
-                                    padding: const EdgeInsets.all(8.0),
-                                    child: Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
+            Padding(
+              padding: const EdgeInsets.fromLTRB(0, 0, 0, 48),
+              child: Container(
+                height: MediaQuery.of(context).size.height,
+                child: ListView.builder(
+                    itemCount: galiGameInfoModelList.length,
+                    scrollDirection: Axis.vertical,
+                    itemBuilder: (BuildContext context, index) {
+                      return Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Container(
+                          color: Constant.primaryColor,
+                          height: 120,
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.all(12.0),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Column(
                                       children: [
-                                        Text(galiGameInfoModelList[index].time,style: TextStyle(fontWeight: FontWeight.bold),),
-                                        Column(
-                                          children: [
-                                            Text(
-                                              galiGameInfoModelList[index]
-                                                  .status,
-                                              style: TextStyle(fontWeight: FontWeight.bold,fontSize: 16,
-                                                  color: Constant.primaryColor),
-                                            ),
-                                            Text(galiGameInfoModelList[index]
-                                                .code,style: TextStyle(fontWeight: FontWeight.bold),),
-                                          ],
+                                        Text(
+                                          galiGameInfoModelList[index].name,
+                                          style: TextStyle(
+                                              color: Constant.textColor),
                                         ),
-                                        Icon(galiGameInfoModelList[index].icon,size: 16,),
+                                        SizedBox(
+                                          height: 4,
+                                        ),
+                                        Text(
+                                          galiGameInfoModelList[index].number,
+                                          style: TextStyle(
+                                              color: Constant.textColor),
+                                        ),
                                       ],
                                     ),
-                                  )),
-                            ),
-                          ],
+                                  ],
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.fromLTRB(12, 0, 12, 8),
+                                child: Container(
+                                    decoration: BoxDecoration(
+                                      color: Colors.white,
+                                      borderRadius:
+                                          BorderRadius.all(Radius.circular(2.0)),
+                                    ),
+                                    child: Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Text(galiGameInfoModelList[index].time,style: TextStyle(fontWeight: FontWeight.bold),),
+                                          Column(
+                                            children: [
+                                              Text(
+                                                galiGameInfoModelList[index]
+                                                    .status,
+                                                style: TextStyle(fontWeight: FontWeight.bold,fontSize: 16,
+                                                    color: Constant.primaryColor),
+                                              ),
+                                              Text(galiGameInfoModelList[index]
+                                                  .code,style: TextStyle(fontWeight: FontWeight.bold),),
+                                            ],
+                                          ),
+                                          Icon(galiGameInfoModelList[index].icon,size: 16,),
+                                        ],
+                                      ),
+                                    )),
+                              ),
+                            ],
+                          ),
                         ),
-                      ),
-                    );
-                  }),
+                      );
+                    }),
+              ),
             )
           ],
         ),

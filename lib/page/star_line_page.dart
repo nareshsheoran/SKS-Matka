@@ -170,75 +170,78 @@ class _StarLinePageState extends State<StarLinePage> {
                 ],
               ),
             ),
-            Container(
-                height: MediaQuery.of(context).size.height,
-                child: ListView.builder(
-                    itemCount: starLineInfoModelList.length,
-                    scrollDirection: Axis.vertical,
-                    itemBuilder: (BuildContext context, index) {
-                      return Padding(
-                        padding: const EdgeInsets.fromLTRB(8, 16, 8, 16),
-                        child: Container(
-                          color: Colors.green,
-                          child: Padding(
-                            padding: const EdgeInsets.fromLTRB(12, 4, 12, 4),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Column(
-                                  children: [
-                                    Text(
-                                      starLineInfoModelList[index].time1,
-                                      style: TextStyle(
-                                          fontSize: 20,
-                                          fontWeight: FontWeight.bold),
-                                    ),
-                                    SizedBox(
-                                      height: 8,
-                                    ),
-                                    Text(
-                                      starLineInfoModelList[index].code,
-                                      style: TextStyle(
-                                          fontSize: 20,
-                                          fontWeight: FontWeight.bold,
-                                          color: Constant.primaryColor),
-                                    )
-                                  ],
-                                ),
-                                Column(
-                                  children: [
-                                    Text(
-                                      starLineInfoModelList[index].status,
-                                      style: TextStyle(
-                                          fontSize: 20,
-                                          fontWeight: FontWeight.bold,
-                                          color: Constant.primaryColor),
-                                    ),
-                                    SizedBox(
-                                      height: 8,
-                                    ),
-                                    Text(
-                                      starLineInfoModelList[index].time2,
-                                      style: TextStyle(
-                                          fontSize: 20,
-                                          fontWeight: FontWeight.bold),
-                                    )
-                                  ],
-                                ),
-                                Column(
-                                  children: [
-                                    Icon(
-                                      starLineInfoModelList[index].icon,
-                                      size: 24,
-                                    )
-                                  ],
-                                )
-                              ],
+            Padding(
+              padding: const EdgeInsets.fromLTRB(0, 0, 0, 88),
+              child: Container(
+                  height: MediaQuery.of(context).size.height,
+                  child: ListView.builder(
+                      itemCount: starLineInfoModelList.length,
+                      scrollDirection: Axis.vertical,
+                      itemBuilder: (BuildContext context, index) {
+                        return Padding(
+                          padding: const EdgeInsets.fromLTRB(8, 16, 8, 16),
+                          child: Container(
+                            color: Colors.green,
+                            child: Padding(
+                              padding: const EdgeInsets.fromLTRB(12, 4, 12, 4),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Column(
+                                    children: [
+                                      Text(
+                                        starLineInfoModelList[index].time1,
+                                        style: TextStyle(
+                                            fontSize: 20,
+                                            fontWeight: FontWeight.bold),
+                                      ),
+                                      SizedBox(
+                                        height: 8,
+                                      ),
+                                      Text(
+                                        starLineInfoModelList[index].code,
+                                        style: TextStyle(
+                                            fontSize: 20,
+                                            fontWeight: FontWeight.bold,
+                                            color: Constant.primaryColor),
+                                      )
+                                    ],
+                                  ),
+                                  Column(
+                                    children: [
+                                      Text(
+                                        starLineInfoModelList[index].status,
+                                        style: TextStyle(
+                                            fontSize: 20,
+                                            fontWeight: FontWeight.bold,
+                                            color: Constant.primaryColor),
+                                      ),
+                                      SizedBox(
+                                        height: 8,
+                                      ),
+                                      Text(
+                                        starLineInfoModelList[index].time2,
+                                        style: TextStyle(
+                                            fontSize: 20,
+                                            fontWeight: FontWeight.bold),
+                                      )
+                                    ],
+                                  ),
+                                  Column(
+                                    children: [
+                                      Icon(
+                                        starLineInfoModelList[index].icon,
+                                        size: 24,
+                                      )
+                                    ],
+                                  )
+                                ],
+                              ),
                             ),
                           ),
-                        ),
-                      );
-                    }))
+                        );
+                      })),
+            )
           ],
         ),
       ),
