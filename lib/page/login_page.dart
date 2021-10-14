@@ -1,6 +1,11 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:kabir_app/Shared/constant.dart';
 import 'package:kabir_app/Shared/routes.dart';
+import 'package:kabir_app/model_request/loginin_request.dart';
+import 'package:http/http.dart' as http;
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -95,10 +100,14 @@ class _LoginPageState extends State<LoginPage> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(
-                    'Sign In',
-                    style:
-                        TextStyle(color: Constant.primaryColor, fontSize: 20),
+                  InkWell(onTap: () {
+                    login(context);
+                  },
+                    child: Text(
+                      'Sign In',
+                      style:
+                          TextStyle(color: Constant.primaryColor, fontSize: 20),
+                    ),
                   ),InkWell(onTap: (){
                     Navigator.pushNamed(context, Routes.HOME_PAGE);
                   },
@@ -118,10 +127,14 @@ class _LoginPageState extends State<LoginPage> {
               ),Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(
-                    'Sign Up',
-                    style:
-                    TextStyle(color: Constant.primaryColor, fontSize: 20),
+                  InkWell(onTap: (){
+                    Navigator.pushNamed(context, Routes.SIGNUP_PAGE);
+                  },
+                    child: Text(
+                      'Sign Up',
+                      style:
+                      TextStyle(color: Constant.primaryColor, fontSize: 20),
+                    ),
                   ),
                   Text(
                     'Forgot Password?',
@@ -135,5 +148,39 @@ class _LoginPageState extends State<LoginPage> {
         ),
       ),
     );
+  }
+
+
+
+  Future login(BuildContext context) async {
+    String userId = userIdController.text;
+    String password = passwordController.text;
+
+    if (userId.isEmpty) {
+      Fluttertoast.showToast(msg: "Please input userId");
+      return;
+    }
+    if (password.isEmpty) {
+      Fluttertoast.showToast(msg: "Please input password");
+      return;
+    }
+
+    LoginRequest request = LoginRequest(userId: userId, password: password);
+
+    var url = Uri.parse(
+        'http://aikahosts.com/matka/Api/user/login');
+    var response = await http.post(url, body: request.toJson());
+    print('Response status: ${response.statusCode}');
+    print('Response body: ${response.body}');
+
+    Map<String, dynamic> map =
+    jsonDecode(response.body) as Map<String, dynamic>;
+
+    if (map != null) {
+      Fluttertoast.showToast(msg: map['message']);
+      if (response.statusCode == 200) {
+        Navigator.pushNamed(context, Routes.HOME_PAGE);
+      }
+    }
   }
 }
