@@ -14,7 +14,7 @@ class HomePageWidget extends StatelessWidget {
       child: Container(
         color: Constant.primaryColor,
         width: MediaQuery.of(context).size.width,
-        height: 120,
+        height: 140,
         child: Column(
           children: [
             Row(
@@ -31,36 +31,48 @@ class HomePageWidget extends StatelessWidget {
               child: Container(
                 decoration: BoxDecoration(color: Constant.textColor,
                     borderRadius: BorderRadius.all(
-                        Radius.circular(2.0)
-                    )),
-                child: Padding(
-                  padding: const EdgeInsets.fromLTRB(30, 4, 30, 4),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Column(
-                        children: [
-                          Text(homeInfoModel.time1),
-                          Text(homeInfoModel.time2),
-                        ],
-                      ),
-                      Column(
-                        children: [
-                          Text(
-                            homeInfoModel.status,
-                            style: TextStyle(color: Constant.primaryColor),
-                          ),
-                          Text(homeInfoModel.time),
-                        ],
-                      ),
-                    ],
-                  ),
+                        Radius.circular(2.0),)),
+
+      child: Column(
+        children: [
+
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Container(
+              decoration: BoxDecoration(
+                color: Constant.textColor,
+                borderRadius: BorderRadius.all(Radius.circular(2.0)),
+              ),
+              child: Padding(
+                padding: const EdgeInsets.fromLTRB(30, 4, 30, 4),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Column(
+                      children: [
+                        Text(homeInfoModel.time1,
+                          style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold),),
+                        Text(homeInfoModel.time2,
+                            style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold)),
+                      ],
+                    ),
+                    Column(
+                      children: [
+                        Text(
+                          homeInfoModel.status,
+                          style: TextStyle(color: Constant.primaryColor),
+                        ),
+                        Text(homeInfoModel.time,
+                            style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold)),
+                      ],
+                    ),
+                  ],
                 ),
               ),
-            )
-          ],
-        ),
-      ),
-    );
+            ),
+          )
+        ],
+      )))])),);
+
   }
 }

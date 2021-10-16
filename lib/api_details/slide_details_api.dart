@@ -1,5 +1,5 @@
 class SlideApiDetails {
- late List<Slides> slides;
+  late List<Slides> slides;
 
   SlideApiDetails(this.slides);
 
@@ -22,9 +22,9 @@ class SlideApiDetails {
 }
 
 class Slides {
-late  String id;
-late String image;
-late String active;
+  late String id;
+  late String image;
+  late String active;
 
   Slides({required this.id, required this.image, required this.active});
 

@@ -12,7 +12,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  late HomePageInfoViewModel viewModel;
+   late HomePageInfoViewModel viewModel;
 
   void initState() {
     viewModel = HomePageInfoViewModel();

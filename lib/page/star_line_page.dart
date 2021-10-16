@@ -10,7 +10,7 @@ class StarLinePage extends StatefulWidget {
 }
 
 class _StarLinePageState extends State<StarLinePage> {
-  late List<StarLineInfoModel> starLineInfoModelList;
+   late List<StarLineInfoModel> starLineInfoModelList;
 
   @override
   void initState() {

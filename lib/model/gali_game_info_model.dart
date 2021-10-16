@@ -9,10 +9,10 @@ class GaliGameInfoModel {
   final IconData icon;
 
   GaliGameInfoModel(
-      {required this.name,
-      required this.number,
-      required this.time,
-      required this.status,
-      required this.code,
-      required this.icon});
+      { required this.name,
+       required this.number,
+       required this.time,
+       required this.status,
+       required this.code,
+       required this.icon});
 }

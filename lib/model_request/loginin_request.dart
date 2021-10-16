@@ -1,6 +1,6 @@
 class LoginRequest {
- late String userId;
-   late String password;
+  late String userId;
+  late String password;
 
   LoginRequest({required this.userId, required this.password});
 

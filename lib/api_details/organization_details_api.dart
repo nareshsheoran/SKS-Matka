@@ -60,18 +60,18 @@ class OrganizationDetails {
 }
 
 class Organisation {
-  late  String id;
-  late  String name;
-  late  String email;
-  late  String phone;
-  late  String wpNumber;
-  late  String address;
-  late  String phonePay;
-  late  String gPay;
-  late  String paytm;
-  late  String upi;
-  late  Null createdAt;
-  late  String updatedAt;
+  late String id;
+  late String name;
+  late String email;
+  late String phone;
+  late String wpNumber;
+  late String address;
+  late String phonePay;
+  late String gPay;
+  late String paytm;
+  late String upi;
+  late Null createdAt;
+  late String updatedAt;
 
   Organisation(
       {required this.id,
@@ -84,7 +84,7 @@ class Organisation {
         required this.gPay,
         required this.paytm,
         required this.upi,
-        this.createdAt,
+        required this.createdAt,
         required this.updatedAt});
 
   Organisation.fromJson(Map<String, dynamic> json) {
@@ -121,17 +121,17 @@ class Organisation {
 }
 
 class BettingSetting {
-late  String bettingStatus;
-late String bettingPointPerPrice;
-late  String bettingMinimumBidPoint;
-late  Null createdAt;
-late  String updatedAt;
+  late String bettingStatus;
+  late String bettingPointPerPrice;
+  late String bettingMinimumBidPoint;
+  late Null createdAt;
+  late String updatedAt;
 
   BettingSetting(
       {required this.bettingStatus,
         required this.bettingPointPerPrice,
         required this.bettingMinimumBidPoint,
-        this.createdAt,
+        required this.createdAt,
         required this.updatedAt});
 
   BettingSetting.fromJson(Map<String, dynamic> json) {
@@ -154,29 +154,29 @@ late  String updatedAt;
 }
 
 class BidSetting {
-  late  String id;
-  Null singleDigitsPerPoint;
-  late  String jodiDigitsPerPoint;
-  late  String singlePanaPerPoint;
-  late  String doublePanaPerPoint;
-  late  String triplePanaPerPoint;
-  late  String halfSangamPerPoint;
-  late  String fullSangamPerPoint;
+  late String id;
+  late Null singleDigitsPerPoint;
+  late String jodiDigitsPerPoint;
+  late String singlePanaPerPoint;
+  late String doublePanaPerPoint;
+  late String triplePanaPerPoint;
+  late String halfSangamPerPoint;
+  late String fullSangamPerPoint;
   late String redBracketPerPoint;
   late String marketOneName;
-  late  String marketOneDigitPerPoint;
-  late  String marketOneSinglePanaPerPoint;
-  late  String marketOneDoublePanaPerPoint;
+  late String marketOneDigitPerPoint;
+  late String marketOneSinglePanaPerPoint;
+  late String marketOneDoublePanaPerPoint;
   late String marketOneTripplePanaPerPoint;
-  late  String galiDesawarLeftDigitPerPoint;
-  late  String galiDesawarRightDigitPerPoint;
-  late  String galiDesawarJodiDigitPerPoint;
-  Null createdAt;
+  late String galiDesawarLeftDigitPerPoint;
+  late String galiDesawarRightDigitPerPoint;
+  late String galiDesawarJodiDigitPerPoint;
+  late Null createdAt;
   late String updatedAt;
 
   BidSetting(
       {required this.id,
-        this.singleDigitsPerPoint,
+        required this.singleDigitsPerPoint,
         required this.jodiDigitsPerPoint,
         required this.singlePanaPerPoint,
         required this.doublePanaPerPoint,
@@ -192,7 +192,7 @@ class BidSetting {
         required this.galiDesawarLeftDigitPerPoint,
         required this.galiDesawarRightDigitPerPoint,
         required this.galiDesawarJodiDigitPerPoint,
-        this.createdAt,
+        required this.createdAt,
         required this.updatedAt});
 
   BidSetting.fromJson(Map<String, dynamic> json) {
@@ -247,12 +247,12 @@ class BidSetting {
 }
 
 class MessageSetting {
-  late  Null registerMessageStatus;
-  late  String registerMessage;
-  late  Null firstMessageStatus;
-  late  String firstMessage;
-  late  String updatedAt;
-  late  String createdAt;
+  late Null registerMessageStatus;
+  late String registerMessage;
+  late Null firstMessageStatus;
+  late String firstMessage;
+  late String updatedAt;
+  late String createdAt;
 
   MessageSetting(
       {this.registerMessageStatus,
@@ -284,12 +284,12 @@ class MessageSetting {
 }
 
 class WithdrawlSetting {
-  late  String id;
+  late String id;
   late String minimumWithdrawal;
   late String minimumDeposit;
   late String withdrawOpenTime;
   late String withdrawCloseTime;
-  late  String createdAt;
+  late String createdAt;
   late String updatedAt;
 
   WithdrawlSetting(
@@ -327,23 +327,23 @@ class WithdrawlSetting {
 class MaintainanceSetting {
   late String id;
   late String version;
-  late  Null mandatory;
-  late  Null status;
-  late  String type;
-  late  String content;
-  late  String maintainanceStartDate;
+  late Null mandatory;
+  late Null status;
+  late String type;
+  late String content;
+  late String maintainanceStartDate;
   late String maintainanceStartTime;
   late String maintainanceEndTime;
-  late  String maintainanceEndDate;
-  late  String maintenanceDescription;
-  late  String createdAt;
-  late  String updatedAt;
+  late String maintainanceEndDate;
+  late String maintenanceDescription;
+  late String createdAt;
+  late String updatedAt;
 
   MaintainanceSetting(
       {required this.id,
         required this.version,
-        this.mandatory,
-        this.status,
+        required this.mandatory,
+        required this.status,
         required this.type,
         required this.content,
         required this.maintainanceStartDate,

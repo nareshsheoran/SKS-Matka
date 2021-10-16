@@ -11,12 +11,12 @@ class HomeInfoModel {
   final IconData icon2;
 
   HomeInfoModel(
-      {required this.name,
-      required this.code,
-      required this.time1,
-      required this.time2,
-      required this.status,
-      required this.time,
-      required this.icon1,
-      required this.icon2});
+      { required this.name,
+       required this.code,
+       required this.time1,
+       required this.time2,
+       required this.status,
+       required this.time,
+       required this.icon1,
+       required this.icon2});
 }

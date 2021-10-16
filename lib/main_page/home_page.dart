@@ -13,7 +13,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  late HomePageInfoViewModel viewModel;
+  late  HomePageInfoViewModel viewModel;
 
   void initState() {
     viewModel = HomePageInfoViewModel();
@@ -93,9 +93,13 @@ class _HomePageState extends State<HomePage> {
                             leading: Icon(Icons.home),
                             title: Text('Game Rate'),
                           ),
-                          ListTile(
-                            leading: Icon(Icons.home),
-                            title: Text('Add Fund'),
+                          InkWell(onTap: (){
+                            Navigator.pushNamed(context, Routes.ADD_FUND);
+                          },
+                            child: ListTile(
+                              leading: Icon(Icons.home),
+                              title: Text('Add Fund'),
+                            ),
                           ),
                           ListTile(
                             leading: Icon(Icons.home),

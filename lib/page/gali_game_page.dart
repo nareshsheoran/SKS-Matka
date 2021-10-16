@@ -10,7 +10,7 @@ class GaliGamePage extends StatefulWidget {
 }
 
 class _GaliGamePageState extends State<GaliGamePage> {
-  late List<GaliGameInfoModel> galiGameInfoModelList;
+   late List<GaliGameInfoModel> galiGameInfoModelList;
 
   @override
   void initState() {

@@ -8,9 +8,9 @@ class StarLineInfoModel {
   final IconData icon;
 
   StarLineInfoModel(
-      {required this.time1,
-      required this.code,
-      required this.status,
-      required this.time2,
-      required this.icon});
+      { required this.time1,
+       required this.code,
+       required this.status,
+       required this.time2,
+       required this.icon});
 }
