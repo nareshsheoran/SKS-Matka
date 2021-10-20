@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 import 'package:kabir_app/Shared/routes.dart';
 import 'package:kabir_app/page/front_page.dart';
-import 'src/my_app.dart';
 
 void main() {
   runApp(MyApp());

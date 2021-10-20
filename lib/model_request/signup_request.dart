@@ -1,19 +1,23 @@
 class SignUpRequest {
- late  String name;
- late  String mobile;
- late   String email;
- late  String userName;
- late  String password;
- late   String user_Id;
+  late String name;
+  late String mobile;
+  late String email;
+  late String user_id;
+  late String password;
 
-  SignUpRequest( { required this.name,   required this.mobile,  required this.email,  required this.userName,   required this.password,  required this.user_Id});
+  SignUpRequest({
+    required this.name,
+    required this.mobile,
+    required this.email,
+    required this.user_id,
+    required this.password,
+  });
 
   SignUpRequest.fromJson(Map<String, dynamic> json) {
     name = json['name'];
     mobile = json['mobile'];
     email = json['email'];
-    userName = json['userName'];
-    user_Id = json['userId'];
+    user_id = json['user_id'];
     password = json['password'];
   }
 
@@ -22,9 +26,8 @@ class SignUpRequest {
     map['name'] = name;
     map['mobile'] = mobile;
     map['email'] = email;
-    map['userName'] = userName;
+    map['user_id'] = user_id;
     map['password'] = password;
-    map['userId'] =user_Id;
     return map;
   }
 }

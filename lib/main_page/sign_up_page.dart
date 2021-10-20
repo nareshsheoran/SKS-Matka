@@ -19,14 +19,15 @@ class _SignUpPageState extends State<SignUpPage> {
   TextEditingController nameController = TextEditingController();
   TextEditingController mobileController = TextEditingController();
   TextEditingController emailController = TextEditingController();
-  TextEditingController userNameController = TextEditingController();
+  TextEditingController userController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
-  TextEditingController userIdController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(backgroundColor: Constant.primaryColor,
-      body: Form(key: _formKey,
+    return Scaffold(
+      backgroundColor: Constant.primaryColor,
+      body: Form(
+        key: _formKey,
         child: SingleChildScrollView(
           child: Padding(
             padding: const EdgeInsets.all(16.0),
@@ -46,7 +47,6 @@ class _SignUpPageState extends State<SignUpPage> {
                     controller: nameController,
                     keyboardType: TextInputType.name,
                     decoration: InputDecoration(
-
                       hintText: 'Full Name',
                       errorStyle: TextStyle(color: Colors.white),
                       hintStyle: TextStyle(fontSize: 16, color: Colors.white),
@@ -68,7 +68,7 @@ class _SignUpPageState extends State<SignUpPage> {
                     ),
                     // ignore: missing_return
                     validator: (value) {
-                      if ((value == null || value.isEmpty) ) {
+                      if ((value == null || value.isEmpty)) {
                         return "Please Input valid Mobile No.";
                       }
                     }),
@@ -89,7 +89,7 @@ class _SignUpPageState extends State<SignUpPage> {
                     }),
                 SizedBox(height: 16),
                 TextFormField(
-                    controller: userNameController,
+                    controller: userController,
                     keyboardType: TextInputType.name,
                     decoration: InputDecoration(
                       hintText: 'User Name',
@@ -117,23 +117,10 @@ class _SignUpPageState extends State<SignUpPage> {
                         return "Please Input Password";
                       }
                     }),
-  SizedBox(height: 16),
-                TextFormField(
-                    controller: userIdController,
-                    keyboardType: TextInputType.name,
-                    decoration: InputDecoration(
-                      hintText: 'id',
-                      errorStyle: TextStyle(color: Colors.white),
-                      hintStyle: TextStyle(fontSize: 16, color: Colors.white),
-                    ),
-                    // ignore: missing_return
-                    validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        return "Please Input id";
-                      }
-                    }),
 
-                SizedBox(height: 24,),
+                SizedBox(
+                  height: 24,
+                ),
                 Row(
                   children: [
                     InkWell(
@@ -144,7 +131,8 @@ class _SignUpPageState extends State<SignUpPage> {
                               const SnackBar(content: Text('Processing Data')),
                             );
                           }
-                        },child: Text('Sign Up')),
+                        },
+                        child: Text('Sign Up')),
                     SizedBox(width: 24),
                     Icon(Icons.forward)
                   ],
@@ -157,16 +145,12 @@ class _SignUpPageState extends State<SignUpPage> {
     );
   }
 
-
-
   Future signUp() async {
     String name = nameController.text;
     String mobile = mobileController.text;
     String email = emailController.text;
-    String userName = userNameController.text;
+    String user_id = userController.text;
     String password = passwordController.text;
-    String user_Id = userIdController.text;
-
 
     if (name.isEmpty) {
       Fluttertoast.showToast(msg: "Please input name");
@@ -180,33 +164,33 @@ class _SignUpPageState extends State<SignUpPage> {
       Fluttertoast.showToast(msg: "Please input password");
       return;
     }
-    if (user_Id.isEmpty) {
-      Fluttertoast.showToast(msg: "Please input id");
-      return;
-    }
     if (email.isEmpty) {
       Fluttertoast.showToast(msg: "Please input Email");
       return;
     }
-    if (userName.isEmpty) {
+    if (user_id.isEmpty) {
       Fluttertoast.showToast(msg: "Please input UserName");
       return;
     }
 
     SignUpRequest request = SignUpRequest(
-        name: name, mobile:mobile , password: password, email: email, userName: userName,user_Id:user_Id);
+        name: name,
+        mobile: mobile,
+        password: password,
+        email: email,
+        user_id: user_id);
 
-    var url = Uri.parse(
-        'http://aikahosts.com/matka/Api/user/register');
+    var url = Uri.parse('http://aikahosts.com/matka/Api/user/register');
     var response = await http.post(url, body: request.toJson());
     print('Response status: ${response.statusCode}');
     print('Response body: ${response.body}');
     Map<String, dynamic> map =
-    jsonDecode(response.body) as Map<String, dynamic>;
+        jsonDecode(response.body) as Map<String, dynamic>;
     if (map != null && map['message'] != null) {
       Fluttertoast.showToast(msg: map['message']);
 
-      if (response.statusCode == 200) {
+      if (response.statusCode == 200 &&
+          map['message'] == "Registered Successfully") {
         Navigator.pop(context);
       }
     }

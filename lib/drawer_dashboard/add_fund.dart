@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart';
 import 'package:kabir_app/Shared/constant.dart';
+import 'package:kabir_app/Shared/routes.dart';
 import 'package:kabir_app/api_details/organization_details_api.dart';
 
 class AddFund extends StatefulWidget {
@@ -14,29 +15,6 @@ class AddFund extends StatefulWidget {
 
 class _AddFundState extends State<AddFund> {
   TextEditingController amountController = TextEditingController();
-  List<Organisation> organisationModelList = [];
-
-  Future getData() async {
-    organisationModelList.clear();
-    Uri myUri =
-        Uri.parse('http://aikahosts.com/matka/Api/user/get_orgnisation_detail');
-    Response response = await get(myUri);
-    if (response.statusCode == 200) {
-      final list = jsonDecode(response.body) as List;
-
-      list.forEach((element) {
-        organisationModelList.add(Organisation.fromJson(element));
-      });
-
-      setState(() {});
-    }
-  }
-
-  @override
-  void initState() {
-    getData();
-    super.initState();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -44,38 +22,219 @@ class _AddFundState extends State<AddFund> {
       appBar: AppBar(
         title: Text('Add Fund'),
       ),
-      body: Column(
-        children: [
-          Container(
-            height: 50,
-            width: 250,
-            child: Text('0.0'),
-          ),
-          TextFormField(
-            controller: amountController,
-            decoration: InputDecoration(hintText: 'Enter Amount to add'),
-          ),
-          Container(
-            decoration: BoxDecoration(color: Constant.primaryColor),
-            child: Row(
-              children: [
-                Icon(Icons.email),
-                Column(
-                  children: [
-                    Text('Pay By GPay'),
-                    Text('Auto Credit'),
-                  ],
-                ),
-                Container(
-                  child: Text('GPay'),
-                )
-              ],
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.fromLTRB(8, 24, 8, 8),
+              child: Container(
+                height: 50,
+                child: Center(
+                    child: Text(
+                  '0.0',
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20,
+                      color: Constant.textColor),
+                )),
+                decoration: BoxDecoration(
+                    color: Constant.primaryColor,
+                    borderRadius: BorderRadius.circular(4)),
+              ),
             ),
-          )
-        ],
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: TextFormField(
+                controller: amountController,
+                decoration: InputDecoration(
+                  hintText: 'Enter Amount to add', errorBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.grey, width: MediaQuery.of(context).size.width/3)),
+                  contentPadding: EdgeInsets.symmetric(horizontal: 20),
+                  errorStyle: TextStyle(color: Colors.white),
+                  hintStyle: TextStyle(fontSize: 16, color: Colors.black),
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: InkWell(onTap: (){
+                Navigator.pushNamed(context, Routes.PAYMENT_PAGE);
+              },
+                child: Container(
+                  decoration: BoxDecoration(
+                      color: Constant.primaryColor,
+                      borderRadius: BorderRadius.circular(4)),
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Row(
+                      children: [
+                        Icon(
+                          Icons.email,
+                          color: Constant.textColor,
+                        ),
+                        SizedBox(
+                          width: 16,
+                        ),
+                        Column(crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'Pay By GPay',
+                              style: TextStyle(fontWeight: FontWeight.bold,color: Constant.textColor),
+                            ),
+                            Text('Auto Credit',
+                                style: TextStyle(fontWeight: FontWeight.bold,color: Colors.grey)),
+                          ],
+                        ),
+                        Expanded(child: Container()),
+                        Container(
+                          child: Icon(
+                            Icons.email,
+                            color: Constant.textColor,
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Container(
+                decoration: BoxDecoration(
+                    color: Constant.primaryColor,
+                    borderRadius: BorderRadius.circular(4)),
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Row(
+                    children: [
+                      Icon(
+                        Icons.email,
+                        color: Constant.textColor,
+                      ),
+                      SizedBox(
+                        width: 16,
+                      ),
+                      Column(crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Pay By PhonePe',
+                            style: TextStyle(fontWeight: FontWeight.bold,color: Constant.textColor),
+                          ),
+                          Text('Auto Credit',
+                              style: TextStyle(fontWeight: FontWeight.bold,color: Colors.grey)),
+                        ],
+                      ),
+                      Expanded(child: Container()),
+                      Container(
+                        child: Icon(
+                          Icons.email,
+                          color: Constant.textColor,
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Container(
+                decoration: BoxDecoration(
+                    color: Constant.primaryColor,
+                    borderRadius: BorderRadius.circular(4)),
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Row(
+                    children: [
+                      Icon(
+                        Icons.email,
+                        color: Constant.textColor,
+                      ),
+                      SizedBox(
+                        width: 16,
+                      ),
+                      Column(crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Pay By Other',
+                            style: TextStyle(fontWeight: FontWeight.bold,color: Constant.textColor),
+                          ),
+                          Text('Auto Credit',
+                              style: TextStyle(fontWeight: FontWeight.bold,color: Colors.grey)),
+                        ],
+                      ),
+                      Expanded(child: Container()),
+                      Container(
+                        child: Icon(
+                          Icons.email,
+                          color: Constant.textColor,
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Container(
+                decoration: BoxDecoration(
+                    color: Constant.primaryColor,
+                    borderRadius: BorderRadius.circular(4)),
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Row(
+                    children: [
+                      Icon(
+                        Icons.email,
+                        color: Constant.textColor,
+                      ),
+                      SizedBox(
+                        width: 16,
+                      ),
+                      Column(crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Pay By Paytm',
+                            style: TextStyle(fontWeight: FontWeight.bold, color: Constant.textColor),
+                          ),
+                          Text('Admin Approval',
+                              style: TextStyle(fontWeight: FontWeight.bold,color: Colors.grey)),
+                        ],
+                      ),
+                      Expanded(child: Container()),
+                      Container(
+                        child: Icon(
+                          Icons.email,
+                          color: Constant.textColor,
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Container(
+                height: 50,
+                child: Center(
+                    child: Text(
+                  'ADD FUND',
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20,
+                      color: Constant.textColor),
+                )),
+                decoration: BoxDecoration(
+                    color: Constant.primaryColor,
+                    borderRadius: BorderRadius.circular(4)),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
 }
-
-

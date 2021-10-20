@@ -58,6 +58,8 @@ class _LoginPageState extends State<LoginPage> {
                       decoration: InputDecoration(
                         border: InputBorder.none,
                         hintText: 'User Id',
+                        contentPadding:
+                        EdgeInsets.symmetric(horizontal: 20),
                         errorStyle: TextStyle(color: Colors.white),
                         hintStyle: TextStyle(fontSize: 16, color: Colors.white),
                       ),
@@ -84,7 +86,8 @@ class _LoginPageState extends State<LoginPage> {
                       keyboardType: TextInputType.emailAddress,
                       decoration: InputDecoration(
                         border: InputBorder.none,
-                        hintText: 'Password',
+                        hintText: 'Password',contentPadding:
+                      EdgeInsets.symmetric(horizontal: 20),
                         errorStyle: TextStyle(color: Colors.white),
                         hintStyle: TextStyle(fontSize: 16, color: Colors.white),
                       ),
@@ -165,7 +168,7 @@ class _LoginPageState extends State<LoginPage> {
       return;
     }
 
-    LoginRequest request = LoginRequest(userId: userId, password: password);
+    LoginRequest request = LoginRequest(user_id: userId, password: password);
 
     var url = Uri.parse(
         'http://aikahosts.com/matka/Api/user/login');
@@ -178,7 +181,8 @@ class _LoginPageState extends State<LoginPage> {
 
     if (map != null) {
       Fluttertoast.showToast(msg: map['message']);
-      if (response.statusCode == 200) {
+      if (response.statusCode == 200 &&
+          map['message'] == "Login Successfully") {
         Navigator.pushNamed(context, Routes.HOME_PAGE);
       }
     }

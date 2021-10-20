@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:kabir_app/Shared/constant.dart';
+import 'package:kabir_app/Shared/routes.dart';
 import 'package:kabir_app/widget/home_page_widget.dart';
 import 'package:kabir_app/viewmodel/home_page_viewmodel.dart';
 import 'package:scoped_model/scoped_model.dart';
+import 'package:share/share.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -13,6 +15,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
    late HomePageInfoViewModel viewModel;
+
 
   void initState() {
     viewModel = HomePageInfoViewModel();
@@ -34,7 +37,13 @@ class _HomePageState extends State<HomePage> {
             ),
 
             actions: [
-              Icon(Icons.height)
+              InkWell(onTap: (){
+                Navigator.pushNamed(context, Routes.APP_WALLET);
+              },
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Icon(Icons.wallet_giftcard),
+                  ))
             ],
           ),
           drawer: Drawer(
@@ -166,10 +175,14 @@ class _HomePageState extends State<HomePage> {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
-                              Icon(
-                                Icons.account_balance_wallet_outlined,
-                                size: 40,
-                                color: Constant.primaryColor,
+                              InkWell(onTap: (){
+                                Navigator.pushNamed(context, Routes.ADD_FUND);
+                              },
+                                child: Icon(
+                                  Icons.account_balance_wallet_outlined,
+                                  size: 40,
+                                  color: Constant.primaryColor,
+                                ),
                               ),
                               SizedBox(
                                 height: 4,

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kabir_app/Shared/constant.dart';
+import 'package:kabir_app/Shared/routes.dart';
 import 'package:switcher_button/switcher_button.dart';
 
 class AppProfile extends StatefulWidget {
@@ -145,7 +146,7 @@ class _AppProfileState extends State<AppProfile> {
                     color: Constant.primaryColor),
                 child: ListTile(
                   title: Text(
-                    'Starlinr Bid History',
+                    'Starline Bid History',
                     style: TextStyle(color: Constant.textColor),
                   ),
                   trailing: Icon(Icons.account_balance_wallet_outlined),
@@ -183,47 +184,135 @@ class _AppProfileState extends State<AppProfile> {
               ),
               SizedBox(height: 8),
               Container(
-                  height: 100,
+                  color: Colors.black,
+                  height: 172,
                   child: Column(
                     children: [
                       Row(children: [
-                        Container(
-                          child: Row(
-                            children: [
-                              Text('Bank\nDetails'),
-                              Icon(Icons.wallet_giftcard)
-                            ],
+                        Padding(
+                          padding: const EdgeInsets.all(8),
+                          child: InkWell(onTap: (){
+                            Navigator.pushNamed(context, Routes.ACCOUNT_DETAILS);
+                          },
+                            child: Container(
+                              width: MediaQuery.of(context).size.width / 2.35,
+                              height: MediaQuery.of(context).size.height / 11,
+                              decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.circular(4)),
+                              child: Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Row(
+                                  children: [
+                                    Text(
+                                      'Bank\nDetails',
+                                      style: TextStyle(fontSize: 20),
+                                    ),
+                                    Expanded(child: Container()),
+                                    Icon(
+                                      Icons.wallet_giftcard,
+                                      size: 32,
+                                    )
+                                  ],
+                                ),
+                              ),
+                            ),
                           ),
                         ),
-                        Container(
-                          child: Row(
-                            children: [
-                              Text('Bank\nDetails'),
-                              Icon(Icons.wallet_giftcard)
-                            ],
+                        Padding(
+                          padding: const EdgeInsets.all(8),
+                          child: InkWell(onTap: (){
+                            Navigator.pushNamed(context, Routes.PAYTM_DETAILS);
+                          },
+                            child: Container(
+                              width: MediaQuery.of(context).size.width / 2.35,
+                              height: MediaQuery.of(context).size.height / 11,
+                              decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.circular(4)),
+                              child: Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Row(
+                                  children: [
+                                    Text(
+                                      'Paytm\nDetails',
+                                      style: TextStyle(fontSize: 20),
+                                    ),
+                                    Expanded(child: Container()),
+                                    Icon(
+                                      Icons.wallet_giftcard,
+                                      size: 32,
+                                    )
+                                  ],
+                                ),
+                              ),
+                            ),
                           ),
                         ),
                       ]),
                       Row(children: [
-                        Container(
-                          child: Row(
-                            children: [
-                              Text('Bank\nDetails'),
-                              Icon(Icons.wallet_giftcard)
-                            ],
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Container(
-                            child: Row(
-                              children: [
-                                Text('Bank\nDetails'),
-                                Icon(Icons.wallet_giftcard)
-                              ],
+                        Row(children: [
+                          Padding(
+                            padding: const EdgeInsets.all(8),
+                            child: InkWell(onTap: (){
+                              Navigator.pushNamed(context, Routes.GOOGLEPAY_DETAILS);
+                            },
+                              child: Container(
+                                width: MediaQuery.of(context).size.width / 2.35,
+                                height: MediaQuery.of(context).size.height / 11,
+                                decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.circular(4)),
+                                child: Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Row(
+                                    children: [
+                                      Text(
+                                        'Googlepay\nDetails',
+                                        style: TextStyle(fontSize: 20),
+                                      ),
+                                      Expanded(child: Container()),
+                                      Icon(
+                                        Icons.wallet_giftcard,
+                                        size: 32,
+                                      )
+                                    ],
+                                  ),
+                                ),
+                              ),
                             ),
                           ),
-                        ),
+                          Padding(
+                            padding: const EdgeInsets.all(8),
+                            child: InkWell(onTap: (){
+                              Navigator.pushNamed(context, Routes.PHONEPE_DETAILS);
+                            },
+                              child: Container(
+                                width: MediaQuery.of(context).size.width / 2.35,
+                                height: MediaQuery.of(context).size.height / 11,
+                                decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.circular(4)),
+                                child: Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Row(
+                                    children: [
+                                      Text(
+                                        'Phonepe\nDetails',
+                                        style: TextStyle(fontSize: 20),
+                                      ),
+                                      Expanded(child: Container()),
+                                      Icon(
+                                        Icons.wallet_giftcard,
+                                        size: 32,
+                                      )
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ]),
                       ]),
                     ],
                   )),
@@ -291,6 +380,22 @@ class _AppProfileState extends State<AppProfile> {
                   ),
                 ),
               )),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Container(
+                  height: 50,
+                  child: Center(
+                      child: Text(
+                        'CHANGE NOW',
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 16,
+                            color: Constant.textColor),
+                      )),
+                  decoration: BoxDecoration(
+                      color: Constant.primaryColor,),
+                ),
+              ),
             ],
           ),
         ),
