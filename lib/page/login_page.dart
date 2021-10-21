@@ -139,10 +139,14 @@ class _LoginPageState extends State<LoginPage> {
                       TextStyle(color: Constant.primaryColor, fontSize: 20),
                     ),
                   ),
-                  Text(
-                    'Forgot Password?',
-                    style:
-                    TextStyle(color: Constant.primaryColor, fontSize: 20),
+                  InkWell(onTap: (){
+                    Navigator.pushNamed(context, Routes.GAME_RUNNING);
+                  },
+                    child: Text(
+                      'Forgot Password?',
+                      style:
+                      TextStyle(color: Constant.primaryColor, fontSize: 20),
+                    ),
                   ),
                 ],
               ),

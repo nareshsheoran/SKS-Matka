@@ -4,7 +4,6 @@ import 'package:kabir_app/Shared/routes.dart';
 import 'package:kabir_app/widget/home_page_widget.dart';
 import 'package:kabir_app/viewmodel/home_page_viewmodel.dart';
 import 'package:scoped_model/scoped_model.dart';
-import 'package:share/share.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);

@@ -1,6 +1,5 @@
 import 'dart:convert';
 import 'package:http/http.dart';
-
 import 'package:flutter/material.dart';
 import 'package:kabir_app/api_details/organization_details_api.dart';
 
@@ -14,6 +13,7 @@ class OrganisationApiDetails extends StatefulWidget {
 class _OrganisationApiDetailsState extends State<OrganisationApiDetails> {
   ScrollController scrollController = ScrollController();
   List<Organisation> organisationModelList = [];
+
 
   Future getData() async {
     organisationModelList.clear();

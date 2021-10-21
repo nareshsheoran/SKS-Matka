@@ -14,6 +14,7 @@ import 'package:kabir_app/payment_details/account_details.dart';
 import 'package:kabir_app/payment_details/googlepay_details.dart';
 import 'package:kabir_app/payment_details/paytm_details.dart';
 import 'package:kabir_app/payment_details/phonepe_details.dart';
+import 'package:kabir_app/running_game/game_running.dart';
 
 class Routes {
   static const String FRONT_PAGE = '/frontpage';
@@ -31,6 +32,7 @@ class Routes {
   static const String PAYTM_DETAILS = '/paytmdetails';
   static const String GOOGLEPAY_DETAILS = '/googlepaydetails';
   static const String PHONEPE_DETAILS = '/phonepedetails';
+  static const String GAME_RUNNING = '/gamerunning';
 }
 
 final routes = {
@@ -49,4 +51,5 @@ final routes = {
   Routes.PAYTM_DETAILS: (context) => PaytmDetails(),
   Routes.GOOGLEPAY_DETAILS: (context) => GooglePayDetails(),
   Routes.PHONEPE_DETAILS: (context) => PhonePeDetails(),
+  Routes.GAME_RUNNING: (context) => GameRunning(),
 };
