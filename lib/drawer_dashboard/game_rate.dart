@@ -12,7 +12,7 @@ class _GameRateState extends State<GameRate> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
+      appBar: AppBar(backgroundColor: Constant.appBarColor,
         title: Text('Game Rate'),
       ),
       body: SingleChildScrollView(

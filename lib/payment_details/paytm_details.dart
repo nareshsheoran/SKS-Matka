@@ -14,7 +14,7 @@ class _PaytmDetailsState extends State<PaytmDetails> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(backgroundColor: Constant.primaryColor,
+      appBar: AppBar(backgroundColor: Constant.appBarColor,
         title: Text('Paytm Details'),
       ),
       body: Column(

@@ -13,110 +13,171 @@ class _GameRunningState extends State<GameRunning> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Constant.appBarColor,
         title: Text('Game'),
       ),
       body: SingleChildScrollView(
-        child: Column(
-          children: [
-            Container(
-              width: MediaQuery.of(context).size.width,
-              height: MediaQuery.of(context).size.height / 2,
-              color: Constant.primaryColor,
-              child: Column(
-                children: [
-                  Row(
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(
+            children: [
+              Card(
+                elevation: 2,
+                child: Container(
+                  width: MediaQuery.of(context).size.width,
+                  height: MediaQuery.of(context).size.height / 2.2,
+                  child: Column(
                     children: [
-                      Container(
-                        width: MediaQuery.of(context).size.width,
-                        color: Colors.green,
-                        height: 64,
-                        child: Center(
-                          child: Text(
-                            'GAME DIGIT BASED',
-                            style: TextStyle(
-                                fontSize: 24, fontWeight: FontWeight.bold),
-                          ),
+                      Row(
+                        children: [
+                          Expanded(
+                            child: Container(
+                              color: Colors.grey[300],
+                              height: 64,
+                              child: Center(
+                                child: Text(
+                                  'GAME DIGIT BASED',
+                                  style: TextStyle(
+                                      fontSize: 24,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                              ),
+                            ),
+                          )
+                        ],
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Column(
+                          children: [
+                            Row(
+                              children: [
+                                buildIcon(),
+                                Expanded(child: Container()),
+                                buildIcon(),
+                              ],
+                            ),
+                            Row(
+                              children: [
+                                buildIcon(),
+                                Expanded(child: Container()),
+                                buildIcon(),
+                              ],
+                            ),
+                          ],
                         ),
-                      )
+                      ),
                     ],
                   ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Column(
-                      children: [
-                        Row(
-                          children: [
-                            buildIcon(),
-                            Expanded(child: Container()),
-                            buildIcon(),
-                          ],
-                        ),
-                        Row(
-                          children: [
-                            buildIcon(),
-                            Expanded(child: Container()),
-                            buildIcon(),
-                          ],
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
+                ),
               ),
-            ),
-            Container(
-              width: MediaQuery.of(context).size.width,
-              color: Constant.primaryColor,
-              child: Column(
-                children: [
-                  Row(
+              SizedBox(
+                height: 16,
+              ),
+              Card(
+                elevation: 2,
+                child: Container(
+                  width: MediaQuery.of(context).size.width,
+                  child: Column(
                     children: [
-                      Container(
-                        width: MediaQuery.of(context).size.width ,
-                        color: Colors.green,
-                        height: 64,
-                        child: Center(
-                          child: Text(
-                            'GAME DIGIT BASED',
-                            style: TextStyle(
-                                fontSize: 24, fontWeight: FontWeight.bold),
-                          ),
+                      Row(
+                        children: [
+                          Expanded(
+                            child: Container(
+                              color: Colors.grey[300],
+                              height: 64,
+                              child: Center(
+                                child: Text(
+                                  'GAME PANA BASED',
+                                  style: TextStyle(
+                                      fontSize: 24,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                              ),
+                            ),
+                          )
+                        ],
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Column(
+                          children: [
+                            Row(
+                              children: [
+                                buildIcon(),
+                                Expanded(child: Container()),
+                                buildIcon(),
+                              ],
+                            ),
+                            Row(
+                              children: [
+                                buildIcon(),
+                                Expanded(child: Container()),
+                                buildIcon(),
+                              ],
+                            ),
+                            Row(
+                              children: [
+                                buildIcon(),
+                                Expanded(child: Container()),
+                                buildIcon(),
+                              ],
+                            ),
+                          ],
                         ),
-                      )
+                      ),
                     ],
                   ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Column(
-                      children: [
-                        Row(
-                          children: [
-                            buildIcon(),
-                            Expanded(child: Container()),
-                            buildIcon(),
-                          ],
-                        ),
-                        Row(
-                          children: [
-                            buildIcon(),
-                            Expanded(child: Container()),
-                            buildIcon(),
-                          ],
-                        ),
-                       Row(
-                          children: [
-                            buildIcon(),
-                            Expanded(child: Container()),
-                            buildIcon(),
-                          ],
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
+                ),
               ),
-            ),
-          ],
+              SizedBox(
+                height: 16,
+              ),
+              Card(
+                elevation: 2,
+                child: Container(
+                  width: MediaQuery.of(context).size.width,
+                  height: MediaQuery.of(context).size.height / 3.7,
+                  child: Column(
+                    children: [
+                      Row(
+                        children: [
+                          Expanded(
+                            child: Container(
+                              color: Colors.grey[300],
+                              height: 64,
+                              child: Center(
+                                child: Text(
+                                  'GAME SANGAM BASED',
+                                  style: TextStyle(
+                                      fontSize: 24,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                              ),
+                            ),
+                          )
+                        ],
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Column(
+                          children: [
+                            Row(
+                              children: [
+                                buildIcon(),
+                                Expanded(child: Container()),
+                                buildIcon(),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
@@ -126,6 +187,7 @@ class _GameRunningState extends State<GameRunning> {
     return Icon(
       Icons.star,
       size: 120,
+      color: Constant.primaryColor,
     );
   }
 }

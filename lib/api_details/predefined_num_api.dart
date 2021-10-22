@@ -1,10 +1,10 @@
 
-class PredefinedNumber {
+class PredefinedNumberApi {
   List<Numbers>? numbers;
 
-  PredefinedNumber({this.numbers});
+  PredefinedNumberApi({this.numbers});
 
-  PredefinedNumber.fromJson(Map<String, dynamic> json) {
+  PredefinedNumberApi.fromJson(Map<String, dynamic> json) {
     this.numbers = json["numbers"]==null ? null : (json["numbers"] as List).map((e)=>Numbers.fromJson(e)).toList();
   }
 

@@ -1,4 +1,3 @@
-import 'package:kabir_app/api_details/service/game_service.dart';
 
 class SlideApiDetails {
   late List<Slides> slides;
@@ -19,8 +18,7 @@ class SlideApiDetails {
     if (this.slides != null) {
       data['slides'] = this.slides.map((v) => v.toJson()).toList();
     }
-    GameService gameService = GameService.getInstance();
-    print(gameService.email);
+
     return data;
   }
 }

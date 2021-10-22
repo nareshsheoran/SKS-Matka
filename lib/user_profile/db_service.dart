@@ -4,7 +4,7 @@ import 'package:sqflite/sqflite.dart';
 class UserDbService {
   static late final UserDbService _instance;
 
-  UserDbService._internal(){
+  UserDbService._internal() {
     openDatabases();
   }
 
@@ -25,18 +25,18 @@ class UserDbService {
     try {
       database = await openDatabase(path, version: 1, onCreate: (db, version) {
         db.execute(
-            "create table $tableName(email text primary key,name text not null)");
+            "create table $tableName(mobile int primary key,name text not null,email text not null,user_id text not null)");
         print("table created");
       });
-    }catch(e){
+    } catch (e) {
       print("openDatabases error:$e");
     }
   }
 
   Future addUserInfo(UserInfo userInfo) async {
     try {
-      database.rawInsert("insert into $tableName values(?,?)",
-          [userInfo.name, userInfo.email]);
+      database.rawInsert("insert into $tableName values(?,?,?,?)",
+          [userInfo.mobile, userInfo.name, userInfo.email, userInfo.user_id]);
     } catch (e) {
       print("addUserInfo $e");
     }
@@ -46,4 +46,8 @@ class UserDbService {
 class UserInfo {
   String? name;
   String? email;
+  String? mobile;
+  String? user_id;
+
+  UserInfo({this.name, this.email, this.mobile, this.user_id});
 }

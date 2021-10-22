@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'package:http/http.dart';
 import 'package:flutter/material.dart';
+import 'package:kabir_app/Shared/constant.dart';
 import 'package:kabir_app/api_details/organization_details_api.dart';
 
 
@@ -18,7 +19,7 @@ class _OrganisationApiDetailsState extends State<OrganisationApiDetails> {
   Future getData() async {
     organisationModelList.clear();
     Uri myUri =
-    Uri.parse('http://aikahosts.com/matka/Api/user/get_orgnisation_detail');
+    Uri.parse(NetworkUtil.getOrganisationUrl);
     Response response = await get(myUri);
     if (response.statusCode == 200) {
       Map<String,dynamic> map = jsonDecode(response.body) as Map<String,dynamic>;
