@@ -17,7 +17,7 @@ class _AccountDetailsState extends State<AccountDetails> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
+      appBar: AppBar(backgroundColor: Constant.appBarColor,
         title: Text(
           'Bank Details'
         ),

@@ -1,6 +1,14 @@
+import 'package:carousel_slider/carousel_slider.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:kabir_app/Shared/constant.dart';
 import 'package:kabir_app/Shared/routes.dart';
+import 'package:kabir_app/api_details/predefined_num_api.dart';
+import 'package:kabir_app/api_details/service/game_service.dart';
+import 'package:kabir_app/api_details/service/predefined_service.dart';
+import 'package:kabir_app/api_details/service/slider_service.dart';
+import 'package:kabir_app/api_details/slide_details_api.dart';
+import 'package:kabir_app/api_details/standard_game_api.dart';
 import 'package:kabir_app/widget/home_page_widget.dart';
 import 'package:kabir_app/viewmodel/home_page_viewmodel.dart';
 import 'package:scoped_model/scoped_model.dart';
@@ -13,11 +21,28 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  late  HomePageInfoViewModel viewModel;
+  late HomePageInfoViewModel viewModel;
+
+  List<Slides> slidesList = [];
+  List<StandardGame>? standardGameList = [];
+  List<Numbers> numbersList = [];
 
   void initState() {
     viewModel = HomePageInfoViewModel();
+    init();
     super.initState();
+  }
+
+  Future init() async {
+    standardGameList = await GameService.getInstance().fetchStandardGameName();
+    setState(() {});
+
+    slidesList = await SliderService.getInstance().fetchSliderData();
+    setState(() {});
+
+    numbersList =
+        await PreDefinedService.getInstance().fetchPredefinedNumberData();
+    setState(() {});
   }
 
   @override
@@ -27,117 +52,21 @@ class _HomePageState extends State<HomePage> {
       child: ScopedModelDescendant<HomePageInfoViewModel>(
           builder: (context, child, model) {
         return Scaffold(
-          appBar: AppBar(backgroundColor: Constant.primaryColor,
+          appBar: AppBar(
+            backgroundColor: Constant.appBarColor,
             title: Text(
               'SKS MATKA',
               style: TextStyle(color: Colors.white),
             ),
-
             actions: [
-              Icon(Icons.wallet_giftcard)
+              InkWell(
+                  onTap: () {
+                    Navigator.pushNamed(context, Routes.APP_WALLET);
+                  },
+                  child: Icon(Icons.wallet_giftcard))
             ],
           ),
-          drawer: Drawer(
-            child: SingleChildScrollView(
-              child: SafeArea(
-                child: Column(
-                  children: [
-                    Container(
-                      height: 50,
-                      color: Colors.black,
-                      child: Row(
-                        children: [
-                          Column(
-                            children: [
-                              Text(
-                                'Naresh',
-                                style: TextStyle(color: Constant.textColor),
-                              ),
-                              Text(
-                                '9812677822',
-                                style: TextStyle(color: Constant.textColor),
-                              )
-                            ],
-                          ),
-                          Column(
-                            children: [
-                              Icon(
-                                Icons.star,
-                                color: Constant.primaryColor,
-                              )
-                            ],
-                          ),
-                        ],
-                      ),
-                    ),
-                    Container(height: MediaQuery.of(context).size.height,
-                      child: Column(
-                        children: [
-                          InkWell(onTap: (){
-                            Navigator.pushNamed(context, Routes.APP_PROFILE_PAGE);
-                          },
-                            child: ListTile(
-                              leading: Icon(Icons.home),
-                              title: Text('App Profile'),
-                            ),
-                          ),
-                          ListTile(
-                            leading: Icon(Icons.home),
-                            title: Text('App Wallet'),
-                          ),
-                          ListTile(
-                            leading: Icon(Icons.home),
-                            title: Text('Game History'),
-                          ),
-                          ListTile(
-                            leading: Icon(Icons.home),
-                            title: Text('Game Rate'),
-                          ),
-                          InkWell(onTap: (){
-                            Navigator.pushNamed(context, Routes.ADD_FUND);
-                          },
-                            child: ListTile(
-                              leading: Icon(Icons.home),
-                              title: Text('Add Fund'),
-                            ),
-                          ),
-                          ListTile(
-                            leading: Icon(Icons.home),
-                            title: Text('Withdraw Fund'),
-                          ),
-                          ListTile(
-                            leading: Icon(Icons.home),
-                            title: Text('App Notification'),
-                          ),
-                          ListTile(
-                            leading: Icon(Icons.home),
-                            title: Text('App Noticeboard'),
-                          ),
-                          ListTile(
-                            leading: Icon(Icons.home),
-                            title: Text('How To Play'),
-                          ),
-                          ListTile(
-                            leading: Icon(Icons.home),
-                            title: Text('Share Now'),
-                          ),
-                          ListTile(
-                            leading: Icon(Icons.home),
-                            title: Text('App LogOut'),
-                          ),
-                          ListTile(
-                            leading: Icon(Icons.home),
-                            title: Text('version.1.3.3'),
-                          ),
-                        ],
-                      ),
-                    )
-
-                  ],
-                ),
-              ),
-            ),
-          ),
+          drawer: buildDrawer(context),
           body: SingleChildScrollView(
             child: Padding(
               padding: const EdgeInsets.all(8.0),
@@ -170,24 +99,34 @@ class _HomePageState extends State<HomePage> {
                         Padding(
                           padding: const EdgeInsets.fromLTRB(8, 0, 8, 0),
                           child: Container(
-                            height: 96,
-                            width: MediaQuery.of(context).size.width / 1.5,
-                            color: Colors.blueAccent,
-                            child: Center(
-                                child: Text(
-                              'SKS MATKA',
-                              style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold,color: Colors.white),
-                            )),
-                          ),
+                              height: 96,
+                              width: MediaQuery.of(context).size.width / 1.5,
+                              color: Colors.blueAccent,
+                              child: CarouselSlider.builder(
+                                options: CarouselOptions(
+                                  aspectRatio: 2.0,
+                                  enlargeCenterPage: true,
+                                  scrollDirection: Axis.vertical,
+                                  autoPlay: true,
+                                ),
+                                itemCount: 2,
+                                itemBuilder: (context, index, realIndex) =>
+                                    ,
+                              )),
                         ),
                         Container(
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
-                              Icon(
-                                Icons.account_balance_wallet_outlined,
-                                size: 40,
-                                color: Constant.primaryColor,
+                              InkWell(
+                                onTap: () {
+                                  Navigator.pushNamed(context, Routes.ADD_FUND);
+                                },
+                                child: Icon(
+                                  Icons.account_balance_wallet_outlined,
+                                  size: 40,
+                                  color: Constant.primaryColor,
+                                ),
                               ),
                               SizedBox(
                                 height: 4,
@@ -230,10 +169,10 @@ class _HomePageState extends State<HomePage> {
                     ),
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
-                      child: InkWell(onTap: (){
-                        Navigator.pushNamed(context, Routes.STAR_LINE_PAGE);
-
-                      },
+                      child: InkWell(
+                        onTap: () {
+                          Navigator.pushNamed(context, Routes.STAR_LINE_PAGE);
+                        },
                         child: Row(
                           children: [
                             Text(
@@ -247,7 +186,8 @@ class _HomePageState extends State<HomePage> {
                             Container(
                                 width: 40,
                                 height: 40,
-                                decoration: BoxDecoration(shape: BoxShape.circle),
+                                decoration:
+                                    BoxDecoration(shape: BoxShape.circle),
                                 child: Icon(Icons.video_call_sharp))
                           ],
                         ),
@@ -282,9 +222,10 @@ class _HomePageState extends State<HomePage> {
                     ),
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
-                      child: InkWell(onTap: (){
-                        Navigator.pushNamed(context, Routes.GALI_GAME_PAGE);
-                      },
+                      child: InkWell(
+                        onTap: () {
+                          Navigator.pushNamed(context, Routes.GALI_GAME_PAGE);
+                        },
                         child: Row(
                           children: [
                             Text(
@@ -298,14 +239,17 @@ class _HomePageState extends State<HomePage> {
                             Container(
                                 width: 40,
                                 height: 40,
-                                decoration: BoxDecoration(shape: BoxShape.circle),
+                                decoration:
+                                    BoxDecoration(shape: BoxShape.circle),
                                 child: Icon(Icons.video_call_sharp))
                           ],
                         ),
                       ),
                     ),
                   ),
-                  SizedBox(height: 8,),
+                  SizedBox(
+                    height: 8,
+                  ),
                   getHomePageInfoListWidget(),
                 ],
               ),
@@ -316,15 +260,237 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
+  Widget buildDrawer(BuildContext context) {
+    return Drawer(
+      child: SingleChildScrollView(
+        child: SafeArea(
+          child: Column(
+            children: [
+              Container(
+                height: 64,
+                color: Colors.black,
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Row(
+                    children: [
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            'Naresh',
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 16,
+                                color: Constant.textColor),
+                          ),
+                          Text(
+                            '9812677822',
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 16,
+                                color: Constant.textColor),
+                          )
+                        ],
+                      ),
+                      Expanded(child: Container()),
+                      Icon(
+                        Icons.star,
+                        color: Constant.primaryColor,
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              Container(
+                color: Constant.primaryColor,
+                height: MediaQuery.of(context).size.height,
+                child: Column(
+                  children: [
+                    InkWell(
+                      onTap: () {
+                        Navigator.pushNamed(context, Routes.APP_PROFILE_PAGE);
+                      },
+                      child: ListTile(
+                        leading: Icon(
+                          Icons.contact_page,
+                          color: Constant.textColor,
+                        ),
+                        title: Text(
+                          'App Profile',
+                          style: TextStyle(color: Constant.textColor),
+                        ),
+                      ),
+                    ),
+                    InkWell(
+                      onTap: () {
+                        Navigator.pushNamed(context, Routes.APP_WALLET);
+                      },
+                      child: ListTile(
+                        leading: Icon(
+                          Icons.home,
+                          color: Constant.textColor,
+                        ),
+                        title: Text(
+                          'App Wallet',
+                          style: TextStyle(color: Constant.textColor),
+                        ),
+                      ),
+                    ),
+                    InkWell(
+                      onTap: () {
+                        Navigator.pushNamed(context, Routes.GAME_HISTORY);
+                      },
+                      child: ListTile(
+                        leading: Icon(
+                          Icons.home,
+                          color: Constant.textColor,
+                        ),
+                        title: Text(
+                          'Game History',
+                          style: TextStyle(color: Constant.textColor),
+                        ),
+                      ),
+                    ),
+                    InkWell(
+                      onTap: () {
+                        Navigator.pushNamed(context, Routes.GAME_RATE);
+                      },
+                      child: ListTile(
+                        leading: Icon(
+                          Icons.rate_review,
+                          color: Constant.textColor,
+                        ),
+                        title: Text(
+                          'Game Rate',
+                          style: TextStyle(color: Constant.textColor),
+                        ),
+                      ),
+                    ),
+                    InkWell(
+                      onTap: () {
+                        Navigator.pushNamed(context, Routes.ADD_FUND);
+                      },
+                      child: ListTile(
+                        leading: Icon(
+                          Icons.home,
+                          color: Constant.textColor,
+                        ),
+                        title: Text(
+                          'Add Fund',
+                          style: TextStyle(color: Constant.textColor),
+                        ),
+                      ),
+                    ),
+                    ListTile(
+                      leading: Icon(
+                        Icons.home,
+                        color: Constant.textColor,
+                      ),
+                      title: Text(
+                        'Withdraw Fund',
+                        style: TextStyle(color: Constant.textColor),
+                      ),
+                    ),
+                    InkWell(
+                      onTap: () {
+                        Navigator.pushNamed(context, Routes.APP_NOTIFICATION);
+                      },
+                      child: ListTile(
+                        leading: Icon(
+                          Icons.notification_important,
+                          color: Constant.textColor,
+                        ),
+                        title: Text(
+                          'App Notification',
+                          style: TextStyle(color: Constant.textColor),
+                        ),
+                      ),
+                    ),
+                    InkWell(
+                      onTap: () {
+                        Navigator.pushNamed(context, Routes.APP_NOTICEBOARD);
+                      },
+                      child: ListTile(
+                        leading: Icon(
+                          Icons.home,
+                          color: Constant.textColor,
+                        ),
+                        title: Text(
+                          'App Noticeboard',
+                          style: TextStyle(color: Constant.textColor),
+                        ),
+                      ),
+                    ),
+                    InkWell(
+                      onTap: () {
+                        Navigator.pushNamed(context, Routes.HOW_PLAY);
+                      },
+                      child: ListTile(
+                        leading: Icon(
+                          Icons.ondemand_video,
+                          color: Constant.textColor,
+                        ),
+                        title: Text(
+                          'How To Play',
+                          style: TextStyle(color: Constant.textColor),
+                        ),
+                      ),
+                    ),
+                    ListTile(
+                      leading: Icon(
+                        Icons.home,
+                        color: Constant.textColor,
+                      ),
+                      title: Text(
+                        'Share Now',
+                        style: TextStyle(color: Constant.textColor),
+                      ),
+                    ),
+                    ListTile(
+                      leading: Icon(
+                        Icons.home,
+                        color: Constant.textColor,
+                      ),
+                      title: Text(
+                        'App LogOut',
+                        style: TextStyle(color: Constant.textColor),
+                      ),
+                    ),
+                    ListTile(
+                      leading: Icon(
+                        Icons.home,
+                        color: Constant.textColor,
+                      ),
+                      title: Text(
+                        'version.1.3.3',
+                        style: TextStyle(color: Constant.textColor),
+                      ),
+                    ),
+                  ],
+                ),
+              )
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
   Widget getHomePageInfoListWidget() {
     return Padding(
       padding: const EdgeInsets.fromLTRB(0, 0, 0, 8),
-      child: Container(height: MediaQuery.of(context).size.height,
+      child: Container(
+        height: MediaQuery.of(context).size.height,
         child: ListView.builder(
           itemCount: viewModel.homeInfoModelList.length,
           scrollDirection: Axis.vertical,
           itemBuilder: (BuildContext context, index) {
-            return HomePageWidget(viewModel.homeInfoModelList[index]);
+            return InkWell(
+                onTap: () {
+                  Navigator.pushNamed(context, Routes.GAME_RUNNING);
+                },
+                child: HomePageWidget(viewModel.homeInfoModelList[index]));
           },
         ),
       ),

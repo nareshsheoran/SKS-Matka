@@ -13,7 +13,7 @@ class _AppWalletState extends State<AppWallet> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
+      appBar: AppBar(backgroundColor: Constant.appBarColor,
         title: Text('App Wallet'),
       ),
       body: SingleChildScrollView(

@@ -1,10 +1,6 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
-import 'package:http/http.dart';
 import 'package:kabir_app/Shared/constant.dart';
 import 'package:kabir_app/Shared/routes.dart';
-import 'package:kabir_app/api_details/organization_details_api.dart';
 
 class AddFund extends StatefulWidget {
   const AddFund({Key? key}) : super(key: key);
@@ -19,7 +15,7 @@ class _AddFundState extends State<AddFund> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
+      appBar: AppBar(backgroundColor: Constant.appBarColor,
         title: Text('Add Fund'),
       ),
       body: SingleChildScrollView(
@@ -45,10 +41,13 @@ class _AddFundState extends State<AddFund> {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: TextFormField(
-                controller: amountController,
+                controller: amountController,keyboardType: TextInputType.number,
                 decoration: InputDecoration(
-                  hintText: 'Enter Amount to add', errorBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.grey, width: MediaQuery.of(context).size.width/3)),
+                  hintText: 'Enter Amount to add',
+                  errorBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                          color: Colors.grey,
+                          width: MediaQuery.of(context).size.width / 3)),
                   contentPadding: EdgeInsets.symmetric(horizontal: 20),
                   errorStyle: TextStyle(color: Colors.white),
                   hintStyle: TextStyle(fontSize: 16, color: Colors.black),
@@ -57,9 +56,10 @@ class _AddFundState extends State<AddFund> {
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child: InkWell(onTap: (){
-                Navigator.pushNamed(context, Routes.PAYMENT_PAGE);
-              },
+              child: InkWell(
+                onTap: () {
+                  Navigator.pushNamed(context, Routes.PAYMENT_PAGE);
+                },
                 child: Container(
                   decoration: BoxDecoration(
                       color: Constant.primaryColor,
@@ -75,14 +75,19 @@ class _AddFundState extends State<AddFund> {
                         SizedBox(
                           width: 16,
                         ),
-                        Column(crossAxisAlignment: CrossAxisAlignment.start,
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
                               'Pay By GPay',
-                              style: TextStyle(fontWeight: FontWeight.bold,color: Constant.textColor),
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  color: Constant.textColor),
                             ),
                             Text('Auto Credit',
-                                style: TextStyle(fontWeight: FontWeight.bold,color: Colors.grey)),
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.grey)),
                           ],
                         ),
                         Expanded(child: Container()),
@@ -115,14 +120,19 @@ class _AddFundState extends State<AddFund> {
                       SizedBox(
                         width: 16,
                       ),
-                      Column(crossAxisAlignment: CrossAxisAlignment.start,
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
                             'Pay By PhonePe',
-                            style: TextStyle(fontWeight: FontWeight.bold,color: Constant.textColor),
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                color: Constant.textColor),
                           ),
                           Text('Auto Credit',
-                              style: TextStyle(fontWeight: FontWeight.bold,color: Colors.grey)),
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.grey)),
                         ],
                       ),
                       Expanded(child: Container()),
@@ -154,14 +164,19 @@ class _AddFundState extends State<AddFund> {
                       SizedBox(
                         width: 16,
                       ),
-                      Column(crossAxisAlignment: CrossAxisAlignment.start,
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
                             'Pay By Other',
-                            style: TextStyle(fontWeight: FontWeight.bold,color: Constant.textColor),
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                color: Constant.textColor),
                           ),
                           Text('Auto Credit',
-                              style: TextStyle(fontWeight: FontWeight.bold,color: Colors.grey)),
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.grey)),
                         ],
                       ),
                       Expanded(child: Container()),
@@ -193,14 +208,19 @@ class _AddFundState extends State<AddFund> {
                       SizedBox(
                         width: 16,
                       ),
-                      Column(crossAxisAlignment: CrossAxisAlignment.start,
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
                             'Pay By Paytm',
-                            style: TextStyle(fontWeight: FontWeight.bold, color: Constant.textColor),
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                color: Constant.textColor),
                           ),
                           Text('Admin Approval',
-                              style: TextStyle(fontWeight: FontWeight.bold,color: Colors.grey)),
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.grey)),
                         ],
                       ),
                       Expanded(child: Container()),

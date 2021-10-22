@@ -13,7 +13,7 @@ class _GooglePayDetailsState extends State<GooglePayDetails> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(appBar: AppBar(
+    return Scaffold(appBar: AppBar(backgroundColor: Constant.appBarColor,
       title: Text('Google Pay Details'),
     ),
     body: Column(

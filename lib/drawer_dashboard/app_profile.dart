@@ -18,8 +18,7 @@ class _AppProfileState extends State<AppProfile> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Constant.primaryColor,
-        title: Text('App Profile'),
+        backgroundColor: Constant.appBarColor,        title: Text('App Profile'),
       ),
       body: SingleChildScrollView(
         child: Padding(

@@ -14,7 +14,7 @@ class _PhonePeDetailsState extends State<PhonePeDetails> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
+      appBar: AppBar(backgroundColor: Constant.appBarColor,
         title: Text('PhonePe Details'),
       ),
       body: Column(

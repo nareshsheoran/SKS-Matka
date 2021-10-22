@@ -1,11 +1,12 @@
+
 class SlideApiDetails {
   late List<Slides> slides;
 
-  SlideApiDetails(this.slides);
+  SlideApiDetails({required this.slides});
 
   SlideApiDetails.fromJson(Map<String, dynamic> json) {
     if (json['slides'] != null) {
-      slides = new List<Slides>();
+      slides = [];
       json['slides'].forEach((v) {
         slides.add(new Slides.fromJson(v));
       });
@@ -17,16 +18,17 @@ class SlideApiDetails {
     if (this.slides != null) {
       data['slides'] = this.slides.map((v) => v.toJson()).toList();
     }
+
     return data;
   }
 }
 
 class Slides {
-  late String id;
+  late  String id;
   late String image;
   late String active;
 
-  Slides({required this.id, required this.image, required this.active});
+  Slides({ required this.id,  required this.image,  required this.active});
 
   Slides.fromJson(Map<String, dynamic> json) {
     id = json['id'];

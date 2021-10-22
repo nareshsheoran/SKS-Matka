@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kabir_app/Shared/constant.dart';
 import 'package:pay/pay.dart';
 
 class PaymentPage extends StatefulWidget {
@@ -12,7 +13,7 @@ class _PaymentPageState extends State<PaymentPage> {
   final _paymentItems = [
     PaymentItem(
       label: 'Total',
-      amount: '99.99',
+      amount: '01',
       status: PaymentItemStatus.final_price,
     )
   ];
@@ -24,7 +25,7 @@ class _PaymentPageState extends State<PaymentPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
+      appBar: AppBar(backgroundColor: Constant.appBarColor,
         title: Text('Google Pay'),
       ),
       body: Center(
