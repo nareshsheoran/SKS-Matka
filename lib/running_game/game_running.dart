@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kabir_app/Shared/constant.dart';
+import 'package:kabir_app/Shared/routes.dart';
 
 class GameRunning extends StatefulWidget {
   const GameRunning({Key? key}) : super(key: key);
@@ -52,16 +53,36 @@ class _GameRunningState extends State<GameRunning> {
                           children: [
                             Row(
                               children: [
-                                buildIcon(),
+                                InkWell(
+                                    onTap: () {
+                                      Navigator.pushNamed(
+                                          context, Routes.SINGLE_DIGIT);
+                                    },
+                                    child: iconName('SINGLE DIGIT')),
                                 Expanded(child: Container()),
-                                buildIcon(),
+                                InkWell(
+                                    onTap: () {
+                                      Navigator.pushNamed(
+                                          context, Routes.ODD_EVEN);
+                                    },
+                                    child: iconName('ODD EVEN')),
                               ],
                             ),
                             Row(
                               children: [
-                                buildIcon(),
+                                InkWell(
+                                    onTap: () {
+                                      Navigator.pushNamed(
+                                          context, Routes.JODI_DIGIT);
+                                    },
+                                    child: iconName('JODI DIGIT')),
                                 Expanded(child: Container()),
-                                buildIcon(),
+                                InkWell(
+                                    onTap: () {
+                                      Navigator.pushNamed(
+                                          context, Routes.RED_BRACKET);
+                                    },
+                                    child: iconName('RED BRACKET')),
                               ],
                             ),
                           ],
@@ -104,23 +125,53 @@ class _GameRunningState extends State<GameRunning> {
                           children: [
                             Row(
                               children: [
-                                buildIcon(),
+                                InkWell(
+                                    onTap: () {
+                                      Navigator.pushNamed(
+                                          context, Routes.SINGLE_PANA);
+                                    },
+                                    child: iconName('SINGLE PANA')),
                                 Expanded(child: Container()),
-                                buildIcon(),
+                                InkWell(
+                                    onTap: () {
+                                      Navigator.pushNamed(
+                                          context, Routes.DOUBLE_PANA);
+                                    },
+                                    child: iconName('DOUBLE PANA')),
                               ],
                             ),
                             Row(
                               children: [
-                                buildIcon(),
+                                InkWell(
+                                    onTap: () {
+                                      Navigator.pushNamed(
+                                          context, Routes.TRIPLE_PANA);
+                                    },
+                                    child: iconName('TRIPLE PANA')),
                                 Expanded(child: Container()),
-                                buildIcon(),
+                                InkWell(
+                                    onTap: () {
+                                      Navigator.pushNamed(
+                                          context, Routes.SP_DP_TP);
+                                    },
+                                    child: iconName('SP,DP.TP')),
                               ],
                             ),
                             Row(
                               children: [
-                                buildIcon(),
+                                InkWell(
+                                    onTap: () {
+                                      Navigator.pushNamed(
+                                          context, Routes.SP_MOTORS);
+                                    },
+                                    child: iconName('SP MOTORS')),
                                 Expanded(child: Container()),
-                                buildIcon(),
+                                InkWell(
+                                    onTap: () {
+                                      Navigator.pushNamed(
+                                          context, Routes.DP_MOTORS);
+                                    },
+                                    child: iconName('DP MOTORS')),
                               ],
                             ),
                           ],
@@ -164,9 +215,20 @@ class _GameRunningState extends State<GameRunning> {
                           children: [
                             Row(
                               children: [
-                                buildIcon(),
+                                InkWell(
+                                    onTap: () {
+                                      Navigator.pushNamed(
+                                          context, Routes.HALF_SANGAM);
+                                    },
+                                    child: iconName('HALF SANGAM ')),
                                 Expanded(child: Container()),
-                                buildIcon(),
+                                InkWell(
+                                  onTap: () {
+                                    Navigator.pushNamed(
+                                        context, Routes.FULL_SANGAM);
+                                  },
+                                  child: iconName('FULL SANGAM '),
+                                )
                               ],
                             ),
                           ],
@@ -183,11 +245,25 @@ class _GameRunningState extends State<GameRunning> {
     );
   }
 
-  Icon buildIcon() {
-    return Icon(
-      Icons.star,
-      size: 120,
-      color: Constant.primaryColor,
+
+  Widget iconName(String text) {
+    return Container(
+      height: 120,
+      width: 120,
+      child: Stack(
+        children: [
+          Icon(
+            Icons.star,
+            size: 120,
+            color: Constant.primaryColor,
+          ),
+          Center(
+              child: Text(
+            text,
+            style: TextStyle(fontSize: 8,color: Constant.textColor),
+          ))
+        ],
+      ),
     );
   }
 }

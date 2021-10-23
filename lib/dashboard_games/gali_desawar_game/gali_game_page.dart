@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kabir_app/Shared/constant.dart';
+import 'package:kabir_app/Shared/routes.dart';
 import 'package:kabir_app/model/gali_game_info_model.dart';
 
 class GaliGamePage extends StatefulWidget {
@@ -10,7 +11,7 @@ class GaliGamePage extends StatefulWidget {
 }
 
 class _GaliGamePageState extends State<GaliGamePage> {
-   late List<GaliGameInfoModel> galiGameInfoModelList;
+  late List<GaliGameInfoModel> galiGameInfoModelList;
 
   @override
   void initState() {
@@ -48,7 +49,7 @@ class _GaliGamePageState extends State<GaliGamePage> {
           status: 'CLOSED',
           code: '00:00:00',
           icon: Constant.icon),
-     GaliGameInfoModel(
+      GaliGameInfoModel(
           name: 'DESAWAR-DS',
           number: '81',
           time: '04:30 AM',
@@ -77,15 +78,14 @@ class _GaliGamePageState extends State<GaliGamePage> {
           code: '00:00:00',
           icon: Constant.icon),
     ];
-    setState(() {
-
-    });
+    setState(() {});
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(backgroundColor: Constant.primaryColor,
+      appBar: AppBar(
+        backgroundColor: Constant.primaryColor,
         title: Text(''
             'Gali Desawar Game'),
         actions: [Icon(Icons.wallet_giftcard)],
@@ -121,45 +121,61 @@ class _GaliGamePageState extends State<GaliGamePage> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Container(
-                    height: 28,
-                    decoration: BoxDecoration(
-                      color: Constant.primaryColor,
-                      borderRadius: BorderRadius.all(Radius.circular(2.0)),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.all(4.0),
-                      child: Text(
-                        'Bid History',
-                        style: TextStyle(color: Constant.textColor),
+                  InkWell(
+                    onTap: () {
+                      Navigator.pushNamed(
+                          context, Routes.GALI_GAME_BID_HISTORY);
+                    },
+                    child: Container(
+                      height: 28,
+                      decoration: BoxDecoration(
+                        color: Constant.primaryColor,
+                        borderRadius: BorderRadius.all(Radius.circular(2.0)),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.all(4.0),
+                        child: Text(
+                          'Bid History',
+                          style: TextStyle(color: Constant.textColor),
+                        ),
                       ),
                     ),
                   ),
-                  Container(
-                    height: 28,
-                    decoration: BoxDecoration(
-                      color: Constant.primaryColor,
-                      borderRadius: BorderRadius.all(Radius.circular(2.0)),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.all(4.0),
-                      child: Text(
-                        'Game Result',
-                        style: TextStyle(color: Constant.textColor),
+                  InkWell(
+                    onTap: () {
+                      Navigator.pushNamed(context, Routes.GALI_GAME_RESULT);
+                    },
+                    child: Container(
+                      height: 28,
+                      decoration: BoxDecoration(
+                        color: Constant.primaryColor,
+                        borderRadius: BorderRadius.all(Radius.circular(2.0)),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.all(4.0),
+                        child: Text(
+                          'Game Result',
+                          style: TextStyle(color: Constant.textColor),
+                        ),
                       ),
                     ),
                   ),
-                  Container(
-                    height: 28,
-                    decoration: BoxDecoration(
-                      color: Constant.primaryColor,
-                      borderRadius: BorderRadius.all(Radius.circular(2.0)),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.all(4.0),
-                      child: Text(
-                        'Game Chart',
-                        style: TextStyle(color: Constant.textColor),
+                  InkWell(
+                    onTap: () {
+                      Navigator.pushNamed(context, Routes.GALI_GAME_CHART);
+                    },
+                    child: Container(
+                      height: 28,
+                      decoration: BoxDecoration(
+                        color: Constant.primaryColor,
+                        borderRadius: BorderRadius.all(Radius.circular(2.0)),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.all(4.0),
+                        child: Text(
+                          'Game Chart',
+                          style: TextStyle(color: Constant.textColor),
+                        ),
                       ),
                     ),
                   ),
@@ -208,12 +224,13 @@ class _GaliGamePageState extends State<GaliGamePage> {
                                 ),
                               ),
                               Padding(
-                                padding: const EdgeInsets.fromLTRB(12, 0, 12, 8),
+                                padding:
+                                    const EdgeInsets.fromLTRB(12, 0, 12, 8),
                                 child: Container(
                                     decoration: BoxDecoration(
                                       color: Colors.white,
-                                      borderRadius:
-                                          BorderRadius.all(Radius.circular(2.0)),
+                                      borderRadius: BorderRadius.all(
+                                          Radius.circular(2.0)),
                                     ),
                                     child: Padding(
                                       padding: const EdgeInsets.all(8.0),
@@ -221,20 +238,39 @@ class _GaliGamePageState extends State<GaliGamePage> {
                                         mainAxisAlignment:
                                             MainAxisAlignment.spaceBetween,
                                         children: [
-                                          Text(galiGameInfoModelList[index].time,style: TextStyle(fontWeight: FontWeight.bold),),
+                                          Text(
+                                            galiGameInfoModelList[index].time,
+                                            style: TextStyle(
+                                                fontWeight: FontWeight.bold),
+                                          ),
                                           Column(
                                             children: [
                                               Text(
                                                 galiGameInfoModelList[index]
                                                     .status,
-                                                style: TextStyle(fontWeight: FontWeight.bold,fontSize: 16,
-                                                    color: Constant.primaryColor),
+                                                style: TextStyle(
+                                                    fontWeight: FontWeight.bold,
+                                                    fontSize: 16,
+                                                    color:
+                                                        Constant.primaryColor),
                                               ),
-                                              Text(galiGameInfoModelList[index]
-                                                  .code,style: TextStyle(fontWeight: FontWeight.bold),),
+                                              Text(
+                                                galiGameInfoModelList[index]
+                                                    .code,
+                                                style: TextStyle(
+                                                    fontWeight:
+                                                        FontWeight.bold),
+                                              ),
                                             ],
                                           ),
-                                          Icon(galiGameInfoModelList[index].icon,size: 16,),
+                                          InkWell(onTap: (){
+                                            Navigator.pushNamed(context, Routes.GALI_GAME_RESULT_DASHBOARD);
+                                          },
+                                            child: Icon(
+                                              galiGameInfoModelList[index].icon,
+                                              size: 32,
+                                            ),
+                                          ),
                                         ],
                                       ),
                                     )),
