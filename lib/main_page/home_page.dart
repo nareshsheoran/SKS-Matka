@@ -102,16 +102,14 @@ class _HomePageState extends State<HomePage> {
                               height: 96,
                               width: MediaQuery.of(context).size.width / 1.5,
                               color: Colors.blueAccent,
-                              child: CarouselSlider.builder(
+                              child: CarouselSlider(
                                 options: CarouselOptions(
                                   aspectRatio: 2.0,
                                   enlargeCenterPage: true,
                                   scrollDirection: Axis.vertical,
                                   autoPlay: true,
                                 ),
-                                itemCount: 2,
-                                itemBuilder: (context, index, realIndex) =>
-                                    ,
+                                items: [],
                               )),
                         ),
                         Container(
@@ -279,17 +277,11 @@ class _HomePageState extends State<HomePage> {
                         children: [
                           Text(
                             'Naresh',
-                            style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 16,
-                                color: Constant.textColor),
+                            style: TextStyle(fontWeight: FontWeight.bold,fontSize: 16,color: Constant.textColor),
                           ),
                           Text(
                             '9812677822',
-                            style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 16,
-                                color: Constant.textColor),
+                            style: TextStyle(fontWeight: FontWeight.bold,fontSize: 16,color: Constant.textColor),
                           )
                         ],
                       ),

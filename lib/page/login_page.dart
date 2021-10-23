@@ -57,8 +57,7 @@ class _LoginPageState extends State<LoginPage> {
                       decoration: InputDecoration(
                         border: InputBorder.none,
                         hintText: 'User Id',
-                        contentPadding:
-                        EdgeInsets.symmetric(horizontal: 20),
+                        contentPadding: EdgeInsets.symmetric(horizontal: 20),
                         errorStyle: TextStyle(color: Colors.white),
                         hintStyle: TextStyle(fontSize: 16, color: Colors.white),
                       ),
@@ -85,8 +84,8 @@ class _LoginPageState extends State<LoginPage> {
                       keyboardType: TextInputType.emailAddress,
                       decoration: InputDecoration(
                         border: InputBorder.none,
-                        hintText: 'Password',contentPadding:
-                      EdgeInsets.symmetric(horizontal: 20),
+                        hintText: 'Password',
+                        contentPadding: EdgeInsets.symmetric(horizontal: 20),
                         errorStyle: TextStyle(color: Colors.white),
                         hintStyle: TextStyle(fontSize: 16, color: Colors.white),
                       ),
@@ -102,17 +101,20 @@ class _LoginPageState extends State<LoginPage> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  InkWell(onTap: () {
-                    login(context);
-                  },
+                  InkWell(
+                    onTap: () {
+                      login(context);
+                    },
                     child: Text(
                       'Sign In',
                       style:
                           TextStyle(color: Constant.primaryColor, fontSize: 20),
                     ),
-                  ),InkWell(onTap: (){
-                    Navigator.pushNamed(context, Routes.HOME_PAGE);
-                  },
+                  ),
+                  InkWell(
+                    onTap: () {
+                      Navigator.pushNamed(context, Routes.HOME_PAGE);
+                    },
                     child: Container(
                         height: 70,
                         width: 70,
@@ -124,24 +126,25 @@ class _LoginPageState extends State<LoginPage> {
                           color: Colors.white,
                         )),
                   ),
-
                 ],
-              ),Row(
+              ),
+              Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  InkWell(onTap: (){
-                    Navigator.pushNamed(context, Routes.SIGNUP_PAGE);
-                  },
+                  InkWell(
+                    onTap: () {
+                      Navigator.pushNamed(context, Routes.SIGNUP_PAGE);
+                    },
                     child: Text(
                       'Sign Up',
                       style:
-                      TextStyle(color: Constant.primaryColor, fontSize: 20),
+                          TextStyle(color: Constant.primaryColor, fontSize: 20),
                     ),
                   ),
                   Text(
                     'Forgot Password?',
                     style:
-                    TextStyle(color: Constant.primaryColor, fontSize: 20),
+                        TextStyle(color: Constant.primaryColor, fontSize: 20),
                   ),
                 ],
               ),
@@ -151,8 +154,6 @@ class _LoginPageState extends State<LoginPage> {
       ),
     );
   }
-
-
 
   Future login(BuildContext context) async {
     String userId = userIdController.text;
@@ -169,14 +170,13 @@ class _LoginPageState extends State<LoginPage> {
 
     LoginRequest request = LoginRequest(user_id: userId, password: password);
 
-    var url = Uri.parse(
-        'http://aikahosts.com/matka/Api/user/login');
+    var url = Uri.parse('http://aikahosts.com/matka/Api/user/login');
     var response = await http.post(url, body: request.toJson());
     print('Response status: ${response.statusCode}');
     print('Response body: ${response.body}');
 
     Map<String, dynamic> map =
-    jsonDecode(response.body) as Map<String, dynamic>;
+        jsonDecode(response.body) as Map<String, dynamic>;
 
     if (map != null) {
       Fluttertoast.showToast(msg: map['message']);

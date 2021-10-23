@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kabir_app/Shared/constant.dart';
+import 'package:kabir_app/calender.dart';
 
 class GameHistory extends StatefulWidget {
   const GameHistory({Key? key}) : super(key: key);
@@ -17,7 +18,10 @@ class _GameHistoryState extends State<GameHistory> {
         title: Text('Standard Bid History'),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: (){},
+        onPressed: () {
+          Navigator.push(
+              context, MaterialPageRoute(builder: (context) => Calender()));
+        },
         child: Icon(Icons.calendar_today),
       ),
     );
