@@ -187,11 +187,21 @@ class _SpMotorsState extends State<SpMotors> {
                                     EdgeInsets.only(bottom: 8, left: 8),
                                 hintText: ' Enter Close Pana'),
                           )),
-                      Container(
-                        child: Center(
-                          child: Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Text('ADD BID'),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 8),
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            border: Border.all(
+                              color: Colors.black,
+                              width: 1.5,
+                            ),
+                          ),
+                          child: Center(
+                            child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Text('ADD BID',style: TextStyle(fontWeight: FontWeight.bold),),
+                            ),
                           ),
                         ),
                       )

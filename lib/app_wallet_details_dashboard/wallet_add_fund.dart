@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:kabir_app/Shared/constant.dart';
 import 'package:kabir_app/Shared/routes.dart';
 
-class AddFund extends StatefulWidget {
-  const AddFund({Key? key}) : super(key: key);
+class WalletAddFund extends StatefulWidget {
+  const WalletAddFund({Key? key}) : super(key: key);
 
   @override
-  _AddFundState createState() => _AddFundState();
+  _WalletAddFundState createState() => _WalletAddFundState();
 }
 
-class _AddFundState extends State<AddFund> {
+class _WalletAddFundState extends State<WalletAddFund> {
   TextEditingController amountController = TextEditingController();
 
   @override

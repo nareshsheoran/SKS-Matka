@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:kabir_app/Shared/constant.dart';
 
@@ -247,11 +248,21 @@ class _OddEvenState extends State<OddEven> {
                               ),
                             ),
                           )),
-                      Container(
-                        child: Center(
-                          child: Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Text('ADD BID'),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 8),
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            border: Border.all(
+                              color: Colors.black,
+                              width: 1.5,
+                            ),
+                          ),
+                          child: Center(
+                            child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Text('ADD BID',style: TextStyle(fontWeight: FontWeight.bold),),
+                            ),
                           ),
                         ),
                       )

@@ -135,11 +135,21 @@ class _GaliGameRightDigitState extends State<GaliGameRightDigit> {
                     SizedBox(
                       height: 8,
                     ),
-                    Container(
-                      child: Center(
-                        child: Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Text('BIDDING CLOSED'),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 8),
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          border: Border.all(
+                            color: Colors.black,
+                            width: 1.5,
+                          ),
+                        ),
+                        child: Center(
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Text('BIDDING CLOSED',style: TextStyle(fontWeight: FontWeight.bold),),
+                          ),
                         ),
                       ),
                     )

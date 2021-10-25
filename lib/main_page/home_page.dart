@@ -1,6 +1,9 @@
+import 'dart:convert';
+
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:http/http.dart';
 import 'package:kabir_app/Shared/constant.dart';
 import 'package:kabir_app/Shared/routes.dart';
 import 'package:kabir_app/api_details/predefined_num_api.dart';
@@ -24,7 +27,7 @@ class _HomePageState extends State<HomePage> {
   late HomePageInfoViewModel viewModel;
 
   List<Slides> slidesList = [];
-  List<StandardGame>? standardGameList = [];
+  List<StandardGame> standardGameList = [];
   List<Numbers> numbersList = [];
 
   void initState() {
@@ -33,16 +36,42 @@ class _HomePageState extends State<HomePage> {
     super.initState();
   }
 
+  Future fetchStandardGameName() async {
+    Uri myUri = Uri.parse(NetworkUtil.getStandardGameNameUrl);
+    Response response = await get(myUri);
+    if (response.statusCode == 200) {
+      Map<String, dynamic> map =
+          jsonDecode(response.body) as Map<String, dynamic>;
+      StandardGameApi standardGameApi = StandardGameApi.fromJson(map);
+      standardGameList = standardGameApi.standardGame;
+      setState(() {});
+    }
+  }
+  Future fetchPredefinedNumberData() async {
+    Uri myUri = Uri.parse(NetworkUtil.getPredefinedNumberUrl);
+    Response response = await get(myUri);
+    if (response.statusCode == 200) {
+      Map<String, dynamic> map =
+      jsonDecode(response.body) as Map<String, dynamic>;
+      PredefinedNumberApi predefinedNumberApi =
+      PredefinedNumberApi.fromJson(map);
+      numbersList = predefinedNumberApi.numbers;
+      setState(() {});
+    }
+  }
+
   Future init() async {
-    standardGameList = await GameService.getInstance().fetchStandardGameName();
-    setState(() {});
-
-    slidesList = await SliderService.getInstance().fetchSliderData();
-    setState(() {});
-
-    numbersList =
-        await PreDefinedService.getInstance().fetchPredefinedNumberData();
-    setState(() {});
+    fetchStandardGameName();
+    fetchPredefinedNumberData();
+    // standardGameList = await GameService.getInstance().fetchStandardGameName();
+    // setState(() {});
+    //
+    // slidesList = await SliderService.getInstance().fetchSliderData();
+    // setState(() {});
+    //
+    // numbersList =
+    //     await PreDefinedService.getInstance().fetchPredefinedNumberData();
+    // setState(() {});
   }
 
   @override
@@ -118,7 +147,7 @@ class _HomePageState extends State<HomePage> {
                             children: [
                               InkWell(
                                 onTap: () {
-                                  Navigator.pushNamed(context, Routes.ADD_FUND);
+                                  Navigator.pushNamed(context, Routes.WALLET_ADD_FUND);
                                 },
                                 child: Icon(
                                   Icons.account_balance_wallet_outlined,
@@ -248,7 +277,107 @@ class _HomePageState extends State<HomePage> {
                   SizedBox(
                     height: 8,
                   ),
-                  getHomePageInfoListWidget(),
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(0, 0, 0, 8),
+                    child: SingleChildScrollView(
+                      child: Container(
+                        height: MediaQuery.of(context).size.height,
+                        child: ListView.builder(
+                          itemCount: standardGameList.length,
+                          scrollDirection: Axis.vertical,
+                          itemBuilder: (BuildContext context, index) {
+                            return Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Container(
+                                color: Constant.primaryColor,
+                                width: MediaQuery.of(context).size.width,
+                                height: 120,
+                                child: Column(
+                                  children: [
+                                    Row(
+                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      children: [
+                                        Container(height: 24,width: 24,
+                                          child: InkWell(
+                                              onTap: () {
+                                                Navigator.pushNamed(context,
+                                                    Routes.CALENDER_RESULT_CHART);
+                                              },
+                                              child:
+                                                  Icon(Icons.ac_unit_sharp)),
+                                        ),
+                                        SizedBox(
+                                          width: 16,
+                                        ),
+                                        Container(height: 24,width: 24,
+                                          child: InkWell(
+                                              onTap: () {
+                                                Navigator.pushNamed(
+                                                    context, Routes.GAME_RUNNING);
+                                              },
+                                              child: Icon(Icons.video_call_sharp)),
+                                        )
+                                      ],
+                                    ),
+                                    Text(
+                                      standardGameList[index].name,
+                                      style: TextStyle(
+                                          fontSize: 16,
+                                          fontWeight: FontWeight.bold,
+                                          color: Constant.textColor),
+                                    ),
+                                    Text(standardGameList[index].gameId,
+                                        style: TextStyle(
+                                            fontSize: 16,
+                                            fontWeight: FontWeight.bold,
+                                            color: Constant.textColor)),
+                                    Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: Container(
+                                        decoration: BoxDecoration(
+                                            color: Constant.textColor,
+                                            borderRadius: BorderRadius.all(
+                                                Radius.circular(2.0))),
+                                        child: Padding(
+                                          padding:
+                                              const EdgeInsets.fromLTRB(30, 4, 30, 4),
+                                          child: Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              Column(
+                                                children: [
+                                                  Text(standardGameList[index]
+                                                      .startTime),
+                                                  Text(standardGameList[index]
+                                                      .endTime),
+                                                ],
+                                              ),
+                                              Column(
+                                                children: [
+                                                  Text(
+                                                    standardGameList[index].day,
+                                                    style: TextStyle(
+                                                        color: Constant.primaryColor),
+                                                  ),
+                                                  Text(
+                                                      standardGameList[index].status),
+                                                ],
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ),
+                                    )
+                                  ],
+                                ),
+                              ),
+                            );
+                          },
+                        ),
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ),
@@ -277,11 +406,17 @@ class _HomePageState extends State<HomePage> {
                         children: [
                           Text(
                             'Naresh',
-                            style: TextStyle(fontWeight: FontWeight.bold,fontSize: 16,color: Constant.textColor),
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 16,
+                                color: Constant.textColor),
                           ),
                           Text(
                             '9812677822',
-                            style: TextStyle(fontWeight: FontWeight.bold,fontSize: 16,color: Constant.textColor),
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 16,
+                                color: Constant.textColor),
                           )
                         ],
                       ),
@@ -361,7 +496,7 @@ class _HomePageState extends State<HomePage> {
                     ),
                     InkWell(
                       onTap: () {
-                        Navigator.pushNamed(context, Routes.ADD_FUND);
+                        Navigator.pushNamed(context, Routes.WALLET_ADD_FUND);
                       },
                       child: ListTile(
                         leading: Icon(
@@ -469,23 +604,89 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  Widget getHomePageInfoListWidget() {
-    return Padding(
-      padding: const EdgeInsets.fromLTRB(0, 0, 0, 8),
-      child: Container(
-        height: MediaQuery.of(context).size.height,
-        child: ListView.builder(
-          itemCount: viewModel.homeInfoModelList.length,
-          scrollDirection: Axis.vertical,
-          itemBuilder: (BuildContext context, index) {
-            return InkWell(
-                onTap: () {
-                  Navigator.pushNamed(context, Routes.GAME_RUNNING);
-                },
-                child: HomePageWidget(viewModel.homeInfoModelList[index]));
-          },
-        ),
-      ),
-    );
-  }
+// Widget getHomePageInfoListWidget() {
+//   return Padding(
+//     padding: const EdgeInsets.fromLTRB(0, 0, 0, 8),
+//     child: Container(
+//       height: MediaQuery.of(context).size.height,
+//       child: ListView.builder(
+//         itemCount: standardGameList.length,
+//         scrollDirection: Axis.vertical,
+//         itemBuilder: (BuildContext context, index) {
+//           return Container(
+//             color: Constant.primaryColor,
+//             width: MediaQuery.of(context).size.width,
+//             height: 120,
+//             child: Column(
+//               children: [
+//                 Row(
+//                   mainAxisAlignment: MainAxisAlignment.center,
+//                   children: [
+//                     InkWell(
+//                         onTap: () {
+//                           Navigator.pushNamed(context, Routes.CALENDER_RESULT_CHART);
+//                         },
+//                         child: Text(standardGameList[index].name)),
+//                     SizedBox(
+//                       width: 16,
+//                     ),
+//                     InkWell(
+//                         onTap: () {
+//                           Navigator.pushNamed(context, Routes.GAME_RUNNING);
+//                         },
+//                         child: Text(standardGameList[index].name))
+//                   ],
+//                 ),
+//                 Text(
+//                   standardGameList[index].name,
+//                   style: TextStyle(
+//                       fontSize: 16,
+//                       fontWeight: FontWeight.bold,
+//                       color: Constant.textColor),
+//                 ),
+//                 Text(standardGameList[index].gameId,
+//                     style: TextStyle(
+//                         fontSize: 16,
+//                         fontWeight: FontWeight.bold,
+//                         color: Constant.textColor)),
+//                 Padding(
+//                   padding: const EdgeInsets.all(8.0),
+//                   child: Container(
+//                     decoration: BoxDecoration(
+//                         color: Constant.textColor,
+//                         borderRadius: BorderRadius.all(Radius.circular(2.0))),
+//                     child: Padding(
+//                       padding: const EdgeInsets.fromLTRB(30, 4, 30, 4),
+//                       child: Row(
+//                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
+//                         children: [
+//                           Column(
+//                             children: [
+//                               Text(standardGameList[index].startTime),
+//                               Text(standardGameList[index].endTime),
+//                             ],
+//                           ),
+//                           Column(
+//                             children: [
+//                               Text(
+//                                 standardGameList[index].day,
+//                                 style: TextStyle(color: Constant.primaryColor),
+//                               ),
+//                               Text(standardGameList[index].status),
+//                             ],
+//                           ),
+//                         ],
+//                       ),
+//                     ),
+//                   ),
+//                 )
+//               ],
+//             ),
+//
+//           );
+//         },
+//       ),
+//     ),
+//   );
+// }
 }

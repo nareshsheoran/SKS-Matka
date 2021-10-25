@@ -13,7 +13,8 @@ class _AppWalletState extends State<AppWallet> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(backgroundColor: Constant.appBarColor,
+      appBar: AppBar(
+        backgroundColor: Constant.appBarColor,
         title: Text('App Wallet'),
       ),
       body: SingleChildScrollView(
@@ -23,30 +24,59 @@ class _AppWalletState extends State<AppWallet> {
             children: [
               Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: InkWell(onTap: (){
-                  Navigator.pushNamed(context, Routes.ADD_FUND);
+                child: InkWell(
+                    onTap: () {
+                      Navigator.pushNamed(context, Routes.WALLET_ADD_FUND);
+                    },
+                    child: buildContainer(
+                      'Add Funds',
+                    )),
+              ),
+              InkWell(
+                onTap: () {
+                  Navigator.pushNamed(context, Routes.WALLET_WITHDRAW_FUND);
                 },
-                    child: buildContainer('Add Funds',)),
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: buildContainer('Withdraw Funds'),
+                ),
               ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: buildContainer('Withdraw Funds'),
+              InkWell(
+                onTap: () {
+                  Navigator.pushNamed(context, Routes.WALLET_BID_HISTORY);
+                },
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: buildContainer('Bid History'),
+                ),
               ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: buildContainer('Bid History'),
+              InkWell(
+                onTap: () {
+                  Navigator.pushNamed(context, Routes.WALLET_WINNING_HISTORY);
+                },
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: buildContainer('Winning history'),
+                ),
               ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: buildContainer('Winning history'),
+              InkWell(
+                onTap: () {
+                  Navigator.pushNamed(
+                      context, Routes.WALLET_TRANSACTION_HISTORY);
+                },
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: buildContainer('Transaction History'),
+                ),
               ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: buildContainer('Transaction History'),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: buildContainer('Withdraw History'),
+              InkWell(
+                onTap: () {
+                  Navigator.pushNamed(context, Routes.WALLET_WITHDRAW_HISTORY);
+                },
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: buildContainer('Withdraw History'),
+                ),
               ),
             ],
           ),

@@ -26,7 +26,7 @@ class _OrganisationApiDetailsState extends State<OrganisationApiDetails> {
 
       OrganizationDetails organizationDetails = OrganizationDetails.fromJson(map);
       Organisation organisation = organizationDetails.organisation;
-
+      organisationModelList.add(organisation);
       setState(() {});
     }
   }

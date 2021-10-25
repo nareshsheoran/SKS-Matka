@@ -7,7 +7,6 @@ class Constant {
   static final Color appBarColor = Colors.pink;
   static final IconData icon = Icons.video_call_sharp;
 
-
 }
 
 class NetworkUtil {

@@ -14,14 +14,24 @@ class _PhonePeDetailsState extends State<PhonePeDetails> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(backgroundColor: Constant.appBarColor,
+      appBar: AppBar(
+        backgroundColor: Constant.appBarColor,
         title: Text('PhonePe Details'),
       ),
       body: Column(
         children: [
-          TextField(
-            controller: numberController,
-            decoration: InputDecoration(hintText: 'Phone Pe Number'),
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 24,horizontal: 8),
+            child: Container(
+              decoration: BoxDecoration(color: Colors.grey[400]),
+              child: TextField(
+                controller: numberController,
+                decoration: InputDecoration(
+                    contentPadding: EdgeInsets.symmetric(horizontal: 16),
+                    hintText: 'Phone Pe Number',
+                    hintStyle: TextStyle(fontSize: 20)),
+              ),
+            ),
           ),
           Padding(
             padding: const EdgeInsets.all(8.0),
