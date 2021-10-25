@@ -103,7 +103,6 @@ class Routes {
   static const String WALLET_WITHDRAW_HISTORY = '/walletWithdrawHistory';
   static const String WALLET_WITHDRAW_FUND = '/walletWithdrawFund';
 
-
 }
 
 final routes = {
