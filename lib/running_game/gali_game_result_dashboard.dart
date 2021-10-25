@@ -16,7 +16,7 @@ class _GaliGameResultDashboardState extends State<GaliGameResultDashboard> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Constant.appBarColor,
-        title: Text('gali_game_result_dashboard'),
+        title: Text('Gali Game Result Dashboard'),
       ),
       body: Card(
         elevation: 2,
@@ -25,14 +25,12 @@ class _GaliGameResultDashboardState extends State<GaliGameResultDashboard> {
           height: MediaQuery.of(context).size.height / 2.9,
           child: Column(
             children: [
-              Row(
-                children: [],
-              ),
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Column(
                   children: [
-                    Row(mainAxisAlignment: MainAxisAlignment.center,
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Center(
                           child: InkWell(
@@ -40,7 +38,7 @@ class _GaliGameResultDashboardState extends State<GaliGameResultDashboard> {
                                 Navigator.pushNamed(
                                     context, Routes.GALI_GAME_LEFT_DIGIT);
                               },
-                              child: iconName('Left Digit ')),
+                              child: iconName('LEFT DIGIT')),
                         ),
                       ],
                     ),

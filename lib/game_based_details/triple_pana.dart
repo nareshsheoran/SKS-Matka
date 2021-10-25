@@ -11,6 +11,7 @@ class TriplaPana extends StatefulWidget {
 class _TriplaPanaState extends State<TriplaPana> {
   TextEditingController bidDigitController = TextEditingController();
   TextEditingController bidPointController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -72,11 +73,14 @@ class _TriplaPanaState extends State<TriplaPana> {
                                   padding: const EdgeInsets.all(8.0),
                                   child: Row(
                                     mainAxisAlignment:
-                                    MainAxisAlignment.spaceEvenly,
+                                        MainAxisAlignment.spaceEvenly,
                                     children: [
-                                      Container(width: MediaQuery.of(context).size.width/3,
+                                      Container(
+                                        width:
+                                            MediaQuery.of(context).size.width /
+                                                3,
                                         decoration:
-                                        BoxDecoration(color: Colors.black),
+                                            BoxDecoration(color: Colors.black),
                                         child: Center(
                                           child: Padding(
                                             padding: const EdgeInsets.all(16.0),
@@ -89,9 +93,12 @@ class _TriplaPanaState extends State<TriplaPana> {
                                           ),
                                         ),
                                       ),
-                                      Container(width: MediaQuery.of(context).size.width/3,
-                                        decoration:
-                                        BoxDecoration(color: Colors.grey[200]),
+                                      Container(
+                                        width:
+                                            MediaQuery.of(context).size.width /
+                                                3,
+                                        decoration: BoxDecoration(
+                                            color: Colors.grey[200]),
                                         child: Center(
                                           child: Padding(
                                             padding: const EdgeInsets.all(16.0),
@@ -111,7 +118,6 @@ class _TriplaPanaState extends State<TriplaPana> {
                             ),
                           ],
                         ),
-
                       ),
                     ),
                   ],
@@ -150,7 +156,7 @@ class _TriplaPanaState extends State<TriplaPana> {
                               decoration: InputDecoration(
                                 border: InputBorder.none,
                                 contentPadding:
-                                EdgeInsets.only(bottom: 8, left: 8),
+                                    EdgeInsets.only(bottom: 8, left: 8),
                                 hintText: ' Enter  Digit',
                               ),
                             ),
@@ -180,16 +186,27 @@ class _TriplaPanaState extends State<TriplaPana> {
                             decoration: InputDecoration(
                                 border: InputBorder.none,
                                 contentPadding:
-                                EdgeInsets.only(bottom: 8, left: 8),
+                                    EdgeInsets.only(bottom: 8, left: 8),
                                 hintText: ' Enter Close Pana'),
                           )),
-
-
-                      Container(
-                        child: Center(
-                          child: Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Text('ADD BID'),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 8),
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            border: Border.all(
+                              color: Colors.black,
+                              width: 1.5,
+                            ),
+                          ),
+                          child: Center(
+                            child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Text(
+                                'ADD BID',
+                                style: TextStyle(fontWeight: FontWeight.bold),
+                              ),
+                            ),
                           ),
                         ),
                       )

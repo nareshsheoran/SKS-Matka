@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:kabir_app/Shared/constant.dart';
 import 'package:kabir_app/Shared/routes.dart';
+import 'package:kabir_app/all_api_details/organisation_api_details.dart';
 import 'package:kabir_app/model_request/loginin_request.dart';
 import 'package:http/http.dart' as http;
 
@@ -28,11 +29,17 @@ class _LoginPageState extends State<LoginPage> {
             padding: const EdgeInsets.all(8.0),
             child: Column(children: [
               SizedBox(
-                height: MediaQuery.of(context).size.height / 7.5,
+                height: MediaQuery
+                    .of(context)
+                    .size
+                    .height / 7.5,
               ),
               Container(
                 height: 160,
-                width: MediaQuery.of(context).size.width,
+                width: MediaQuery
+                    .of(context)
+                    .size
+                    .width,
                 decoration: BoxDecoration(
                     image: DecorationImage(
                         image: AssetImage('assets/image/logo.jpg'),
@@ -40,7 +47,10 @@ class _LoginPageState extends State<LoginPage> {
                     shape: BoxShape.rectangle),
               ),
               SizedBox(
-                height: MediaQuery.of(context).size.height / 7.5,
+                height: MediaQuery
+                    .of(context)
+                    .size
+                    .height / 7.5,
               ),
               Padding(
                 padding: const EdgeInsets.fromLTRB(16, 4, 16, 4),
@@ -97,7 +107,10 @@ class _LoginPageState extends State<LoginPage> {
                       }),
                 ),
               ),
-              SizedBox(height: MediaQuery.of(context).size.height / 10.6),
+              SizedBox(height: MediaQuery
+                  .of(context)
+                  .size
+                  .height / 10.6),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -108,7 +121,7 @@ class _LoginPageState extends State<LoginPage> {
                     child: Text(
                       'Sign In',
                       style:
-                          TextStyle(color: Constant.primaryColor, fontSize: 20),
+                      TextStyle(color: Constant.primaryColor, fontSize: 20),
                     ),
                   ),
                   InkWell(
@@ -138,13 +151,16 @@ class _LoginPageState extends State<LoginPage> {
                     child: Text(
                       'Sign Up',
                       style:
-                          TextStyle(color: Constant.primaryColor, fontSize: 20),
+                      TextStyle(color: Constant.primaryColor, fontSize: 20),
                     ),
                   ),
-                  Text(
-                    'Forgot Password?',
-                    style:
-                        TextStyle(color: Constant.primaryColor, fontSize: 20),
+                  InkWell(onTap: () {
+                    Navigator.pushNamed(context, Routes.API);},
+                    child: Text(
+                      'Forgot Password?',
+                      style:
+                      TextStyle(color: Constant.primaryColor, fontSize: 20),
+                    ),
                   ),
                 ],
               ),
@@ -176,7 +192,7 @@ class _LoginPageState extends State<LoginPage> {
     print('Response body: ${response.body}');
 
     Map<String, dynamic> map =
-        jsonDecode(response.body) as Map<String, dynamic>;
+    jsonDecode(response.body) as Map<String, dynamic>;
 
     if (map != null) {
       Fluttertoast.showToast(msg: map['message']);

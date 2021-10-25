@@ -1,10 +1,17 @@
+import 'package:kabir_app/all_api_details/organisation_api_details.dart';
+import 'package:kabir_app/app_wallet_details_dashboard/wallet_bid_history.dart';
+import 'package:kabir_app/app_wallet_details_dashboard/wallet_transaction_history.dart';
+import 'package:kabir_app/app_wallet_details_dashboard/wallet_winning_history.dart';
+import 'package:kabir_app/app_wallet_details_dashboard/wallet_withdraw_funds.dart';
+import 'package:kabir_app/app_wallet_details_dashboard/wallet_withdraw_history.dart';
+import 'package:kabir_app/calender.dart';
 import 'package:kabir_app/dashboard_games/gali_desawar_game/gali_game_bid_history.dart';
 import 'package:kabir_app/dashboard_games/gali_desawar_game/gali_game_chart.dart';
 import 'package:kabir_app/dashboard_games/gali_desawar_game/gali_game_result.dart';
 import 'package:kabir_app/dashboard_games/starline_game/star_game_bid_history.dart';
 import 'package:kabir_app/dashboard_games/starline_game/star_game_chart.dart';
 import 'package:kabir_app/dashboard_games/starline_game/star_game_result.dart';
-import 'package:kabir_app/drawer_dashboard/add_fund.dart';
+import 'package:kabir_app/app_wallet_details_dashboard/wallet_add_fund.dart';
 import 'package:kabir_app/drawer_dashboard/app_noticeBoard.dart';
 import 'package:kabir_app/drawer_dashboard/app_notification.dart';
 import 'package:kabir_app/drawer_dashboard/app_profile.dart';
@@ -38,6 +45,7 @@ import 'package:kabir_app/payment_details/account_details.dart';
 import 'package:kabir_app/payment_details/googlepay_details.dart';
 import 'package:kabir_app/payment_details/paytm_details.dart';
 import 'package:kabir_app/payment_details/phonepe_details.dart';
+import 'package:kabir_app/running_game/calender_result_chart.dart';
 import 'package:kabir_app/running_game/gali_game_result_dashboard.dart';
 import 'package:kabir_app/running_game/game_running.dart';
 import 'package:kabir_app/running_game/star_game_dashboard.dart';
@@ -50,7 +58,6 @@ class Routes {
   static const String STAR_LINE_PAGE = '/starLinePage';
   static const String APP_PROFILE_PAGE = '/appProfilePage';
   static const String SIGNUP_PAGE = '/sigUpPage';
-  static const String ADD_FUND = '/addFund';
   static const String APP_WALLET = '/appWallet';
   static const String GAME_RATE = '/gameRate';
   static const String PAYMENT_PAGE = '/paymentPage';
@@ -86,6 +93,16 @@ class Routes {
   static const String GALI_GAME_JODI_DIGIT = '/galiGameJodiDigit';
   static const String GALI_GAME_RESULT_DASHBOARD = '/galiGameResultDashboard';
   static const String STAR_GAME_DASHBOARD = '/starGameDashboard';
+  static const String CALENDER = '/calender';
+  static const String CALENDER_RESULT_CHART = '/calenderResultChart';
+  static const String API = '/organisationApiDetails';
+  static const String WALLET_ADD_FUND = '/walletAddFund';
+  static const String WALLET_BID_HISTORY = '/walletBidHistory';
+  static const String WALLET_TRANSACTION_HISTORY = '/walletTransactionHistory';
+  static const String WALLET_WINNING_HISTORY = '/walletWinningHistory';
+  static const String WALLET_WITHDRAW_HISTORY = '/walletWithdrawHistory';
+  static const String WALLET_WITHDRAW_FUND = '/walletWithdrawFund';
+
 
 }
 
@@ -97,7 +114,6 @@ final routes = {
   Routes.STAR_LINE_PAGE: (context) => StarLinePage(),
   Routes.APP_PROFILE_PAGE: (context) => AppProfile(),
   Routes.SIGNUP_PAGE: (context) => SignUpPage(),
-  Routes.ADD_FUND: (context) => AddFund(),
   Routes.APP_WALLET: (context) => AppWallet(),
   Routes.GAME_RATE: (context) => GameRate(),
   Routes.PAYMENT_PAGE: (context) => PaymentPage(),
@@ -133,4 +149,13 @@ final routes = {
   Routes.GALI_GAME_JODI_DIGIT: (context) => GaliGameJodiDigit(),
   Routes.GALI_GAME_RESULT_DASHBOARD: (context) => GaliGameResultDashboard(),
   Routes.STAR_GAME_DASHBOARD: (context) => StarGameDashboard(),
+  Routes.CALENDER: (context) => Calender(),
+  Routes.CALENDER_RESULT_CHART: (context) => CalenderResultChart(),
+  Routes.API: (context) => OrganisationApiDetails(),
+  Routes.WALLET_ADD_FUND: (context) => WalletAddFund(),
+  Routes.WALLET_BID_HISTORY: (context) => WalletBidHistory(),
+  Routes.WALLET_TRANSACTION_HISTORY: (context) => WalletTransactionHistory(),
+  Routes.WALLET_WINNING_HISTORY: (context) => WalletWinningHistory(),
+  Routes.WALLET_WITHDRAW_HISTORY: (context) => WalletWithdrawHistory(),
+  Routes.WALLET_WITHDRAW_FUND: (context) => WalletWithdrawFunds(),
 };

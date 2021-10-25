@@ -14,15 +14,23 @@ class _PaytmDetailsState extends State<PaytmDetails> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(backgroundColor: Constant.appBarColor,
+      appBar: AppBar(
+        backgroundColor: Constant.appBarColor,
         title: Text('Paytm Details'),
       ),
       body: Column(
         children: [
-          TextField(
-            controller: numberController,
-            decoration: InputDecoration(
-              hintText: 'Paytm Number'
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 24,horizontal: 8),
+            child: Container(
+              decoration: BoxDecoration(color: Colors.grey[400]),
+              child: TextFormField(
+                controller: numberController,
+                decoration: InputDecoration(
+                    contentPadding: EdgeInsets.symmetric(horizontal: 16),
+                    hintText: 'Paytm Number',
+                    hintStyle: TextStyle(fontSize: 20)),
+              ),
             ),
           ),
           Padding(
@@ -31,12 +39,12 @@ class _PaytmDetailsState extends State<PaytmDetails> {
               height: 50,
               child: Center(
                   child: Text(
-                    'ADD PAYMENT METHOD',
-                    style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20,
-                        color: Constant.textColor),
-                  )),
+                'ADD PAYMENT METHOD',
+                style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 20,
+                    color: Constant.textColor),
+              )),
               decoration: BoxDecoration(
                   color: Constant.primaryColor,
                   borderRadius: BorderRadius.circular(4)),

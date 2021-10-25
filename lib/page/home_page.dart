@@ -175,7 +175,7 @@ class _HomePageState extends State<HomePage> {
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
                               InkWell(onTap: (){
-                                Navigator.pushNamed(context, Routes.ADD_FUND);
+                                Navigator.pushNamed(context, Routes.WALLET_ADD_FUND);
                               },
                                 child: Icon(
                                   Icons.account_balance_wallet_outlined,

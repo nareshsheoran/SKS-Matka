@@ -1,44 +1,44 @@
 class StandardGameApi {
-  List<StandardGame>? standardGame;
+ late List<StandardGame> standardGame;
 
-  StandardGameApi({this.standardGame});
+  StandardGameApi({required this.standardGame});
 
   StandardGameApi.fromJson(Map<String, dynamic> json) {
-    this.standardGame = json["standard_game"] == null
+    this.standardGame = (json["standard_game"] == null
         ? null
         : (json["standard_game"] as List)
             .map((e) => StandardGame.fromJson(e))
-            .toList();
+            .toList())!;
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
     if (this.standardGame != null)
       data["standard_game"] =
-          this.standardGame?.map((e) => e.toJson()).toList();
+          this.standardGame.map((e) => e.toJson()).toList();
     return data;
   }
 }
 
 class StandardGame {
-  String? gameId;
-  String? name;
-  String? createdAt;
-  String? updatedAt;
-  String? day;
-  String? status;
-  String? startTime;
-  String? endTime;
+late  String gameId;
+late  String name;
+late String createdAt;
+late  String updatedAt;
+late  String day;
+late  String status;
+late  String startTime;
+late  String endTime;
 
   StandardGame(
-      {this.gameId,
-      this.name,
-      this.createdAt,
-      this.updatedAt,
-      this.day,
-      this.status,
-      this.startTime,
-      this.endTime});
+      {required this.gameId,
+      required this.name,
+      required this.createdAt,
+      required this.updatedAt,
+      required this.day,
+      required this.status,
+      required this.startTime,
+      required this.endTime});
 
   StandardGame.fromJson(Map<String, dynamic> json) {
     this.gameId = json["game_id"];

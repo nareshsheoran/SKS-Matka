@@ -9,7 +9,6 @@ class AccountDetails extends StatefulWidget {
 }
 
 class _AccountDetailsState extends State<AccountDetails> {
-
   TextEditingController accNameController = TextEditingController();
   TextEditingController accNoController = TextEditingController();
   TextEditingController accIfscController = TextEditingController();
@@ -17,44 +16,65 @@ class _AccountDetailsState extends State<AccountDetails> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(backgroundColor: Constant.appBarColor,
-        title: Text(
-          'Bank Details'
-        ),
+      appBar: AppBar(
+        backgroundColor: Constant.appBarColor,
+        title: Text('Bank Details'),
       ),
       body: SingleChildScrollView(
         child: Column(
           children: [
-            TextField(
-              controller: accNameController,
-              decoration: InputDecoration(
-                hintText: 'Account Holder'
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 24,horizontal: 8),
+              child: Container(
+                decoration: BoxDecoration(color: Colors.grey[400]),
+                child: TextField(
+                  controller: accNameController,
+                  decoration: InputDecoration(
+                      contentPadding: EdgeInsets.symmetric(horizontal: 16),
+                      hintText: 'Account Holder',
+                      hintStyle: TextStyle(fontSize: 20)),
+                ),
               ),
             ),
-         TextField(
-              controller: accNoController,
-              decoration: InputDecoration(
-                hintText: 'Account Number'
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 24,horizontal: 8),
+              child: Container(
+                decoration: BoxDecoration(color: Colors.grey[400]),
+                child: TextField(
+                  controller: accNoController,
+                  decoration: InputDecoration(
+                      contentPadding: EdgeInsets.symmetric(horizontal: 16),
+                      hintText: 'Account Number',
+                      hintStyle: TextStyle(fontSize: 20)),
+                ),
               ),
             ),
-         TextField(
-              controller: accIfscController,
-              decoration: InputDecoration(
-                hintText: 'Ifsc codde'
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 24,horizontal: 8),
+              child: Container(
+                decoration: BoxDecoration(color: Colors.grey[400]),
+                child: TextField(
+                  controller: accIfscController,
+                  decoration: InputDecoration(
+                      contentPadding: EdgeInsets.symmetric(horizontal: 16),
+                      hintText: 'Ifsc Code',
+                      hintStyle: TextStyle(fontSize: 20)),
+                ),
               ),
             ),
+            SizedBox(height: 16),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Container(
                 height: 50,
                 child: Center(
                     child: Text(
-                      'ADD PAYMENT METHOD',
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 20,
-                          color: Constant.textColor),
-                    )),
+                  'ADD PAYMENT METHOD',
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20,
+                      color: Constant.textColor),
+                )),
                 decoration: BoxDecoration(
                     color: Constant.primaryColor,
                     borderRadius: BorderRadius.circular(4)),
