@@ -1,7 +1,7 @@
 import 'dart:convert';
+import 'package:SKS_Matka/Shared/constant.dart';
+import 'package:SKS_Matka/api_details/standard_game_api.dart';
 import 'package:http/http.dart';
-import 'package:kabir_app/Shared/constant.dart';
-import 'package:kabir_app/api_details/standard_game_api.dart';
 
 class GameService {
   static late GameService _instance;

@@ -1,19 +1,15 @@
 import 'dart:convert';
 
+import 'package:SKS_Matka/Shared/constant.dart';
+import 'package:SKS_Matka/Shared/routes.dart';
+import 'package:SKS_Matka/api_details/predefined_num_api.dart';
+import 'package:SKS_Matka/api_details/slide_details_api.dart';
+import 'package:SKS_Matka/api_details/standard_game_api.dart';
+import 'package:SKS_Matka/viewmodel/home_page_viewmodel.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart';
-import 'package:kabir_app/Shared/constant.dart';
-import 'package:kabir_app/Shared/routes.dart';
-import 'package:kabir_app/api_details/predefined_num_api.dart';
-import 'package:kabir_app/api_details/service/game_service.dart';
-import 'package:kabir_app/api_details/service/predefined_service.dart';
-import 'package:kabir_app/api_details/service/slider_service.dart';
-import 'package:kabir_app/api_details/slide_details_api.dart';
-import 'package:kabir_app/api_details/standard_game_api.dart';
-import 'package:kabir_app/widget/home_page_widget.dart';
-import 'package:kabir_app/viewmodel/home_page_viewmodel.dart';
 import 'package:scoped_model/scoped_model.dart';
 
 class HomePage extends StatefulWidget {
@@ -47,15 +43,28 @@ class _HomePageState extends State<HomePage> {
       setState(() {});
     }
   }
+
   Future fetchPredefinedNumberData() async {
     Uri myUri = Uri.parse(NetworkUtil.getPredefinedNumberUrl);
     Response response = await get(myUri);
     if (response.statusCode == 200) {
       Map<String, dynamic> map =
-      jsonDecode(response.body) as Map<String, dynamic>;
+          jsonDecode(response.body) as Map<String, dynamic>;
       PredefinedNumberApi predefinedNumberApi =
-      PredefinedNumberApi.fromJson(map);
+          PredefinedNumberApi.fromJson(map);
       numbersList = predefinedNumberApi.numbers;
+      setState(() {});
+    }
+  }
+
+  Future fetchSliderData() async {
+    Uri myUri = Uri.parse(NetworkUtil.getSliderUrl);
+    Response response = await get(myUri);
+    if (response.statusCode == 200) {
+      Map<String, dynamic> map =
+          jsonDecode(response.body) as Map<String, dynamic>;
+      SlideApiDetails slidesApiDetails = SlideApiDetails.fromJson(map);
+      slidesList = slidesApiDetails.slides;
       setState(() {});
     }
   }
@@ -63,6 +72,7 @@ class _HomePageState extends State<HomePage> {
   Future init() async {
     fetchStandardGameName();
     fetchPredefinedNumberData();
+    fetchSliderData();
     // standardGameList = await GameService.getInstance().fetchStandardGameName();
     // setState(() {});
     //
@@ -92,293 +102,323 @@ class _HomePageState extends State<HomePage> {
                   onTap: () {
                     Navigator.pushNamed(context, Routes.APP_WALLET);
                   },
-                  child: Icon(Icons.wallet_giftcard))
+                  child: Padding(
+                    padding: const EdgeInsets.only(right: 20),
+                    child: Icon(Icons.wallet_giftcard),
+                  ))
             ],
           ),
           drawer: buildDrawer(context),
-          body: SingleChildScrollView(
+          body: Container(
+            height: MediaQuery.of(context).size.height,
+            width: MediaQuery.of(context).size.width,
+            decoration: BoxDecoration(
+                image:
+                    DecorationImage(image: Images.bgImage, fit: BoxFit.cover)),
             child: Padding(
               padding: const EdgeInsets.all(8.0),
-              child: Column(
-                children: [
-                  Container(
-                    child: Row(
-                      children: [
-                        Container(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: [
-                              Icon(
-                                Icons.whatshot,
-                                size: 40,
-                                color: Constant.primaryColor,
-                              ),
-                              SizedBox(
-                                height: 4,
-                              ),
-                              Icon(
-                                Icons.message_outlined,
-                                size: 40,
-                                color: Constant.primaryColor,
-                              ),
-                            ],
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.fromLTRB(8, 0, 8, 0),
-                          child: Container(
-                              height: 96,
-                              width: MediaQuery.of(context).size.width / 1.5,
-                              color: Colors.blueAccent,
-                              child: CarouselSlider(
-                                options: CarouselOptions(
-                                  aspectRatio: 2.0,
-                                  enlargeCenterPage: true,
-                                  scrollDirection: Axis.vertical,
-                                  autoPlay: true,
-                                ),
-                                items: [],
-                              )),
-                        ),
-                        Container(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              InkWell(
-                                onTap: () {
-                                  Navigator.pushNamed(context, Routes.WALLET_ADD_FUND);
-                                },
-                                child: Icon(
-                                  Icons.account_balance_wallet_outlined,
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    Container(
+                      child: Row(
+                        children: [
+                          Container(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                Icon(
+                                  Icons.whatshot,
                                   size: 40,
                                   color: Constant.primaryColor,
                                 ),
+                                SizedBox(
+                                  height: 4,
+                                ),
+                                Icon(
+                                  Icons.message_outlined,
+                                  size: 40,
+                                  color: Constant.primaryColor,
+                                ),
+                              ],
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.fromLTRB(8, 0, 8, 0),
+                            child: Container(
+                                height: 96,
+                                width: MediaQuery.of(context).size.width / 1.5,
+                                color: Colors.white,
+                                child: CarouselSlider.builder(
+                                  options: CarouselOptions(
+                                    aspectRatio: 2.0,
+                                    enlargeCenterPage: true,
+                                    scrollDirection: Axis.horizontal,
+                                    autoPlay: true,
+                                  ),
+                                  itemCount: slidesList.length,
+                                  itemBuilder: (BuildContext context, int index,
+                                      int realIndex) {
+                                    return Container(
+                                      child: Image.network(
+                                          slidesList[index].image),
+                                    );
+                                  },
+                                )),
+                          ),
+                          Container(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                InkWell(
+                                  onTap: () {
+                                    Navigator.pushNamed(
+                                        context, Routes.WALLET_ADD_FUND);
+                                  },
+                                  child: Icon(
+                                    Icons.account_balance_wallet_outlined,
+                                    size: 40,
+                                    color: Constant.primaryColor,
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 4,
+                                ),
+                                Icon(
+                                  Icons.star,
+                                  size: 36,
+                                  color: Constant.primaryColor,
+                                ),
+                              ],
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                    SizedBox(
+                      height: 8,
+                    ),
+                    Container(
+                      height: 40,
+                      width: MediaQuery.of(context).size.width,
+                      decoration: BoxDecoration(
+                        border: Border(
+                          right: BorderSide(
+                            color: Constant.primaryColor,
+                            width: 6,
+                          ),
+                          left: BorderSide(
+                            color: Constant.primaryColor,
+                            width: 6,
+                          ),
+                          top: BorderSide(
+                            color: Constant.primaryColor,
+                            width: 1,
+                          ),
+                          bottom: BorderSide(
+                            color: Constant.primaryColor,
+                            width: 1,
+                          ),
+                        ),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: InkWell(
+                          onTap: () {
+                            Navigator.pushNamed(context, Routes.STAR_LINE_PAGE);
+                          },
+                          child: Row(
+                            children: [
+                              Text(
+                                'Starline Game',
+                                style: TextStyle(
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.bold,
+                                    color: Constant.primaryColor),
                               ),
-                              SizedBox(
-                                height: 4,
-                              ),
-                              Icon(
-                                Icons.star,
-                                color: Constant.primaryColor,
-                              ),
+                              Expanded(child: Container()),
+                              Container(
+                                  width: 40,
+                                  height: 40,
+                                  decoration:
+                                      BoxDecoration(shape: BoxShape.circle),
+                                  child: Icon(Icons.video_call_sharp))
                             ],
                           ),
-                        )
-                      ],
-                    ),
-                  ),
-                  SizedBox(
-                    height: 8,
-                  ),
-                  Container(
-                    height: 40,
-                    width: MediaQuery.of(context).size.width,
-                    decoration: BoxDecoration(
-                      border: Border(
-                        right: BorderSide(
-                          color: Constant.primaryColor,
-                          width: 6,
-                        ),
-                        left: BorderSide(
-                          color: Constant.primaryColor,
-                          width: 6,
-                        ),
-                        top: BorderSide(
-                          color: Constant.primaryColor,
-                          width: 1,
-                        ),
-                        bottom: BorderSide(
-                          color: Constant.primaryColor,
-                          width: 1,
                         ),
                       ),
                     ),
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: InkWell(
-                        onTap: () {
-                          Navigator.pushNamed(context, Routes.STAR_LINE_PAGE);
-                        },
-                        child: Row(
-                          children: [
-                            Text(
-                              'Starline Game',
-                              style: TextStyle(
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.bold,
-                                  color: Constant.primaryColor),
-                            ),
-                            Expanded(child: Container()),
-                            Container(
-                                width: 40,
-                                height: 40,
-                                decoration:
-                                    BoxDecoration(shape: BoxShape.circle),
-                                child: Icon(Icons.video_call_sharp))
-                          ],
+                    SizedBox(
+                      height: 8,
+                    ),
+                    Container(
+                      height: 40,
+                      width: MediaQuery.of(context).size.width,
+                      decoration: BoxDecoration(
+                        border: Border(
+                          right: BorderSide(
+                            color: Constant.primaryColor,
+                            width: 6,
+                          ),
+                          left: BorderSide(
+                            color: Constant.primaryColor,
+                            width: 6,
+                          ),
+                          top: BorderSide(
+                            color: Constant.primaryColor,
+                            width: 1,
+                          ),
+                          bottom: BorderSide(
+                            color: Constant.primaryColor,
+                            width: 1,
+                          ),
+                        ),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: InkWell(
+                          onTap: () {
+                            Navigator.pushNamed(context, Routes.GALI_GAME_PAGE);
+                          },
+                          child: Row(
+                            children: [
+                              Text(
+                                'Gali Desawar Game',
+                                style: TextStyle(
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.bold,
+                                    color: Constant.primaryColor),
+                              ),
+                              Expanded(child: Container()),
+                              Container(
+                                  width: 40,
+                                  height: 40,
+                                  decoration:
+                                      BoxDecoration(shape: BoxShape.circle),
+                                  child: Icon(Icons.video_call_sharp))
+                            ],
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                  SizedBox(
-                    height: 8,
-                  ),
-                  Container(
-                    height: 40,
-                    width: MediaQuery.of(context).size.width,
-                    decoration: BoxDecoration(
-                      border: Border(
-                        right: BorderSide(
-                          color: Constant.primaryColor,
-                          width: 6,
-                        ),
-                        left: BorderSide(
-                          color: Constant.primaryColor,
-                          width: 6,
-                        ),
-                        top: BorderSide(
-                          color: Constant.primaryColor,
-                          width: 1,
-                        ),
-                        bottom: BorderSide(
-                          color: Constant.primaryColor,
-                          width: 1,
-                        ),
-                      ),
+                    SizedBox(
+                      height: 8,
                     ),
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: InkWell(
-                        onTap: () {
-                          Navigator.pushNamed(context, Routes.GALI_GAME_PAGE);
-                        },
-                        child: Row(
-                          children: [
-                            Text(
-                              'Gali Desawar Game',
-                              style: TextStyle(
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.bold,
-                                  color: Constant.primaryColor),
-                            ),
-                            Expanded(child: Container()),
-                            Container(
-                                width: 40,
-                                height: 40,
-                                decoration:
-                                    BoxDecoration(shape: BoxShape.circle),
-                                child: Icon(Icons.video_call_sharp))
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 8,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(0, 0, 0, 8),
-                    child: SingleChildScrollView(
-                      child: Container(
-                        height: MediaQuery.of(context).size.height,
-                        child: ListView.builder(
-                          itemCount: standardGameList.length,
-                          scrollDirection: Axis.vertical,
-                          itemBuilder: (BuildContext context, index) {
-                            return Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Container(
-                                color: Constant.primaryColor,
-                                width: MediaQuery.of(context).size.width,
-                                height: 120,
-                                child: Column(
-                                  children: [
-                                    Row(
-                                      mainAxisAlignment: MainAxisAlignment.center,
-                                      children: [
-                                        Container(height: 24,width: 24,
-                                          child: InkWell(
-                                              onTap: () {
-                                                Navigator.pushNamed(context,
-                                                    Routes.CALENDER_RESULT_CHART);
-                                              },
-                                              child:
-                                                  Icon(Icons.ac_unit_sharp)),
-                                        ),
-                                        SizedBox(
-                                          width: 16,
-                                        ),
-                                        Container(height: 24,width: 24,
-                                          child: InkWell(
-                                              onTap: () {
-                                                Navigator.pushNamed(
-                                                    context, Routes.GAME_RUNNING);
-                                              },
-                                              child: Icon(Icons.video_call_sharp)),
-                                        )
-                                      ],
-                                    ),
-                                    Text(
-                                      standardGameList[index].name,
-                                      style: TextStyle(
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.bold,
-                                          color: Constant.textColor),
-                                    ),
-                                    Text(standardGameList[index].gameId,
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(0, 0, 0, 8),
+                      child: SingleChildScrollView(
+                        child: Container(
+                          height: MediaQuery.of(context).size.height,
+                          child: ListView.builder(
+                            itemCount: standardGameList.length,
+                            scrollDirection: Axis.vertical,
+                            itemBuilder: (BuildContext context, index) {
+                              return Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Container(
+                                  color: Constant.primaryColor,
+                                  width: MediaQuery.of(context).size.width,
+                                  height: 120,
+                                  child: Column(
+                                    children: [
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          Container(
+                                            height: 24,
+                                            width: 24,
+                                            child: InkWell(
+                                                onTap: () {
+                                                  Navigator.pushNamed(
+                                                      context,
+                                                      Routes
+                                                          .CALENDER_RESULT_CHART);
+                                                },
+                                                child:
+                                                    Icon(Icons.ac_unit_sharp)),
+                                          ),
+                                          SizedBox(
+                                            width: 16,
+                                          ),
+                                          Container(
+                                            height: 24,
+                                            width: 24,
+                                            child: InkWell(
+                                                onTap: () {
+                                                  Navigator.pushNamed(context,
+                                                      Routes.GAME_RUNNING);
+                                                },
+                                                child: Icon(
+                                                    Icons.video_call_sharp)),
+                                          )
+                                        ],
+                                      ),
+                                      Text(
+                                        standardGameList[index].name,
                                         style: TextStyle(
                                             fontSize: 16,
                                             fontWeight: FontWeight.bold,
-                                            color: Constant.textColor)),
-                                    Padding(
-                                      padding: const EdgeInsets.all(8.0),
-                                      child: Container(
-                                        decoration: BoxDecoration(
-                                            color: Constant.textColor,
-                                            borderRadius: BorderRadius.all(
-                                                Radius.circular(2.0))),
-                                        child: Padding(
-                                          padding:
-                                              const EdgeInsets.fromLTRB(30, 4, 30, 4),
-                                          child: Row(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.spaceBetween,
-                                            children: [
-                                              Column(
-                                                children: [
-                                                  Text(standardGameList[index]
-                                                      .startTime),
-                                                  Text(standardGameList[index]
-                                                      .endTime),
-                                                ],
-                                              ),
-                                              Column(
-                                                children: [
-                                                  Text(
-                                                    standardGameList[index].day,
-                                                    style: TextStyle(
-                                                        color: Constant.primaryColor),
-                                                  ),
-                                                  Text(
-                                                      standardGameList[index].status),
-                                                ],
-                                              ),
-                                            ],
+                                            color: Constant.textColor),
+                                      ),
+                                      Text(standardGameList[index].gameId,
+                                          style: TextStyle(
+                                              fontSize: 16,
+                                              fontWeight: FontWeight.bold,
+                                              color: Constant.textColor)),
+                                      Padding(
+                                        padding: const EdgeInsets.all(8.0),
+                                        child: Container(
+                                          decoration: BoxDecoration(
+                                              color: Constant.textColor,
+                                              borderRadius: BorderRadius.all(
+                                                  Radius.circular(2.0))),
+                                          child: Padding(
+                                            padding: const EdgeInsets.fromLTRB(
+                                                30, 4, 30, 4),
+                                            child: Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment
+                                                      .spaceBetween,
+                                              children: [
+                                                Column(
+                                                  children: [
+                                                    Text(standardGameList[index]
+                                                        .startTime),
+                                                    Text(standardGameList[index]
+                                                        .endTime),
+                                                  ],
+                                                ),
+                                                Column(
+                                                  children: [
+                                                    Text(
+                                                      standardGameList[index]
+                                                          .day,
+                                                      style: TextStyle(
+                                                          color: Constant
+                                                              .primaryColor),
+                                                    ),
+                                                    Text(standardGameList[index]
+                                                        .status),
+                                                  ],
+                                                ),
+                                              ],
+                                            ),
                                           ),
                                         ),
-                                      ),
-                                    )
-                                  ],
+                                      )
+                                    ],
+                                  ),
                                 ),
-                              ),
-                            );
-                          },
+                              );
+                            },
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
           ),

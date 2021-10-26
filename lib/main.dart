@@ -1,7 +1,7 @@
+import 'package:SKS_Matka/Shared/routes.dart';
+import 'package:SKS_Matka/page/front_page.dart';
 import 'package:flutter/material.dart';
 
-import 'package:kabir_app/Shared/routes.dart';
-import 'package:kabir_app/page/front_page.dart';
 
 void main() {
   runApp(MyApp());
@@ -13,7 +13,6 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-
       home: FrontPage(),
       initialRoute: Routes.FRONT_PAGE,
       routes: routes,

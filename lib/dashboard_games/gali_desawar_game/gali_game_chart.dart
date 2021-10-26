@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:kabir_app/Shared/constant.dart';
+import 'package:SKS_Matka/Shared/constant.dart';
 
 class GaliGameChart extends StatefulWidget {
   const GaliGameChart({Key? key}) : super(key: key);
@@ -16,6 +16,12 @@ class _GaliGameChartState extends State<GaliGameChart> {
         backgroundColor: Constant.appBarColor,
         title: Text('Gali Desawar Rsult Chart'),
       ),
+      body: Container(
+        height: MediaQuery.of(context).size.height,
+        width: MediaQuery.of(context).size.width,
+        decoration: BoxDecoration(
+            image:
+            DecorationImage(image: Images.bgImage, fit: BoxFit.cover)),),
     );
   }
 }

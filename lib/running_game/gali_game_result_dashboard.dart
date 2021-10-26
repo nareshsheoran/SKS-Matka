@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:kabir_app/Shared/constant.dart';
-import 'package:kabir_app/Shared/routes.dart';
+import 'package:SKS_Matka/Shared/constant.dart';
+import 'package:SKS_Matka/Shared/routes.dart';
 
 class GaliGameResultDashboard extends StatefulWidget {
   const GaliGameResultDashboard({Key? key}) : super(key: key);
@@ -18,52 +18,59 @@ class _GaliGameResultDashboardState extends State<GaliGameResultDashboard> {
         backgroundColor: Constant.appBarColor,
         title: Text('Gali Game Result Dashboard'),
       ),
-      body: Card(
-        elevation: 2,
-        child: Container(
-          width: MediaQuery.of(context).size.width,
-          height: MediaQuery.of(context).size.height / 2.9,
-          child: Column(
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Column(
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Center(
-                          child: InkWell(
+      body: Container(
+        height: MediaQuery.of(context).size.height,
+        width: MediaQuery.of(context).size.width,
+        decoration: BoxDecoration(
+            image:
+            DecorationImage(image: Images.bgImage, fit: BoxFit.cover)),
+        child: Card(
+          elevation: 2,
+          child: Container(
+            width: MediaQuery.of(context).size.width,
+            height: MediaQuery.of(context).size.height / 2.9,
+            child: Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Column(
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Center(
+                            child: InkWell(
+                                onTap: () {
+                                  Navigator.pushNamed(
+                                      context, Routes.GALI_GAME_LEFT_DIGIT);
+                                },
+                                child: iconName('LEFT DIGIT')),
+                          ),
+                        ],
+                      ),
+                      Row(
+                        children: [
+                          InkWell(
                               onTap: () {
                                 Navigator.pushNamed(
-                                    context, Routes.GALI_GAME_LEFT_DIGIT);
+                                    context, Routes.GALI_GAME_RIGHT_DIGIT);
                               },
-                              child: iconName('LEFT DIGIT')),
-                        ),
-                      ],
-                    ),
-                    Row(
-                      children: [
-                        InkWell(
+                              child: iconName('RIGHT DIGIT')),
+                          Expanded(child: Container()),
+                          InkWell(
                             onTap: () {
                               Navigator.pushNamed(
-                                  context, Routes.GALI_GAME_RIGHT_DIGIT);
+                                  context, Routes.GALI_GAME_JODI_DIGIT);
                             },
-                            child: iconName('RIGHT DIGIT')),
-                        Expanded(child: Container()),
-                        InkWell(
-                          onTap: () {
-                            Navigator.pushNamed(
-                                context, Routes.GALI_GAME_JODI_DIGIT);
-                          },
-                          child: iconName('JODI DIGIT'),
-                        )
-                      ],
-                    ),
-                  ],
+                            child: iconName('JODI DIGIT'),
+                          )
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),

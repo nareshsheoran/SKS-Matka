@@ -1,6 +1,6 @@
+import 'package:SKS_Matka/calender.dart';
 import 'package:flutter/material.dart';
-import 'package:kabir_app/Shared/constant.dart';
-import 'package:kabir_app/calender.dart';
+import 'package:SKS_Matka/Shared/constant.dart';
 
 class GameHistory extends StatefulWidget {
   const GameHistory({Key? key}) : super(key: key);
@@ -16,6 +16,12 @@ class _GameHistoryState extends State<GameHistory> {
       appBar: AppBar(
         backgroundColor: Constant.appBarColor,
         title: Text('Standard Bid History'),
+      ),
+      body: Container(
+        height: MediaQuery.of(context).size.height,
+        width: MediaQuery.of(context).size.width,
+        decoration: BoxDecoration(
+            image: DecorationImage(image: Images.bgImage, fit: BoxFit.cover)),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
