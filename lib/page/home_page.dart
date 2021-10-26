@@ -1,8 +1,8 @@
+import 'package:SKS_Matka/viewmodel/home_page_viewmodel.dart';
+import 'package:SKS_Matka/widget/home_page_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:kabir_app/Shared/constant.dart';
-import 'package:kabir_app/Shared/routes.dart';
-import 'package:kabir_app/widget/home_page_widget.dart';
-import 'package:kabir_app/viewmodel/home_page_viewmodel.dart';
+import 'package:SKS_Matka/Shared/constant.dart';
+import 'package:SKS_Matka/Shared/routes.dart';
 import 'package:scoped_model/scoped_model.dart';
 
 class HomePage extends StatefulWidget {
@@ -13,8 +13,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-   late HomePageInfoViewModel viewModel;
-
+  late HomePageInfoViewModel viewModel;
 
   void initState() {
     viewModel = HomePageInfoViewModel();
@@ -34,11 +33,11 @@ class _HomePageState extends State<HomePage> {
               'SKS MATKA',
               style: TextStyle(color: Colors.white),
             ),
-
             actions: [
-              InkWell(onTap: (){
-                Navigator.pushNamed(context, Routes.APP_WALLET);
-              },
+              InkWell(
+                  onTap: () {
+                    Navigator.pushNamed(context, Routes.APP_WALLET);
+                  },
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Icon(Icons.wallet_giftcard),
@@ -132,167 +131,181 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
           body: SingleChildScrollView(
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Column(
-                children: [
-                  Container(
-                    child: Row(
-                      children: [
-                        Container(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: [
-                              Icon(
-                                Icons.whatshot,
-                                size: 40,
-                                color: Constant.primaryColor,
-                              ),
-                              SizedBox(
-                                height: 4,
-                              ),
-                              Icon(
-                                Icons.message_outlined,
-                                size: 40,
-                                color: Constant.primaryColor,
-                              ),
-                            ],
-                          ),
-                        ),
-                        Container(
-                          height: 80,
-                          color: Colors.blueAccent,
-                          width: MediaQuery.of(context).size.width / 1.4,
-                          child: Center(
-                              child: Text(
-                            'SKS MATKA',
-                            style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold,color: Colors.white),
-                          )),
-                        ),
-                        Container(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              InkWell(onTap: (){
-                                Navigator.pushNamed(context, Routes.WALLET_ADD_FUND);
-                              },
-                                child: Icon(
-                                  Icons.account_balance_wallet_outlined,
+            child: Container(
+              height: MediaQuery.of(context).size.height,
+              width: MediaQuery.of(context).size.width,
+              decoration: BoxDecoration(
+                  image:
+                  DecorationImage(image: Images.bgImage, fit: BoxFit.cover)),
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Column(
+                  children: [
+                    Container(
+                      child: Row(
+                        children: [
+                          Container(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                Icon(
+                                  Icons.whatshot,
                                   size: 40,
                                   color: Constant.primaryColor,
                                 ),
-                              ),
-                              SizedBox(
-                                height: 4,
-                              ),
-                              Icon(
-                                Icons.star,
-                                color: Constant.primaryColor,
-                              ),
-                            ],
+                                SizedBox(
+                                  height: 4,
+                                ),
+                                Icon(
+                                  Icons.message_outlined,
+                                  size: 40,
+                                  color: Constant.primaryColor,
+                                ),
+                              ],
+                            ),
                           ),
-                        )
-                      ],
-                    ),
-                  ),
-                  SizedBox(
-                    height: 8,
-                  ),
-                  Container(
-                    height: 40,
-                    width: MediaQuery.of(context).size.width,
-                    decoration: BoxDecoration(
-                      border: Border(
-                        right: BorderSide(
-                          color: Constant.primaryColor,
-                          width: 6,
-                        ),
-                        left: BorderSide(
-                          color: Constant.primaryColor,
-                          width: 6,
-                        ),
-                        top: BorderSide(
-                          color: Constant.primaryColor,
-                          width: 1,
-                        ),
-                        bottom: BorderSide(
-                          color: Constant.primaryColor,
-                          width: 1,
-                        ),
-                      ),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Row(
-                        children: [
-                          Text(
-                            'Starline Game',
-                            style: TextStyle(
-                                fontSize: 16,
-                                fontWeight: FontWeight.bold,
-                                color: Constant.primaryColor),
-                          ),
-                          Expanded(child: Container()),
                           Container(
-                              width: 40,
-                              height: 40,
-                              decoration: BoxDecoration(shape: BoxShape.circle),
-                              child: Icon(Icons.video_call_sharp))
+                            height: 80,
+                            color: Colors.blueAccent,
+                            width: MediaQuery.of(context).size.width / 1.4,
+                            child: Center(
+                                child: Text(
+                              'SKS MATKA',
+                              style: TextStyle(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white),
+                            )),
+                          ),
+                          Container(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                InkWell(
+                                  onTap: () {
+                                    Navigator.pushNamed(
+                                        context, Routes.WALLET_ADD_FUND);
+                                  },
+                                  child: Icon(
+                                    Icons.account_balance_wallet_outlined,
+                                    size: 40,
+                                    color: Constant.primaryColor,
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 4,
+                                ),
+                                Icon(
+                                  Icons.star,
+                                  color: Constant.primaryColor,
+                                ),
+                              ],
+                            ),
+                          )
                         ],
                       ),
                     ),
-                  ),
-                  SizedBox(
-                    height: 8,
-                  ),
-                  Container(
-                    height: 40,
-                    width: MediaQuery.of(context).size.width,
-                    decoration: BoxDecoration(
-                      border: Border(
-                        right: BorderSide(
-                          color: Constant.primaryColor,
-                          width: 6,
-                        ),
-                        left: BorderSide(
-                          color: Constant.primaryColor,
-                          width: 6,
-                        ),
-                        top: BorderSide(
-                          color: Constant.primaryColor,
-                          width: 1,
-                        ),
-                        bottom: BorderSide(
-                          color: Constant.primaryColor,
-                          width: 1,
-                        ),
-                      ),
+                    SizedBox(
+                      height: 8,
                     ),
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Row(
-                        children: [
-                          Text(
-                            'Gali Desawar Game',
-                            style: TextStyle(
-                                fontSize: 16,
-                                fontWeight: FontWeight.bold,
-                                color: Constant.primaryColor),
+                    Container(
+                      height: 40,
+                      width: MediaQuery.of(context).size.width,
+                      decoration: BoxDecoration(
+                        border: Border(
+                          right: BorderSide(
+                            color: Constant.primaryColor,
+                            width: 6,
                           ),
-                          Expanded(child: Container()),
-                          Container(
-                              width: 40,
-                              height: 40,
-                              decoration: BoxDecoration(shape: BoxShape.circle),
-                              child: Icon(Icons.video_call_sharp))
-                        ],
+                          left: BorderSide(
+                            color: Constant.primaryColor,
+                            width: 6,
+                          ),
+                          top: BorderSide(
+                            color: Constant.primaryColor,
+                            width: 1,
+                          ),
+                          bottom: BorderSide(
+                            color: Constant.primaryColor,
+                            width: 1,
+                          ),
+                        ),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Row(
+                          children: [
+                            Text(
+                              'Starline Game',
+                              style: TextStyle(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold,
+                                  color: Constant.primaryColor),
+                            ),
+                            Expanded(child: Container()),
+                            Container(
+                                width: 40,
+                                height: 40,
+                                decoration: BoxDecoration(shape: BoxShape.circle),
+                                child: Icon(Icons.video_call_sharp))
+                          ],
+                        ),
                       ),
                     ),
-                  ),
-                  SizedBox(height: 8,),
-                  getHomePageInfoListWidget(),
-                ],
+                    SizedBox(
+                      height: 8,
+                    ),
+                    Container(
+                      height: 40,
+                      width: MediaQuery.of(context).size.width,
+                      decoration: BoxDecoration(
+                        border: Border(
+                          right: BorderSide(
+                            color: Constant.primaryColor,
+                            width: 6,
+                          ),
+                          left: BorderSide(
+                            color: Constant.primaryColor,
+                            width: 6,
+                          ),
+                          top: BorderSide(
+                            color: Constant.primaryColor,
+                            width: 1,
+                          ),
+                          bottom: BorderSide(
+                            color: Constant.primaryColor,
+                            width: 1,
+                          ),
+                        ),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Row(
+                          children: [
+                            Text(
+                              'Gali Desawar Game',
+                              style: TextStyle(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold,
+                                  color: Constant.primaryColor),
+                            ),
+                            Expanded(child: Container()),
+                            Container(
+                                width: 40,
+                                height: 40,
+                                decoration: BoxDecoration(shape: BoxShape.circle),
+                                child: Icon(Icons.video_call_sharp))
+                          ],
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      height: 8,
+                    ),
+                    getHomePageInfoListWidget(),
+                  ],
+                ),
               ),
             ),
           ),
@@ -302,7 +315,8 @@ class _HomePageState extends State<HomePage> {
   }
 
   Widget getHomePageInfoListWidget() {
-    return Container(height: MediaQuery.of(context).size.height,
+    return Container(
+      height: MediaQuery.of(context).size.height,
       child: ListView.builder(
         itemCount: viewModel.homeInfoModelList.length,
         scrollDirection: Axis.vertical,

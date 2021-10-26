@@ -41,6 +41,17 @@ class UserDbService {
       print("addUserInfo $e");
     }
   }
+
+  Future deleteRecord(int id) async {
+    await database.transaction((txn) async {
+      await txn.rawDelete('delete from $tableName where id= ?', [id]);
+      print("");
+    });
+  }
+
+  void closeDb() {
+    database.close();
+  }
 }
 
 class UserInfo {

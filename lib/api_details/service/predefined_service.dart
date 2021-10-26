@@ -1,8 +1,8 @@
 import 'dart:convert';
 
+import 'package:SKS_Matka/Shared/constant.dart';
+import 'package:SKS_Matka/api_details/predefined_num_api.dart';
 import 'package:http/http.dart';
-import 'package:kabir_app/Shared/constant.dart';
-import 'package:kabir_app/api_details/predefined_num_api.dart';
 
 class PreDefinedService {
   static late PreDefinedService _instance;

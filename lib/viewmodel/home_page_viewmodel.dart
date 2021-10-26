@@ -1,5 +1,5 @@
+import 'package:SKS_Matka/model/home_info_model.dart';
 import 'package:flutter/material.dart';
-import 'package:kabir_app/model/home_info_model.dart';
 import 'package:scoped_model/scoped_model.dart';
 
 class HomePageInfoViewModel extends Model {

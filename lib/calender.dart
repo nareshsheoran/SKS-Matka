@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_calendar_carousel/flutter_calendar_carousel.dart';
+import 'package:SKS_Matka/Shared/constant.dart';
 
 class Calender extends StatefulWidget {
   const Calender({Key? key}) : super(key: key);
@@ -10,13 +11,20 @@ class Calender extends StatefulWidget {
 
 class _CalenderState extends State<Calender> {
   DateTime? selectedDate;
+
   @override
   Widget build(BuildContext context) {
     final screenSize = MediaQuery.of(context).size;
     return Scaffold(
-      body: Center(child: _calendarBox(screenSize)),
+      body: Container(
+          height: MediaQuery.of(context).size.height,
+          width: MediaQuery.of(context).size.width,
+          decoration: BoxDecoration(
+              image: DecorationImage(image: Images.bgImage, fit: BoxFit.cover)),
+          child: Center(child: _calendarBox(screenSize))),
     );
   }
+
   Container _calendarBox(Size screenSize) {
     return Container(
       height: screenSize.height / 2.7,

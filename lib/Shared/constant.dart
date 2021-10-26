@@ -6,8 +6,14 @@ class Constant {
   static final Color textColor = Colors.white;
   static final Color appBarColor = Colors.pink;
   static final IconData icon = Icons.video_call_sharp;
-
 }
+
+
+ class Images{
+  static final AssetImage bgImage = AssetImage('assets/image/bg.jpg');
+  static final AssetImage logoImage = AssetImage('assets/image/logo.jpg');
+ }
+
 
 class NetworkUtil {
   static const String BaseUrl = "http://aikahosts.com";

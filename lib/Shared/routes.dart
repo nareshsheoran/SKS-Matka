@@ -1,54 +1,55 @@
-import 'package:kabir_app/all_api_details/organisation_api_details.dart';
-import 'package:kabir_app/app_wallet_details_dashboard/wallet_bid_history.dart';
-import 'package:kabir_app/app_wallet_details_dashboard/wallet_transaction_history.dart';
-import 'package:kabir_app/app_wallet_details_dashboard/wallet_winning_history.dart';
-import 'package:kabir_app/app_wallet_details_dashboard/wallet_withdraw_funds.dart';
-import 'package:kabir_app/app_wallet_details_dashboard/wallet_withdraw_history.dart';
-import 'package:kabir_app/calender.dart';
-import 'package:kabir_app/dashboard_games/gali_desawar_game/gali_game_bid_history.dart';
-import 'package:kabir_app/dashboard_games/gali_desawar_game/gali_game_chart.dart';
-import 'package:kabir_app/dashboard_games/gali_desawar_game/gali_game_result.dart';
-import 'package:kabir_app/dashboard_games/starline_game/star_game_bid_history.dart';
-import 'package:kabir_app/dashboard_games/starline_game/star_game_chart.dart';
-import 'package:kabir_app/dashboard_games/starline_game/star_game_result.dart';
-import 'package:kabir_app/app_wallet_details_dashboard/wallet_add_fund.dart';
-import 'package:kabir_app/drawer_dashboard/app_noticeBoard.dart';
-import 'package:kabir_app/drawer_dashboard/app_notification.dart';
-import 'package:kabir_app/drawer_dashboard/app_profile.dart';
-import 'package:kabir_app/drawer_dashboard/app_wallet.dart';
-import 'package:kabir_app/drawer_dashboard/game_history.dart';
-import 'package:kabir_app/drawer_dashboard/game_rate.dart';
-import 'package:kabir_app/drawer_dashboard/how_play.dart';
-import 'package:kabir_app/game_based_details/double_pana.dart';
-import 'package:kabir_app/game_based_details/dp_motors.dart';
-import 'package:kabir_app/game_based_details/full_sangam.dart';
-import 'package:kabir_app/game_based_details/gali_game_jodi_digit.dart';
-import 'package:kabir_app/game_based_details/gali_game_left_digit.dart';
-import 'package:kabir_app/game_based_details/gali_game_right_digit.dart';
-import 'package:kabir_app/game_based_details/half_sangam.dart';
-import 'package:kabir_app/game_based_details/jodi_digit.dart';
-import 'package:kabir_app/game_based_details/odd_even.dart';
-import 'package:kabir_app/game_based_details/red_bracket.dart';
-import 'package:kabir_app/game_based_details/single_digits.dart';
-import 'package:kabir_app/game_based_details/single_pana.dart';
-import 'package:kabir_app/game_based_details/sp_dp_tp.dart';
-import 'package:kabir_app/game_based_details/sp_motors.dart';
-import 'package:kabir_app/game_based_details/triple_pana.dart';
-import 'package:kabir_app/main_page/sign_up_page.dart';
-import 'package:kabir_app/page/front_page.dart';
-import 'package:kabir_app/dashboard_games/gali_desawar_game/gali_game_page.dart';
-import 'package:kabir_app/main_page/home_page.dart';
-import 'package:kabir_app/page/login_page.dart';
-import 'package:kabir_app/dashboard_games/starline_game/star_line_page.dart';
-import 'package:kabir_app/payment/payment_page.dart';
-import 'package:kabir_app/payment_details/account_details.dart';
-import 'package:kabir_app/payment_details/googlepay_details.dart';
-import 'package:kabir_app/payment_details/paytm_details.dart';
-import 'package:kabir_app/payment_details/phonepe_details.dart';
-import 'package:kabir_app/running_game/calender_result_chart.dart';
-import 'package:kabir_app/running_game/gali_game_result_dashboard.dart';
-import 'package:kabir_app/running_game/game_running.dart';
-import 'package:kabir_app/running_game/star_game_dashboard.dart';
+import 'package:SKS_Matka/all_api_details/organisation_api_details.dart';
+import 'package:SKS_Matka/app_wallet_details_dashboard/wallet_add_fund.dart';
+import 'package:SKS_Matka/app_wallet_details_dashboard/wallet_bid_history.dart';
+import 'package:SKS_Matka/app_wallet_details_dashboard/wallet_transaction_history.dart';
+import 'package:SKS_Matka/app_wallet_details_dashboard/wallet_winning_history.dart';
+import 'package:SKS_Matka/app_wallet_details_dashboard/wallet_withdraw_funds.dart';
+import 'package:SKS_Matka/app_wallet_details_dashboard/wallet_withdraw_history.dart';
+import 'package:SKS_Matka/calender.dart';
+import 'package:SKS_Matka/dashboard_games/gali_desawar_game/gali_game_bid_history.dart';
+import 'package:SKS_Matka/dashboard_games/gali_desawar_game/gali_game_chart.dart';
+import 'package:SKS_Matka/dashboard_games/gali_desawar_game/gali_game_page.dart';
+import 'package:SKS_Matka/dashboard_games/gali_desawar_game/gali_game_result.dart';
+import 'package:SKS_Matka/dashboard_games/starline_game/star_game_bid_history.dart';
+import 'package:SKS_Matka/dashboard_games/starline_game/star_game_chart.dart';
+import 'package:SKS_Matka/dashboard_games/starline_game/star_game_result.dart';
+import 'package:SKS_Matka/dashboard_games/starline_game/star_line_page.dart';
+import 'package:SKS_Matka/drawer_dashboard/app_noticeBoard.dart';
+import 'package:SKS_Matka/drawer_dashboard/app_notification.dart';
+import 'package:SKS_Matka/drawer_dashboard/app_profile.dart';
+import 'package:SKS_Matka/drawer_dashboard/app_wallet.dart';
+import 'package:SKS_Matka/drawer_dashboard/game_history.dart';
+import 'package:SKS_Matka/drawer_dashboard/game_rate.dart';
+import 'package:SKS_Matka/drawer_dashboard/how_play.dart';
+import 'package:SKS_Matka/game_based_details/double_pana.dart';
+import 'package:SKS_Matka/game_based_details/dp_motors.dart';
+import 'package:SKS_Matka/game_based_details/full_sangam.dart';
+import 'package:SKS_Matka/game_based_details/gali_game_jodi_digit.dart';
+import 'package:SKS_Matka/game_based_details/gali_game_left_digit.dart';
+import 'package:SKS_Matka/game_based_details/gali_game_right_digit.dart';
+import 'package:SKS_Matka/game_based_details/half_sangam.dart';
+import 'package:SKS_Matka/game_based_details/jodi_digit.dart';
+import 'package:SKS_Matka/game_based_details/odd_even.dart';
+import 'package:SKS_Matka/game_based_details/red_bracket.dart';
+import 'package:SKS_Matka/game_based_details/single_digits.dart';
+import 'package:SKS_Matka/game_based_details/single_pana.dart';
+import 'package:SKS_Matka/game_based_details/sp_dp_tp.dart';
+import 'package:SKS_Matka/game_based_details/sp_motors.dart';
+import 'package:SKS_Matka/game_based_details/triple_pana.dart';
+import 'package:SKS_Matka/main_page/home_page.dart';
+import 'package:SKS_Matka/main_page/sign_up_page.dart';
+import 'package:SKS_Matka/page/front_page.dart';
+import 'package:SKS_Matka/page/login_page.dart';
+import 'package:SKS_Matka/payment/payment_page.dart';
+import 'package:SKS_Matka/payment_details/account_details.dart';
+import 'package:SKS_Matka/payment_details/googlepay_details.dart';
+import 'package:SKS_Matka/payment_details/paytm_details.dart';
+import 'package:SKS_Matka/payment_details/phonepe_details.dart';
+import 'package:SKS_Matka/running_game/calender_result_chart.dart';
+import 'package:SKS_Matka/running_game/gali_game_result_dashboard.dart';
+import 'package:SKS_Matka/running_game/game_running.dart';
+import 'package:SKS_Matka/running_game/star_game_dashboard.dart';
+
 
 class Routes {
   static const String FRONT_PAGE = '/frontpage';
@@ -136,7 +137,7 @@ final routes = {
   Routes.SINGLE_PANA: (context) => SinglePana(),
   Routes.SP_DP_TP: (context) => SpDpTp(),
   Routes.SP_MOTORS: (context) => SpMotors(),
-  Routes.TRIPLE_PANA: (context) => TriplaPana(),
+  Routes.TRIPLE_PANA: (context) => TriplePana(),
   Routes.GALI_GAME_CHART: (context) => GaliGameChart(),
   Routes.GALI_GAME_BID_HISTORY: (context) => GaliGameBidHistory(),
   Routes.GALI_GAME_RESULT: (context) => GaliGameResult(),
