@@ -22,6 +22,7 @@ class _GameHistoryState extends State<GameHistory> {
         width: MediaQuery.of(context).size.width,
         decoration: BoxDecoration(
             image: DecorationImage(image: Images.bgImage, fit: BoxFit.cover)),
+        child: SingleChildScrollView(),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {

@@ -2,7 +2,7 @@
     package="com.example.SKS_Matka">
    <application
         android:label="SKS_Matka"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@mipmap/app_logo">
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"

@@ -35,18 +35,20 @@ class _PaymentPageState extends State<PaymentPage> {
         decoration: BoxDecoration(
             image:
             DecorationImage(image: Images.bgImage, fit: BoxFit.cover)),
-        child: Center(
-          child: GooglePayButton(
-            width: MediaQuery.of(context).size.width / 2.5,
-            height: MediaQuery.of(context).size.height / 12.5,
-            paymentConfigurationAsset: 'gpay.json',
-            paymentItems: _paymentItems,
-            style: GooglePayButtonStyle.white,
-            type: GooglePayButtonType.pay,
-            margin: const EdgeInsets.only(top: 15.0),
-            onPaymentResult: onGooglePayResult,
-            loadingIndicator: const Center(
-              child: CircularProgressIndicator(),
+        child: SingleChildScrollView(
+          child: Center(
+            child: GooglePayButton(
+              width: MediaQuery.of(context).size.width / 2.5,
+              height: MediaQuery.of(context).size.height / 12.5,
+              paymentConfigurationAsset: 'gpay.json',
+              paymentItems: _paymentItems,
+              style: GooglePayButtonStyle.white,
+              type: GooglePayButtonType.pay,
+              margin: const EdgeInsets.only(top: 15.0),
+              onPaymentResult: onGooglePayResult,
+              loadingIndicator: const Center(
+                child: CircularProgressIndicator(),
+              ),
             ),
           ),
         ),

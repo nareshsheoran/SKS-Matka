@@ -6,12 +6,14 @@ class Constant {
   static final Color textColor = Colors.white;
   static final Color appBarColor = Colors.pink;
   static final IconData icon = Icons.video_call_sharp;
+  static final IconData appIcon = Icons.wallet_giftcard;
 }
 
 
  class Images{
   static final AssetImage bgImage = AssetImage('assets/image/bg.jpg');
   static final AssetImage logoImage = AssetImage('assets/image/logo.jpg');
+  static final AssetImage appLogoImage = AssetImage('assets/image/app_logo.jpg');
  }
 
 

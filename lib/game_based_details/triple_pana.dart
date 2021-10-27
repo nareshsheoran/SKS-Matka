@@ -19,13 +19,12 @@ class _TriplePanaState extends State<TriplePana> {
         backgroundColor: Constant.appBarColor,
         title: Text('Triple Pana'),
       ),
-      body: SingleChildScrollView(
-        child: Container(
-          height: MediaQuery.of(context).size.height,
-          width: MediaQuery.of(context).size.width,
-          decoration: BoxDecoration(
-              image:
-              DecorationImage(image: Images.bgImage, fit: BoxFit.cover)),
+      body: Container(
+        height: MediaQuery.of(context).size.height,
+        width: MediaQuery.of(context).size.width,
+        decoration: BoxDecoration(
+            image: DecorationImage(image: Images.bgImage, fit: BoxFit.cover)),
+        child: SingleChildScrollView(
           child: Column(
             children: [
               Padding(
@@ -67,14 +66,16 @@ class _TriplePanaState extends State<TriplePana> {
                                   child: Text(
                                     'Date',
                                     style: TextStyle(
-                                        fontSize: 24, color: Constant.textColor),
+                                        fontSize: 24,
+                                        color: Constant.textColor),
                                   ),
                                 ),
                               ),
                               Padding(
                                 padding: const EdgeInsets.fromLTRB(4, 0, 4, 4),
                                 child: Container(
-                                  decoration: BoxDecoration(color: Colors.white),
+                                  decoration:
+                                      BoxDecoration(color: Colors.white),
                                   child: Padding(
                                     padding: const EdgeInsets.all(8.0),
                                     child: Row(
@@ -82,14 +83,16 @@ class _TriplePanaState extends State<TriplePana> {
                                           MainAxisAlignment.spaceEvenly,
                                       children: [
                                         Container(
-                                          width:
-                                              MediaQuery.of(context).size.width /
-                                                  3,
-                                          decoration:
-                                              BoxDecoration(color: Colors.black),
+                                          width: MediaQuery.of(context)
+                                                  .size
+                                                  .width /
+                                              3,
+                                          decoration: BoxDecoration(
+                                              color: Colors.black),
                                           child: Center(
                                             child: Padding(
-                                              padding: const EdgeInsets.all(16.0),
+                                              padding:
+                                                  const EdgeInsets.all(16.0),
                                               child: Text(
                                                 'OPEN',
                                                 style: TextStyle(
@@ -100,14 +103,16 @@ class _TriplePanaState extends State<TriplePana> {
                                           ),
                                         ),
                                         Container(
-                                          width:
-                                              MediaQuery.of(context).size.width /
-                                                  3,
+                                          width: MediaQuery.of(context)
+                                                  .size
+                                                  .width /
+                                              3,
                                           decoration: BoxDecoration(
                                               color: Colors.grey[200]),
                                           child: Center(
                                             child: Padding(
-                                              padding: const EdgeInsets.all(16.0),
+                                              padding:
+                                                  const EdgeInsets.all(16.0),
                                               child: Text(
                                                 'Close',
                                                 style: TextStyle(

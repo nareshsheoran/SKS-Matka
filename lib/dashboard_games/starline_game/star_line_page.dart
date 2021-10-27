@@ -90,14 +90,17 @@ class _StarLinePageState extends State<StarLinePage> {
       appBar: AppBar(
         title: Text('Starline Game'),
         backgroundColor: Constant.primaryColor,
-        actions: [Icon(Icons.wallet_giftcard)],
+        actions: [Padding(
+          padding: const EdgeInsets.only(right: 20),
+          child: Icon(Constant.appIcon),
+        )],
       ),
-      body: SingleChildScrollView(
-        child: Container(
-          height: MediaQuery.of(context).size.height,
-          width: MediaQuery.of(context).size.width,
-          decoration: BoxDecoration(
-              image: DecorationImage(image: Images.bgImage, fit: BoxFit.cover)),
+      body: Container(
+        height: MediaQuery.of(context).size.height,
+        width: MediaQuery.of(context).size.width,
+        decoration: BoxDecoration(
+            image: DecorationImage(image: Images.bgImage, fit: BoxFit.cover)),
+        child: SingleChildScrollView(
           child: Column(
             children: [
               Padding(

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:SKS_Matka/Shared/constant.dart';
 import 'package:SKS_Matka/Shared/routes.dart';
+
 class AccountDetails extends StatefulWidget {
   const AccountDetails({Key? key}) : super(key: key);
 
@@ -21,17 +22,17 @@ class _AccountDetailsState extends State<AccountDetails> {
         backgroundColor: Constant.appBarColor,
         title: Text('Bank Details'),
       ),
-      body: SingleChildScrollView(
-        child: Container(
-          height: MediaQuery.of(context).size.height,
-          width: MediaQuery.of(context).size.width,
-          decoration: BoxDecoration(
-              image:
-              DecorationImage(image: Images.bgImage, fit: BoxFit.cover)),
+      body: Container(
+        height: MediaQuery.of(context).size.height,
+        width: MediaQuery.of(context).size.width,
+        decoration: BoxDecoration(
+            image: DecorationImage(image: Images.bgImage, fit: BoxFit.cover)),
+        child: SingleChildScrollView(
           child: Column(
             children: [
               Padding(
-                padding: const EdgeInsets.symmetric(vertical: 24,horizontal: 8),
+                padding:
+                    const EdgeInsets.symmetric(vertical: 24, horizontal: 8),
                 child: Container(
                   decoration: BoxDecoration(color: Colors.grey[400]),
                   child: TextField(
@@ -44,7 +45,8 @@ class _AccountDetailsState extends State<AccountDetails> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.symmetric(vertical: 24,horizontal: 8),
+                padding:
+                    const EdgeInsets.symmetric(vertical: 24, horizontal: 8),
                 child: Container(
                   decoration: BoxDecoration(color: Colors.grey[400]),
                   child: TextField(
@@ -57,7 +59,8 @@ class _AccountDetailsState extends State<AccountDetails> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.symmetric(vertical: 24,horizontal: 8),
+                padding:
+                    const EdgeInsets.symmetric(vertical: 24, horizontal: 8),
                 child: Container(
                   decoration: BoxDecoration(color: Colors.grey[400]),
                   child: TextField(

@@ -15,16 +15,16 @@ class _WalletAddFundState extends State<WalletAddFund> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(backgroundColor: Constant.appBarColor,
+      appBar: AppBar(
+        backgroundColor: Constant.appBarColor,
         title: Text('Add Fund'),
       ),
-      body: SingleChildScrollView(
-        child: Container(
-          height: MediaQuery.of(context).size.height,
-          width: MediaQuery.of(context).size.width,
-          decoration: BoxDecoration(
-              image:
-              DecorationImage(image: Images.bgImage, fit: BoxFit.cover)),
+      body: Container(
+        height: MediaQuery.of(context).size.height,
+        width: MediaQuery.of(context).size.width,
+        decoration: BoxDecoration(
+            image: DecorationImage(image: Images.bgImage, fit: BoxFit.cover)),
+        child: SingleChildScrollView(
           child: Column(
             children: [
               Padding(
@@ -47,7 +47,8 @@ class _WalletAddFundState extends State<WalletAddFund> {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: TextFormField(
-                  controller: amountController,keyboardType: TextInputType.number,
+                  controller: amountController,
+                  keyboardType: TextInputType.number,
                   decoration: InputDecoration(
                     hintText: 'Enter Amount to add',
                     errorBorder: OutlineInputBorder(
