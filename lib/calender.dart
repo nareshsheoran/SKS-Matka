@@ -21,7 +21,7 @@ class _CalenderState extends State<Calender> {
           width: MediaQuery.of(context).size.width,
           decoration: BoxDecoration(
               image: DecorationImage(image: Images.bgImage, fit: BoxFit.cover)),
-          child: Center(child: _calendarBox(screenSize))),
+          child: SingleChildScrollView(child: Center(child: _calendarBox(screenSize)))),
     );
   }
 

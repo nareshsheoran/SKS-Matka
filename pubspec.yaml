@@ -62,6 +62,7 @@ flutter:
     - assets/image/logo.jpg
     - assets/image/
     - assets/image/bg.jpg
+    - assets/image/app_logo.jpg
     - assets/gpay.json
 
   #   - images/a_dot_ham.jpeg

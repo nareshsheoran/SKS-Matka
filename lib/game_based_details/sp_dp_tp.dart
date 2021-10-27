@@ -18,13 +18,13 @@ class _SpDpTpState extends State<SpDpTp> {
         backgroundColor: Constant.appBarColor,
         title: Text('SP DP TP'),
       ),
-      body: SingleChildScrollView(
-        child: Container(
-          height: MediaQuery.of(context).size.height,
-          width: MediaQuery.of(context).size.width,
-          decoration: BoxDecoration(
-              image:
-              DecorationImage(image: Images.bgImage, fit: BoxFit.cover)),
+      body: Container(
+        height: MediaQuery.of(context).size.height,
+        width: MediaQuery.of(context).size.width,
+        decoration: BoxDecoration(
+            image:
+            DecorationImage(image: Images.bgImage, fit: BoxFit.cover)),
+        child: SingleChildScrollView(
           child: Column(
             children: [
               Padding(

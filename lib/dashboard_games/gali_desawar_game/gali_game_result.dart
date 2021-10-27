@@ -11,62 +11,86 @@ class GaliGameResult extends StatefulWidget {
 class _GaliGameResultState extends State<GaliGameResult> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(appBar: AppBar(
-      backgroundColor: Constant.appBarColor,
-      title: Text('Gali Desawar Result History'),
-    ),
-    body: Container(
-      height: MediaQuery.of(context).size.height,
-      width: MediaQuery.of(context).size.width,
-      decoration: BoxDecoration(
-          image:
-          DecorationImage(image: Images.bgImage, fit: BoxFit.cover)),
-      child: Column(
-        children: [
-          Container(
-            child: Column(
-              children: [
-                Row(
-                  children: [
-                    Center(
-                      child: Text('DESAWARN -DS'),
-                    )
-                  ],
-                ),
-                Container(
-                  decoration: BoxDecoration(color: Constant.textColor,
-                      borderRadius: BorderRadius.all(
-                          Radius.circular(2.0))),
-                  child: Padding(
-                    padding: const EdgeInsets.fromLTRB(30, 4, 30, 4),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Column(
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Constant.appBarColor,
+        title: Text('Gali Desawar Result History'),
+      ),
+      body: Container(
+        height: MediaQuery.of(context).size.height,
+        width: MediaQuery.of(context).size.width,
+        decoration: BoxDecoration(
+            image: DecorationImage(image: Images.bgImage, fit: BoxFit.cover)),
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Container(
+                  height: 80,
+                  decoration: BoxDecoration(
+                      color: Constant.primaryColor,
+                      borderRadius: BorderRadius.all(Radius.circular(4.0))),
+                  child: Column(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(8, 8, 8, 0),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Text('homeInfoModel.time1'),
-                            Text('homeInfoModel.time2'),
+                            Center(
+                              child: Text(
+                                'DESAWAR -DS',
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    color: Constant.textColor),
+                              ),
+                            )
                           ],
                         ),
-                        Column(
-                          children: [
-                            Text(
-                              'homeInfoModel.status',
-                              style: TextStyle(color: Constant.primaryColor),
+                      ),
+                      Expanded(child: Container()),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Container(
+                          decoration: BoxDecoration(
+                              color: Constant.textColor,
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(2.0))),
+                          child: Padding(
+                            padding: const EdgeInsets.fromLTRB(30, 4, 30, 4),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Column(
+                                  children: [
+                                    Text('time1'),
+                                    Text('time2'),
+                                  ],
+                                ),
+                                Column(
+                                  children: [
+                                    Text(
+                                      'status',
+                                      style: TextStyle(
+                                          color: Constant.primaryColor),
+                                    ),
+                                    Text('time'),
+                                  ],
+                                ),
+                              ],
                             ),
-                            Text('homeInfoModel.time'),
-                          ],
+                          ),
                         ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
                 ),
-              ],
-            ),
-          )
-        ],
+              )
+            ],
+          ),
+        ),
       ),
-    ),
     );
   }
 }

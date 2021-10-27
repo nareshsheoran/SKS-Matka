@@ -15,35 +15,36 @@ class _WalletWinningHistoryState extends State<WalletWinningHistory> {
       appBar: AppBar(
         backgroundColor: Constant.appBarColor,
         title: Text('Winning History'),
-      ),      body: Container(
-      height: MediaQuery.of(context).size.height,
-      width: MediaQuery.of(context).size.width,
-      decoration: BoxDecoration(
-          image:
-          DecorationImage(image: Images.bgImage, fit: BoxFit.cover)),
-        child: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.fromLTRB(8, 24, 8, 8),
-            child: Container(
-              height: 50,
-              child: Center(
-                  child: Text(
+      ),
+      body: Container(
+        height: MediaQuery.of(context).size.height,
+        width: MediaQuery.of(context).size.width,
+        decoration: BoxDecoration(
+            image: DecorationImage(image: Images.bgImage, fit: BoxFit.cover)),
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.fromLTRB(8, 24, 8, 8),
+                child: Container(
+                  height: 50,
+                  child: Center(
+                      child: Text(
                     'BALANCE: 0.0',
                     style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 20,
                         color: Constant.textColor),
                   )),
-              decoration: BoxDecoration(
-                  color: Constant.primaryColor,
-                  borderRadius: BorderRadius.circular(4)),
-            ),
+                  decoration: BoxDecoration(
+                      color: Constant.primaryColor,
+                      borderRadius: BorderRadius.circular(4)),
+                ),
+              ),
+            ],
           ),
-        ],
-    ),
+        ),
       ),
-
     );
   }
 }

@@ -21,6 +21,7 @@ class _WalletWithdrawFundsState extends State<WalletWithdrawFunds> {
         width: MediaQuery.of(context).size.width,
         decoration: BoxDecoration(
             image: DecorationImage(image: Images.bgImage, fit: BoxFit.cover)),
+        child: SingleChildScrollView(),
       ),
     );
   }

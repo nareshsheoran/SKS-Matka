@@ -27,13 +27,13 @@ class _SignUpPageState extends State<SignUpPage> {
     return Scaffold(
       body: Form(
         key: _formKey,
-        child: SingleChildScrollView(
-          child: Container(
-            height: MediaQuery.of(context).size.height,
-            width: MediaQuery.of(context).size.width,
-            decoration: BoxDecoration(
-                image:
-                    DecorationImage(image: Images.bgImage, fit: BoxFit.cover)),
+        child: Container(
+          height: MediaQuery.of(context).size.height,
+          width: MediaQuery.of(context).size.width,
+          decoration: BoxDecoration(
+              image:
+                  DecorationImage(image: Images.bgImage, fit: BoxFit.cover)),
+          child: SingleChildScrollView(
             child: Padding(
               padding: const EdgeInsets.all(16.0),
               child: Column(
@@ -44,7 +44,7 @@ class _SignUpPageState extends State<SignUpPage> {
                     width: MediaQuery.of(context).size.width / 1.5,
                     decoration: BoxDecoration(
                         image: DecorationImage(
-                            image: Images.logoImage, fit: BoxFit.fill),
+                            image: Images.appLogoImage, fit: BoxFit.fill),
                         shape: BoxShape.rectangle),
                   ),
                   SizedBox(height: 16),

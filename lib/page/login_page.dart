@@ -36,149 +36,151 @@ class _LoginPageState extends State<LoginPage> {
             decoration: BoxDecoration(
                 image:
                 DecorationImage(image: Images.bgImage, fit: BoxFit.cover)),
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Column(children: [
-                SizedBox(
-                  height: MediaQuery
-                      .of(context)
-                      .size
-                      .height / 7.5,
-                ),
-                Container(
-                  height: 140,
-                  width: MediaQuery
-                      .of(context)
-                      .size
-                      .width/1.5,
-                  decoration: BoxDecoration(
-                      image: DecorationImage(
-                          image: Images.logoImage,
-                          fit: BoxFit.fill),
-                      shape: BoxShape.rectangle),
-                ),
-                SizedBox(
-                  height: MediaQuery
-                      .of(context)
-                      .size
-                      .height / 7.5,
-                ),
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(16, 4, 16, 4),
-                  child: Container(
-                    height: 48,
-                    decoration: BoxDecoration(
-                      shape: BoxShape.rectangle,
-                      color: Constant.primaryColor,
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                    child: TextFormField(
-                        controller: userIdController,
-                        keyboardType: TextInputType.emailAddress,
-                        decoration: InputDecoration(
-                          border: InputBorder.none,
-                          hintText: 'User Id',
-                          contentPadding: EdgeInsets.symmetric(horizontal: 20),
-                          errorStyle: TextStyle(color: Colors.white),
-                          hintStyle: TextStyle(
-                              fontSize: 16, color: Colors.white),
-                        ),
-                        // ignore: missing_return
-                        validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return "Please Input UserID";
-                          }
-                        }),
+            child: SingleChildScrollView(
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Column(children: [
+                  SizedBox(
+                    height: MediaQuery
+                        .of(context)
+                        .size
+                        .height / 7.5,
                   ),
-                ),
-                SizedBox(height: 16),
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(16, 4, 16, 4),
-                  child: Container(
-                    height: 48,
+                  Container(
+                    height: 140,
+                    width: MediaQuery
+                        .of(context)
+                        .size
+                        .width/1.5,
                     decoration: BoxDecoration(
-                      shape: BoxShape.rectangle,
-                      color: Constant.primaryColor,
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                    child: TextFormField(
-                        controller: passwordController,
-                        keyboardType: TextInputType.emailAddress,
-                        decoration: InputDecoration(
-                          border: InputBorder.none,
-                          hintText: 'Password',
-                          contentPadding: EdgeInsets.symmetric(horizontal: 20),
-                          errorStyle: TextStyle(color: Colors.white),
-                          hintStyle: TextStyle(
-                              fontSize: 16, color: Colors.white),
-                        ),
-                        // ignore: missing_return
-                        validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return "Please Input Password";
-                          }
-                        }),
+                        image: DecorationImage(
+                            image: Images.appLogoImage,
+                            fit: BoxFit.fill),
+                        shape: BoxShape.rectangle),
                   ),
-                ),
-                SizedBox(height: MediaQuery
-                    .of(context)
-                    .size
-                    .height / 10.6),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    InkWell(
-                      onTap: () {
-                        login(context);
-                      },
-                      child: Text(
-                        'Sign In',
-                        style:
-                        TextStyle(color: Constant.primaryColor, fontSize: 20),
+                  SizedBox(
+                    height: MediaQuery
+                        .of(context)
+                        .size
+                        .height / 7.5,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(16, 4, 16, 4),
+                    child: Container(
+                      height: 48,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.rectangle,
+                        color: Constant.primaryColor,
+                        borderRadius: BorderRadius.circular(20),
                       ),
+                      child: TextFormField(
+                          controller: userIdController,
+                          keyboardType: TextInputType.emailAddress,
+                          decoration: InputDecoration(
+                            border: InputBorder.none,
+                            hintText: 'User Id',
+                            contentPadding: EdgeInsets.symmetric(horizontal: 20),
+                            errorStyle: TextStyle(color: Colors.white),
+                            hintStyle: TextStyle(
+                                fontSize: 16, color: Colors.white),
+                          ),
+                          // ignore: missing_return
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return "Please Input UserID";
+                            }
+                          }),
                     ),
-                    InkWell(
-                      onTap: () {
-                        Navigator.pushNamed(context, Routes.HOME_PAGE);
-                      },
-                      child: Container(
-                          height: 70,
-                          width: 70,
-                          decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              color: Constant.primaryColor),
-                          child: Icon(
-                            Icons.arrow_forward_outlined,
-                            color: Colors.white,
-                          )),
-                    ),
-                  ],
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    InkWell(
-                      onTap: () {
-                        Navigator.pushNamed(context, Routes.SIGNUP_PAGE);
-                      },
-                      child: Text(
-                        'Sign Up',
-                        style:
-                        TextStyle(color: Constant.primaryColor, fontSize: 20),
+                  ),
+                  SizedBox(height: 16),
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(16, 4, 16, 4),
+                    child: Container(
+                      height: 48,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.rectangle,
+                        color: Constant.primaryColor,
+                        borderRadius: BorderRadius.circular(20),
                       ),
+                      child: TextFormField(
+                          controller: passwordController,
+                          keyboardType: TextInputType.emailAddress,
+                          decoration: InputDecoration(
+                            border: InputBorder.none,
+                            hintText: 'Password',
+                            contentPadding: EdgeInsets.symmetric(horizontal: 20),
+                            errorStyle: TextStyle(color: Colors.white),
+                            hintStyle: TextStyle(
+                                fontSize: 16, color: Colors.white),
+                          ),
+                          // ignore: missing_return
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return "Please Input Password";
+                            }
+                          }),
                     ),
-                    InkWell(onTap: () {
-                      Navigator.pushNamed(context, Routes.API);
-                    },
-                      child: Text(
-                        'Forgot Password?',
-                        style:
-                        TextStyle(color: Constant.primaryColor, fontSize: 20),
+                  ),
+                  SizedBox(height: MediaQuery
+                      .of(context)
+                      .size
+                      .height / 10.6),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      InkWell(
+                        onTap: () {
+                          login(context);
+                        },
+                        child: Text(
+                          'Sign In',
+                          style:
+                          TextStyle(color: Constant.primaryColor, fontSize: 20),
+                        ),
                       ),
-                    ),
-                  ],
-                ),
-              ]),
+                      InkWell(
+                        onTap: () {
+                          Navigator.pushNamed(context, Routes.HOME_PAGE);
+                        },
+                        child: Container(
+                            height: 70,
+                            width: 70,
+                            decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                color: Constant.primaryColor),
+                            child: Icon(
+                              Icons.arrow_forward_outlined,
+                              color: Colors.white,
+                            )),
+                      ),
+                    ],
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      InkWell(
+                        onTap: () {
+                          Navigator.pushNamed(context, Routes.SIGNUP_PAGE);
+                        },
+                        child: Text(
+                          'Sign Up',
+                          style:
+                          TextStyle(color: Constant.primaryColor, fontSize: 20),
+                        ),
+                      ),
+                      InkWell(onTap: () {
+                        Navigator.pushNamed(context, Routes.API);
+                      },
+                        child: Text(
+                          'Forgot Password?',
+                          style:
+                          TextStyle(color: Constant.primaryColor, fontSize: 20),
+                        ),
+                      ),
+                    ],
+                  ),
+                ]),
+              ),
             ),
           ),
         ),

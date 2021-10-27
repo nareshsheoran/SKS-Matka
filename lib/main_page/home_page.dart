@@ -104,8 +104,8 @@ class _HomePageState extends State<HomePage> {
                   },
                   child: Padding(
                     padding: const EdgeInsets.only(right: 20),
-                    child: Icon(Icons.wallet_giftcard),
-                  ))
+                    child: Icon(Constant.appIcon),
+                  )),
             ],
           ),
           drawer: buildDrawer(context),
@@ -430,215 +430,242 @@ class _HomePageState extends State<HomePage> {
   Widget buildDrawer(BuildContext context) {
     return Drawer(
       child: SingleChildScrollView(
-        child: SafeArea(
-          child: Column(
-            children: [
-              Container(
-                height: 64,
-                color: Colors.black,
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Row(
-                    children: [
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            'Naresh',
-                            style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 16,
-                                color: Constant.textColor),
-                          ),
-                          Text(
-                            '9812677822',
-                            style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 16,
-                                color: Constant.textColor),
-                          )
-                        ],
-                      ),
-                      Expanded(child: Container()),
-                      Icon(
-                        Icons.star,
-                        color: Constant.primaryColor,
-                      ),
-                    ],
-                  ),
+        child: Column(
+          children: [
+            Container(
+              width: MediaQuery.of(context).size.width,
+              height: 96,
+              decoration: BoxDecoration(color: Constant.primaryColor),
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          'SKS   MATKA',
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 24,
+                              fontWeight: FontWeight.bold),
+                        ),
+                      ],
+                    ),
+                    SizedBox(height: 12,)
+                  ],
                 ),
               ),
-              Container(
-                color: Constant.primaryColor,
-                height: MediaQuery.of(context).size.height,
-                child: Column(
+            ),
+            Container(
+              height: 64,
+              color: Colors.black,
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Row(
                   children: [
-                    InkWell(
-                      onTap: () {
-                        Navigator.pushNamed(context, Routes.APP_PROFILE_PAGE);
-                      },
-                      child: ListTile(
-                        leading: Icon(
-                          Icons.contact_page,
-                          color: Constant.textColor,
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          'Rishi Raj',
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 16,
+                              color: Constant.textColor),
                         ),
-                        title: Text(
-                          'App Profile',
-                          style: TextStyle(color: Constant.textColor),
-                        ),
-                      ),
+                        Text(
+                          '8076728463',
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 16,
+                              color: Constant.textColor),
+                        )
+                      ],
                     ),
-                    InkWell(
-                      onTap: () {
-                        Navigator.pushNamed(context, Routes.APP_WALLET);
-                      },
-                      child: ListTile(
-                        leading: Icon(
-                          Icons.home,
-                          color: Constant.textColor,
-                        ),
-                        title: Text(
-                          'App Wallet',
-                          style: TextStyle(color: Constant.textColor),
-                        ),
-                      ),
-                    ),
-                    InkWell(
-                      onTap: () {
-                        Navigator.pushNamed(context, Routes.GAME_HISTORY);
-                      },
-                      child: ListTile(
-                        leading: Icon(
-                          Icons.home,
-                          color: Constant.textColor,
-                        ),
-                        title: Text(
-                          'Game History',
-                          style: TextStyle(color: Constant.textColor),
-                        ),
-                      ),
-                    ),
-                    InkWell(
-                      onTap: () {
-                        Navigator.pushNamed(context, Routes.GAME_RATE);
-                      },
-                      child: ListTile(
-                        leading: Icon(
-                          Icons.rate_review,
-                          color: Constant.textColor,
-                        ),
-                        title: Text(
-                          'Game Rate',
-                          style: TextStyle(color: Constant.textColor),
-                        ),
-                      ),
-                    ),
-                    InkWell(
-                      onTap: () {
-                        Navigator.pushNamed(context, Routes.WALLET_ADD_FUND);
-                      },
-                      child: ListTile(
-                        leading: Icon(
-                          Icons.home,
-                          color: Constant.textColor,
-                        ),
-                        title: Text(
-                          'Add Fund',
-                          style: TextStyle(color: Constant.textColor),
-                        ),
-                      ),
-                    ),
-                    ListTile(
-                      leading: Icon(
-                        Icons.home,
-                        color: Constant.textColor,
-                      ),
-                      title: Text(
-                        'Withdraw Fund',
-                        style: TextStyle(color: Constant.textColor),
-                      ),
-                    ),
-                    InkWell(
-                      onTap: () {
-                        Navigator.pushNamed(context, Routes.APP_NOTIFICATION);
-                      },
-                      child: ListTile(
-                        leading: Icon(
-                          Icons.notification_important,
-                          color: Constant.textColor,
-                        ),
-                        title: Text(
-                          'App Notification',
-                          style: TextStyle(color: Constant.textColor),
-                        ),
-                      ),
-                    ),
-                    InkWell(
-                      onTap: () {
-                        Navigator.pushNamed(context, Routes.APP_NOTICEBOARD);
-                      },
-                      child: ListTile(
-                        leading: Icon(
-                          Icons.home,
-                          color: Constant.textColor,
-                        ),
-                        title: Text(
-                          'App Noticeboard',
-                          style: TextStyle(color: Constant.textColor),
-                        ),
-                      ),
-                    ),
-                    InkWell(
-                      onTap: () {
-                        Navigator.pushNamed(context, Routes.HOW_PLAY);
-                      },
-                      child: ListTile(
-                        leading: Icon(
-                          Icons.ondemand_video,
-                          color: Constant.textColor,
-                        ),
-                        title: Text(
-                          'How To Play',
-                          style: TextStyle(color: Constant.textColor),
-                        ),
-                      ),
-                    ),
-                    ListTile(
-                      leading: Icon(
-                        Icons.home,
-                        color: Constant.textColor,
-                      ),
-                      title: Text(
-                        'Share Now',
-                        style: TextStyle(color: Constant.textColor),
-                      ),
-                    ),
-                    ListTile(
-                      leading: Icon(
-                        Icons.home,
-                        color: Constant.textColor,
-                      ),
-                      title: Text(
-                        'App LogOut',
-                        style: TextStyle(color: Constant.textColor),
-                      ),
-                    ),
-                    ListTile(
-                      leading: Icon(
-                        Icons.home,
-                        color: Constant.textColor,
-                      ),
-                      title: Text(
-                        'version.1.3.3',
-                        style: TextStyle(color: Constant.textColor),
-                      ),
+                    Expanded(child: Container()),
+                    Container(
+                      height: 56,
+                      width: 56,
+                      decoration: BoxDecoration(
+                          image: DecorationImage(
+                              image: Images.appLogoImage, fit: BoxFit.cover)),
                     ),
                   ],
                 ),
-              )
-            ],
-          ),
+              ),
+            ),
+            Container(
+              color: Constant.primaryColor,
+              height: MediaQuery.of(context).size.height,
+              child: Column(
+                children: [
+                  InkWell(
+                    onTap: () {
+                      Navigator.pushNamed(context, Routes.APP_PROFILE_PAGE);
+                    },
+                    child: ListTile(
+                      leading: Icon(
+                        Icons.contact_page,
+                        color: Constant.textColor,
+                      ),
+                      title: Text(
+                        'App Profile',
+                        style: TextStyle(color: Constant.textColor),
+                      ),
+                    ),
+                  ),
+                  InkWell(
+                    onTap: () {
+                      Navigator.pushNamed(context, Routes.APP_WALLET);
+                    },
+                    child: ListTile(
+                      leading: Icon(
+                        Icons.home,
+                        color: Constant.textColor,
+                      ),
+                      title: Text(
+                        'App Wallet',
+                        style: TextStyle(color: Constant.textColor),
+                      ),
+                    ),
+                  ),
+                  InkWell(
+                    onTap: () {
+                      Navigator.pushNamed(context, Routes.GAME_HISTORY);
+                    },
+                    child: ListTile(
+                      leading: Icon(
+                        Icons.home,
+                        color: Constant.textColor,
+                      ),
+                      title: Text(
+                        'Game History',
+                        style: TextStyle(color: Constant.textColor),
+                      ),
+                    ),
+                  ),
+                  InkWell(
+                    onTap: () {
+                      Navigator.pushNamed(context, Routes.GAME_RATE);
+                    },
+                    child: ListTile(
+                      leading: Icon(
+                        Icons.rate_review,
+                        color: Constant.textColor,
+                      ),
+                      title: Text(
+                        'Game Rate',
+                        style: TextStyle(color: Constant.textColor),
+                      ),
+                    ),
+                  ),
+                  InkWell(
+                    onTap: () {
+                      Navigator.pushNamed(context, Routes.WALLET_ADD_FUND);
+                    },
+                    child: ListTile(
+                      leading: Icon(
+                        Icons.home,
+                        color: Constant.textColor,
+                      ),
+                      title: Text(
+                        'Add Fund',
+                        style: TextStyle(color: Constant.textColor),
+                      ),
+                    ),
+                  ),
+                  ListTile(
+                    leading: Icon(
+                      Icons.home,
+                      color: Constant.textColor,
+                    ),
+                    title: Text(
+                      'Withdraw Fund',
+                      style: TextStyle(color: Constant.textColor),
+                    ),
+                  ),
+                  InkWell(
+                    onTap: () {
+                      Navigator.pushNamed(context, Routes.APP_NOTIFICATION);
+                    },
+                    child: ListTile(
+                      leading: Icon(
+                        Icons.notification_important,
+                        color: Constant.textColor,
+                      ),
+                      title: Text(
+                        'App Notification',
+                        style: TextStyle(color: Constant.textColor),
+                      ),
+                    ),
+                  ),
+                  InkWell(
+                    onTap: () {
+                      Navigator.pushNamed(context, Routes.APP_NOTICEBOARD);
+                    },
+                    child: ListTile(
+                      leading: Icon(
+                        Icons.home,
+                        color: Constant.textColor,
+                      ),
+                      title: Text(
+                        'App Noticeboard',
+                        style: TextStyle(color: Constant.textColor),
+                      ),
+                    ),
+                  ),
+                  InkWell(
+                    onTap: () {
+                      Navigator.pushNamed(context, Routes.HOW_PLAY);
+                    },
+                    child: ListTile(
+                      leading: Icon(
+                        Icons.ondemand_video,
+                        color: Constant.textColor,
+                      ),
+                      title: Text(
+                        'How To Play',
+                        style: TextStyle(color: Constant.textColor),
+                      ),
+                    ),
+                  ),
+                  ListTile(
+                    leading: Icon(
+                      Icons.home,
+                      color: Constant.textColor,
+                    ),
+                    title: Text(
+                      'Share Now',
+                      style: TextStyle(color: Constant.textColor),
+                    ),
+                  ),
+                  ListTile(
+                    leading: Icon(
+                      Icons.home,
+                      color: Constant.textColor,
+                    ),
+                    title: Text(
+                      'App LogOut',
+                      style: TextStyle(color: Constant.textColor),
+                    ),
+                  ),
+                  ListTile(
+                    leading: Icon(
+                      Icons.home,
+                      color: Constant.textColor,
+                    ),
+                    title: Text(
+                      'version.1.3.3',
+                      style: TextStyle(color: Constant.textColor),
+                    ),
+                  ),
+                ],
+              ),
+            )
+          ],
         ),
       ),
     );

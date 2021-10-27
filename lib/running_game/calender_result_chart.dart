@@ -23,7 +23,8 @@ body: Container(
   width: MediaQuery.of(context).size.width,
   decoration: BoxDecoration(
       image:
-      DecorationImage(image: Images.bgImage, fit: BoxFit.cover)),),
+      DecorationImage(image: Images.bgImage, fit: BoxFit.cover)),
+child: SingleChildScrollView(),),
     );
   }
 }

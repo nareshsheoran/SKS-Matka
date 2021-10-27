@@ -21,12 +21,12 @@ class _AppProfileState extends State<AppProfile> {
         backgroundColor: Constant.appBarColor,
         title: Text('App Profile'),
       ),
-      body: SingleChildScrollView(
-        child: Container(
-          height: MediaQuery.of(context).size.height,
-          width: MediaQuery.of(context).size.width,
-          decoration: BoxDecoration(
-              image: DecorationImage(image: Images.bgImage, fit: BoxFit.cover)),
+      body: Container(
+        height: MediaQuery.of(context).size.height,
+        width: MediaQuery.of(context).size.width,
+        decoration: BoxDecoration(
+            image: DecorationImage(image: Images.bgImage, fit: BoxFit.cover)),
+        child: SingleChildScrollView(
           child: Padding(
             padding: const EdgeInsets.all(8.0),
             child: Column(
@@ -77,11 +77,11 @@ class _AppProfileState extends State<AppProfile> {
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         Text(
-                          'Fullname',
+                          'Full Name',
                           style: TextStyle(color: Constant.textColor),
                         ),
                         Text(
-                          'NARESH',
+                          'Rishi Raj',
                           style: TextStyle(color: Constant.textColor),
                         ),
                         Divider(
@@ -94,7 +94,7 @@ class _AppProfileState extends State<AppProfile> {
                           style: TextStyle(color: Constant.textColor),
                         ),
                         Text(
-                          'SHEORAN',
+                          'Rishi Raj',
                           style: TextStyle(color: Constant.textColor),
                         ),
                         Divider(
@@ -107,7 +107,7 @@ class _AppProfileState extends State<AppProfile> {
                           style: TextStyle(color: Constant.textColor),
                         ),
                         Text(
-                          '7027768268',
+                          '8076728463',
                           style: TextStyle(color: Constant.textColor),
                         ),
                         Divider(
@@ -120,7 +120,7 @@ class _AppProfileState extends State<AppProfile> {
                           style: TextStyle(color: Constant.textColor),
                         ),
                         Text(
-                          'nsirsi1999@gmail.com',
+                          'rr3462367@gmail.com',
                           style: TextStyle(color: Constant.textColor),
                         ),
                       ],
